@@ -13,6 +13,8 @@ function GameSetUp() {
 
   const [newGame, setNewGame] = useState('')
 
+  const [newMatchTitle, setNewMatchTitle] = useState('')
+
   const handleSubmit = (event) => {
     event.preventDefault()
 
@@ -28,10 +30,15 @@ function GameSetUp() {
       type: 'ADD_GAME',
       payload: newGame,
     })
+    dispatch({
+      type: 'ADD_MATCHTITLE',
+      payload: newMatchTitle,
+    })
 
     setNewPlayerOne('')
     setNewPlayerTwo('')
     setNewGame('')
+    setNewMatchTitle('')
   }
 
 
@@ -41,11 +48,13 @@ function GameSetUp() {
       <h2>Enter Match Details</h2>
 
       <input name="name" placeholder="Player 1" type="text" value={newPlayerOne} onChange={event => setNewPlayerOne(event.target.value)} />
- 
+
       <input name="name" placeholder="Player 2" type="text" value={newPlayerTwo} onChange={event => setNewPlayerTwo(event.target.value)} />
 
 
       <input name="name" placeholder="Game Title" type="text" value={newGame} onChange={event => setNewGame(event.target.value)} />
+
+      <input name="name" placeholder="Match Title" type="text" value={newMatchTitle} onChange={event => setNewMatchTitle(event.target.value)} />
 
       <button type='submit'>Submit</button>
 
