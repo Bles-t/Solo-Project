@@ -5,20 +5,21 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
-
+// Dependcines
 import { useDispatch, useSelector } from 'react-redux';
 
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
-
+//Components
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import GameSetUp from '../GameSetUp/gameSetUp';
 
 import './App.css';
 
@@ -73,7 +74,7 @@ function App() {
             path="/login"
           >
             {user.id ?
-              // If the user is already logged in, 
+              // If the user is already logged in,
               // redirect to the /user page
               <Redirect to="/user" />
               :
@@ -87,7 +88,7 @@ function App() {
             path="/registration"
           >
             {user.id ?
-              // If the user is already logged in, 
+              // If the user is already logged in,
               // redirect them to the /user page
               <Redirect to="/user" />
               :
@@ -101,7 +102,7 @@ function App() {
             path="/home"
           >
             {user.id ?
-              // If the user is already logged in, 
+              // If the user is already logged in,
               // redirect them to the /user page
               <Redirect to="/user" />
               :
@@ -114,6 +115,14 @@ function App() {
           <Route>
             <h1>404</h1>
           </Route>
+
+
+          <Route path="/GameSetUp">
+            <GameSetUp />
+          </Route>
+
+
+
         </Switch>
         <Footer />
       </div>
