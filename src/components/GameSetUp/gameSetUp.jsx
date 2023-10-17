@@ -16,9 +16,15 @@ function GameSetUp() {
 
     dispatch({
       type: 'ADD_PLAYERONE',
-      payload: newPlayerOne
+      payload: newPlayerOne,
     })
+    dispatch({
+      type: 'ADD_PLAYERTWO',
+      payload: newPlayerTwo,
+    })
+
     setNewPlayerOne('')
+    setNewPlayerTwo('')
   }
 
 
@@ -29,8 +35,7 @@ function GameSetUp() {
 
       <input name="name" placeholder="Player 1" type="text" value={newPlayerOne} onChange={event => setNewPlayerOne(event.target.value)} />
 
-      <input type="text" placeholder="Player 2" />
-
+      <input name="name" placeholder="Player 2" type="text" value={newPlayerTwo} onChange={event => setNewPlayerTwo(event.target.value)} />
 
       <button type='submit'>Submit</button>
 
