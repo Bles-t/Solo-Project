@@ -9,6 +9,8 @@ function GameSetUp() {
 
   const [newPlayerOne, setNewPlayerOne] = useState('')
 
+  const [newPlayerTwo, setNewPlayerTwo] = useState('')
+
   const handleSubmit = (event) => {
     event.preventDefault()
 
@@ -25,9 +27,12 @@ function GameSetUp() {
     <form onSubmit={handleSubmit}>
       <h2>Enter Match Details</h2>
 
-      <input name="name" placeholder="Enter Here" type="text" value={newPlayerOne} onChange={event => setNewPlayerOne(event.target.value)} />
+      <input name="name" placeholder="Player 1" type="text" value={newPlayerOne} onChange={event => setNewPlayerOne(event.target.value)} />
 
-      <button type='submit'> Submit</button>
+      <input type="text" placeholder="Player 2" />
+
+
+      <button type='submit'>Submit</button>
 
     </form>
 
