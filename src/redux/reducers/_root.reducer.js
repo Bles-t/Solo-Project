@@ -3,6 +3,7 @@ import errors from './errors.reducer';
 import user from './user.reducer';
 import PlayerOne from './player1.reducer';
 import PlayerTwo from './player2.reducer';
+import GameList from './gameList.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   user, // will have an id and username if someone is logged in
   PlayerOne,
-  PlayerTwo
+  PlayerTwo,
+  GameList
 });
 
 export default rootReducer;
