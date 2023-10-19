@@ -20,7 +20,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import GameSetUp from '../GameSetUp/gameSetUp';
-
+import ActivityPage from '../ActivityPage/activityPage';
 import './App.css';
 
 function App() {
@@ -112,10 +112,16 @@ function App() {
               <LandingPage />
             }
           </Route>
+          <Route path="/ActivityPage">
+            <ActivityPage />
+          </Route>
 
           <Route path="/GameSetUp">
             <GameSetUp />
           </Route>
+
+
+
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>

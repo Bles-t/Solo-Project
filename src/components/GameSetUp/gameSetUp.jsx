@@ -1,7 +1,7 @@
 import React from "react"
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function GameSetUp() {
 
@@ -39,9 +39,10 @@ function GameSetUp() {
     setNewPlayerTwo('')
     setNewGame('')
     setNewMatchTitle('')
+    history.push('/ActivityPage')
   }
 
-
+  const history = useHistory()
   return (
 
     <form onSubmit={handleSubmit}>
