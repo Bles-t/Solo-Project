@@ -112,7 +112,7 @@ function App() {
               <LandingPage />
             }
           </Route>
-          
+
           <Route path="/ActivityPage">
             <ActivityPage />
           </Route>

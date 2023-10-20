@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function GameSetUp() {
 
-  const dispatch = useDispatch() 
+  const dispatch = useDispatch()
 
   const [newPlayerOne, setNewPlayerOne] = useState('')
 
@@ -14,6 +14,7 @@ function GameSetUp() {
   const [newGame, setNewGame] = useState('')
 
   const [newMatchTitle, setNewMatchTitle] = useState('')
+
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -45,7 +46,7 @@ function GameSetUp() {
   const history = useHistory()
   return (
 
-    <form  onSubmit={handleSubmit}   >
+    <form onSubmit={handleSubmit}   >
       <h2>Enter Match Details</h2>
 
       <input name="name" placeholder="Player 1" type="text" value={newPlayerOne} onChange={event => setNewPlayerOne(event.target.value)} />
