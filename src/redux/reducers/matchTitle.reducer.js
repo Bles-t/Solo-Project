@@ -1,10 +1,11 @@
-const MatchTitle = (state = [], action) => {
-  if (action.type === 'ADD_MATCHTITLE') {
-    console.log(`Your game was ${action.payload}`);
 
-    return [action.payload]
+
+const MatchTitle = (state = null, action) => {
+  if (action.type === 'ADD_MATCHTITLE') {
+    console.log(`Your match title is ${action.payload}`);
+    return action.payload;
   }
-  return state
-}
+  return state;
+};
 
 export default MatchTitle;

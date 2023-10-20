@@ -36,7 +36,7 @@ function GameSetUp() {
       payload: newMatchTitle,
     })
 
-    setNewPlayerOne('')
+    setNewPlayerOne(' h')
     setNewPlayerTwo('')
     setNewGame('')
     setNewMatchTitle('')
