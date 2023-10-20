@@ -5,6 +5,7 @@ import PlayerOne from './player1.reducer';
 import PlayerTwo from './player2.reducer';
 import GameList from './gameList.reducer';
 import MatchTitle from './matchTitle.reducer';
+import PlayerOneWins from './PlayersOneWins.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -18,7 +19,9 @@ const rootReducer = combineReducers({
   PlayerOne,
   PlayerTwo,
   GameList,
-  MatchTitle
+  MatchTitle,
+  PlayerOneWins,
+  
 });
 
 export default rootReducer;
