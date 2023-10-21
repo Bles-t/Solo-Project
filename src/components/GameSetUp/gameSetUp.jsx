@@ -1,9 +1,15 @@
 import React from "react"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function GameSetUp() {
+
+  useEffect(() => {
+    console.log('in useEffect');
+    const action = { type: 'ADD_GAME' };
+    dispatch(action);
+  }, []);
 
   const dispatch = useDispatch()
 
@@ -18,6 +24,7 @@ function GameSetUp() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
+
 
     dispatch({
       type: 'ADD_PLAYERONE',

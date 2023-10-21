@@ -15,9 +15,9 @@ function* addGameTitle(action) {
 
 
 
-function* gametitlesaga() { //also known as watcherSaga
+function* gametitleSaga() { //also known as watcherSaga
   yield all([
     takeEvery('ADD_GAME', addGameTitle)
   ])
 }
-export default gametitlesaga;
+export default gametitleSaga;

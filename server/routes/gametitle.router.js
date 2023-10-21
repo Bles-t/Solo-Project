@@ -12,22 +12,22 @@ router.get('/', (req, res) => {
 /**
  * POST route template
  */
- // POST route code starts here
+// POST route code starts here
 router.post('/add', (req, res) => {
- console.log('In POST request');
-const newGame = req.body;
-const queryText = `INSERT INTO "gametitle"("id" ,"gamename") VALUES ($1,$2)`;
-const queryValues = [
-  newGame.id,
-  newGame.gamename
-];
-pool.query(queryText, queryValues)
-.then(() => { res.sendStatus(201); })
-.catch((err) => {
-  console.log('Error completing SELECT species query', err);
-  res.sendStatus(500);
-});
- // POST route code ends here
+  console.log('In POST request');
+  const newGame = req.body;
+  const queryText = `INSERT INTO "gametitle"("id" ,"gamename") VALUES ($1,$2)`;
+  const queryValues = [
+    newGame.id,
+    newGame.gamename
+  ];
+  pool.query(queryText, queryValues, [req.body.id, req.body.gamename])
+    .then(() => { res.sendStatus(201); })
+    .catch((err) => {
+      console.log('Error completing SELECT species query', err);
+      res.sendStatus(500);
+    });
+  // POST route code ends here
 });
 
 module.exports = router;
