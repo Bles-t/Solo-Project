@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
  * POST route template
  */
  // POST route code starts here
-router.post('/', (req, res) => {
+router.post('/add', (req, res) => {
  console.log('In POST request');
 const newGame = req.body;
 const queryText = `INSERT INTO "gametitle"("id" ,"gamename") VALUES ($1,$2)`;
