@@ -9,10 +9,36 @@ CREATE TABLE "user" (
     "password" VARCHAR (1000) NOT NULL
 );
 
+CREATE TABLE "gametitle" (
+    "id" SERIAL PRIMARY KEY,
+    "gamename" VARCHAR(80) NOT NULL
+);
 
 
 CREATE TABLE "gametitle" (
     "id" SERIAL PRIMARY KEY,
     "gamename" VARCHAR (80)  NOT NULL,
 
+);
+
+
+
+CREATE TABLE "matches" (
+    "id" SERIAL PRIMARY KEY,
+    "winner" VARCHAR(80) NOT NULL,
+    "loser" VARCHAR(80) NOT NULL,
+    "gameid" INTEGER NOT NULL,
+    "date" DATE NOT NULL DEFAULT CURRENT_DATE,
+    "userid" VARCHAR(100) NOT NULL,
+    FOREIGN KEY ("gameid") REFERENCES "gametitle"("id")
+);
+
+
+CREATE TABLE "matches" (
+    "id" SERIAL PRIMARY KEY,
+    "winner" VARCHAR (80)  NOT NULL,
+    "loser" VARCHAR (100) NOT NULL,
+    "gameid" VARCHAR (100) NOT NULL,
+    "date"  date not null default CURRENT_DATE,
+    "userid" VARCHAR (100) NOT NULL
 );

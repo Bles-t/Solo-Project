@@ -1,10 +1,10 @@
 const GameList = (state = [], action) => {
-  if (action.type === 'ADD_GAME') {
-    console.log(`Your game was ${action.payload}`);
-
-    return [...state, action.payload]
+  switch (action.type) {
+    case 'ADD_GAME':
+      console.log('ADD_GAME action payload:', action.payload);
+      return [...state, action.payload];
+    default:
+      return state;
   }
-  return state
 }
-
 export default GameList;

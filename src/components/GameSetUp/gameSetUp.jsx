@@ -36,7 +36,7 @@ function GameSetUp() {
     })
     dispatch({
       type: 'ADD_GAME',
-      payload: newGame,
+      payload: { game: newGame },
     })
     dispatch({
       type: 'ADD_MATCHTITLE',
