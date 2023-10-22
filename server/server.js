@@ -5,6 +5,19 @@ require('dotenv').config();
 
 const app = express();
 
+// const { Pool } = require('pg');
+// const pool = new Pool({
+//   connectionString: 'your-database-connection-string',
+// });
+
+// pool.connect()
+//   .then(() => {
+//     console.log('Connected to the database');
+//   })
+//   .catch((error) => {
+//     console.error('Error connecting to the database:', error);
+//   });
+
 const sessionMiddleware = require('./modules/session-middleware');
 const passport = require('./strategies/user.strategy');
 
@@ -24,7 +37,7 @@ app.use(passport.session());
 
 /* Routes */
 app.use('/api/user', userRouter);
-app.use('/gametitle', gametitleRouter )
+app.use('/gametitle', gametitleRouter)
 
 // Serve static files
 app.use(express.static('build'));
