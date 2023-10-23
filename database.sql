@@ -15,14 +15,6 @@ CREATE TABLE "gametitle" (
 );
 
 
-CREATE TABLE "gametitle" (
-    "id" SERIAL PRIMARY KEY,
-    "gamename" VARCHAR (80)  NOT NULL,
-
-);
-
-
-
 CREATE TABLE "matches" (
     "id" SERIAL PRIMARY KEY,
     "winner" VARCHAR(80) NOT NULL,
@@ -33,12 +25,3 @@ CREATE TABLE "matches" (
     FOREIGN KEY ("gameid") REFERENCES "gametitle"("id")
 );
 
-
-CREATE TABLE "matches" (
-    "id" SERIAL PRIMARY KEY,
-    "winner" VARCHAR (80)  NOT NULL,
-    "loser" VARCHAR (100) NOT NULL,
-    "gameid" VARCHAR (100) NOT NULL,
-    "date"  date not null default CURRENT_DATE,
-    "userid" VARCHAR (100) NOT NULL
-);
