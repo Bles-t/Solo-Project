@@ -11,8 +11,6 @@ let pool;
 // When our app is deployed to the internet
 // we'll use the DATABASE_URL environment variable
 // to set the connection info: web address, username/password, db name
-// eg:
- DATABASE_URL=postgresql;//jDoe354:secretPw123@some.db.com/prime_app
 if (process.env.DATABASE_URL) {
     pool = new pg.Pool({
         connectionString: process.env.DATABASE_URL,
@@ -30,6 +28,12 @@ pool = new pg.Pool({
     port: 5432,
     database: 'prime_app',   // 	💥 Change this to the name of your database!
 });
-
+pool.connect()
+  .then(() => {
+    console.log('Connected to the database');
+  })
+  .catch((error) => {
+    console.error('Error connecting to the database:', error);
+  });
 
 module.exports = pool;

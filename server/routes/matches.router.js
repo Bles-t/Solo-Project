@@ -7,8 +7,16 @@ const router = express.Router();
  */
 router.get('/', (req, res) => {
   // GET route code here
+  const query = `SELECT * FROM matches ORDER BY "winner","loser","gameid" ASC`;
+    pool.query(query)
+      .then( result => {
+        res.send(result.rows);
+      })
+      .catch(err => {
+        console.log('ERROR: Get all games', err);
+        res.sendStatus(500)
+      })
 });
-
 /**
  * POST route template
  */
