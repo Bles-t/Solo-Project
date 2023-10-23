@@ -5,6 +5,9 @@ require('dotenv').config();
 
 const app = express();
 
+
+//was Using this code to check if my server is connecting to my database
+//
 // const { Pool } = require('pg');
 // const pool = new Pool({
 //   connectionString: 'your-database-connection-string',

@@ -34,6 +34,7 @@ function GameSetUp() {
       type: 'ADD_PLAYERTWO',
       payload: newPlayerTwo,
     })
+    //Tried different ways to do this but to my understajding in order to post data into a database it needs to be an object.
     dispatch({
       type: 'ADD_GAME',
       payload: { game: newGame },

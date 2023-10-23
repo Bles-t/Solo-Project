@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
 function ActivityPage() {
   const PlayerOneWinButton = useSelector((store) => store.PlayerOneWins);
   const PlayerTwoWinButton = useSelector((store) => store.PlayerTwoWins);
@@ -12,13 +13,29 @@ function ActivityPage() {
   const dispatch = useDispatch()
   console.log('gameList:', gameList);
 
+// trying to dishpatch this saga to fetch game List. dont think this is working yet becuase my database issue
+  useEffect(() => {
+    console.log('in useEffect');
+    const action = { type: 'GET_GAME' };
+    dispatch(action);
+  }, []);
+
+
+
 
   return (
     <div>
       <h4>EVENT:{matchTitle}</h4>
       <h3>Game Titles:</h3>
+
+{/* Using this for now to render the object data on the screen */}
       {JSON.stringify(gameList)}
-      {/* <ul>
+
+
+      {
+      /*
+      Tried to render it this was but .gamename is an object that isnt defined (dont know how to fix this)
+      <ul>
         {gameList.map((game, index) => (
           <li key={index}>{game.gamename}</li>
         ))}
