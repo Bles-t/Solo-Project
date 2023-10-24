@@ -32,20 +32,7 @@ function ActivityPage() {
   return (
     <div>
       <h4>EVENT:{matchTitle}</h4>
-      <h3>Game Titles:   {gameTitle} </h3>
-
-      {/* Using this for now to render the object data on the screen */}
-      {JSON.stringify(gameList)}
-
-
-      {
-
-        //Tried to render it this was but .gamename is an object that isnt defined (dont know how to fix this)
-        <ul>
-          {gameList.map((game, index) => (
-            <li key={index}>{game.gamename}</li>
-          ))}
-        </ul>}
+      <h3>Game:{gameTitle} </h3>
       <h2> hey</h2>
       <p>Player 1: {playerOne} Wins: {PlayerOneWinButton} <button onClick={() => dispatch({ type: 'PLAYERONEWIN' })}> W </button></p>
       <p>Player 2: {playerTwo} Wins: {PlayerTwoWinButton} <button onClick={() => dispatch({ type: 'WINBUTTON' })}> W </button></p>
