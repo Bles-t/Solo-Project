@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function GameSetUp() {
-// This might not be need . this is use to fetch games list
+  // This might not be need . this is use to fetch games list
   // useEffect(() => {
   //   console.log('in useEffect');
   //   const action = { type: 'ADD_GAME' };
@@ -26,29 +26,29 @@ function GameSetUp() {
     event.preventDefault()
 
 
-    // dispatch({
-    //   type: 'ADD_PLAYERONE',
-    //   payload: newPlayerOne,
-    // })
-    // dispatch({
-    //   type: 'ADD_PLAYERTWO',
-    //   payload: newPlayerTwo,
-    // })
+    dispatch({
+      type: 'ADD_PLAYERONE',
+      payload: newPlayerOne,
+    })
+    dispatch({
+      type: 'ADD_PLAYERTWO',
+      payload: newPlayerTwo,
+    })
     //Tried different ways to do this but to my understajding in order to post data into a database it needs to be an object.
     dispatch({
       type: 'ADD_GAME',
       payload: { game: newGame },
     })
-    // dispatch({
-    //   type: 'ADD_MATCHTITLE',
-    //   payload: newMatchTitle,
-    // })
+    dispatch({
+      type: 'ADD_MATCHTITLE',
+      payload: newMatchTitle,
+    })
 
     setNewPlayerOne(' h')
     setNewPlayerTwo('')
     setNewGame('')
     setNewMatchTitle('')
-    history.push('/ActivityPage')
+    history.push('/ActivityPage', { game: newGame })
   }
 
   const history = useHistory()
