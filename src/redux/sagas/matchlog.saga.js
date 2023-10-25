@@ -1,8 +1,12 @@
+import axios from "axios";
+import { all, put, takeEvery } from 'redux-saga/effects';
+
+
 function* newMatchLog(action) {
   try {
-    const newmatchlog = action.payload
-    yield axios.post('/matches', newmatchlog);
-    yield put({ type: 'GET_GAME', game: newGame });
+    const logMatch = action.payload
+    yield axios.post('/matches', logMatch);
+    // yield put({ type: 'GET_GAME', win: newmatchlog });
     console.log('Game title successfully added to the database.');
   } catch (error) {
     console.log('error posting an gametitle', error);
@@ -13,11 +17,11 @@ function* newMatchLog(action) {
 
 
 
-function* matchesSaga() { //also known as watcherSaga
+function* matchLogSaga() { //also known as watcherSaga
   yield all([
     takeEvery('PLAYERONEWIN', newMatchLog),
 
   ])
 }
 
-export default matchesSaga;
+export default matchLogSaga;

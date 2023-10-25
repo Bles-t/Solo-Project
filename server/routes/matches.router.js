@@ -22,10 +22,10 @@ router.get('/', (req, res) => {
  */
 router.post('/', (req, res) => {
   console.log('In POST request');
-  const logMatch = req.body;
-  console.log('New game title:', logMatch);
+  const logMatch = req.body
+  console.log('New matchlog title:', logMatch);
   const queryText = `INSERT INTO "matches"("winner","loser","gameid","date") VALUES ($1,$2,$3,$4)`;
-  pool.query(queryText, [logMatch])
+  pool.query(queryText, [logMatch.winner, logMatch.loser, logMatch.gameid, logMatch.date])
     .then(() => { res.sendStatus(201); })
     .catch((err) => {
       console.log('Error completing  add game to query', err);
