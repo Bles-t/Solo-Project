@@ -37,15 +37,16 @@ function ActivityPage() {
   const handleClick = (event) => {
 
     const winnerName = playerOne;
-
+    const loserName = playerTwo;
+    const gameTitle = gameTitle;
+    const userId = user.id
     // console.log(feedbackData);
     // axios.post('/feedback', feedbackData)
 
     dispatch({
       type: 'PLAYERONEWIN',
 
-      payload: winnerName
-
+      payload: { winnerName, loserName, gameTitle, userId }
     })
   }
   return (
