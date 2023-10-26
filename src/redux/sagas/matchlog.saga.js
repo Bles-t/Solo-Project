@@ -1,14 +1,14 @@
-import axios from "axios";
+import axios from 'axios';
 import { all, put, takeEvery } from 'redux-saga/effects';
 
 
 function* newMatchLog(action) {
   try {
-    const winner = action.payload
-    const logMatch = {
-      winner: winner,
-    }
-    yield axios.post('/matches', logMatch);
+    const logData = { winner: action.payload };
+    // const logMatch = {
+    //   winner: winner,
+    // }
+    yield axios.post('/matches', logData);
     // yield put({ type: 'GET_GAME', win: newmatchlog });
     console.log('Game title successfully added to the database.');
   } catch (error) {

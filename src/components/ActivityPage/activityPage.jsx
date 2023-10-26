@@ -34,29 +34,26 @@ function ActivityPage() {
   // // };
   // const [newLog, setNewLog] = useState('')
 
-  // const handleClick = (event) => {
+  const handleClick = (event) => {
 
-  //   const winner = {
-  //     winner: winner,
-  //   };
+    const winnerName = playerOne;
 
-  //   // console.log(feedbackData);
-  //   // axios.post('/feedback', feedbackData)
+    // console.log(feedbackData);
+    // axios.post('/feedback', feedbackData)
 
-  //   dispatch({
-  //     type: 'PLAYERONEWIN',
+    dispatch({
+      type: 'PLAYERONEWIN',
 
-  //     payload: newLog
+      payload: winnerName
 
-  //   })
-  //   setNewResults('')
-  // }
+    })
+  }
   return (
     <div>
       <h4>EVENT:{matchTitle}</h4>
       <h3>Game:{gameTitle} </h3>
       <h2> hey</h2>
-      <p>Player 1: {playerOne} Wins: {PlayerOneWinButton} <button onClick={() => dispatch({ type: 'PLAYERONEWIN' })}> W </button></p>
+      <p>Player 1: {playerOne} Wins: {PlayerOneWinButton} <button onClick={handleClick}> W </button></p>
       <p>Player 2: {playerTwo} Wins: {PlayerTwoWinButton} <button onClick={() => dispatch({ type: 'WINBUTTON' })}> W </button></p>
 
 
