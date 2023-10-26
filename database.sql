@@ -24,14 +24,3 @@ CREATE TABLE "matches" (
     "userid" VARCHAR(100) NOT NULL,
     FOREIGN KEY ("gameid") REFERENCES "gametitle"("id")
 );
-
-
-CREATE TABLE "matches" (
-    "id" SERIAL PRIMARY KEY,
-    "winner" INTEGER ,
-    "loser" VARCHAR(80) ,
-    "gameid" INTEGER ,
-    "date" DATE DEFAULT CURRENT_DATE,
-    "userid" VARCHAR(100) ,
-    FOREIGN KEY ("gameid") REFERENCES "gametitle"("id")
-);
