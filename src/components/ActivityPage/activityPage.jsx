@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
@@ -26,9 +26,31 @@ function ActivityPage() {
   //   dispatch(action);
   // }, []);
 
+  // const winner = {
+  //   winner: winner,
+  //   support: Supports,
+  //   understanding: Understandings,
+  //   comments: Comments,
+  // // };
+  // const [newLog, setNewLog] = useState('')
 
+  // const handleClick = (event) => {
 
+  //   const winner = {
+  //     winner: winner,
+  //   };
 
+  //   // console.log(feedbackData);
+  //   // axios.post('/feedback', feedbackData)
+
+  //   dispatch({
+  //     type: 'PLAYERONEWIN',
+
+  //     payload: newLog
+
+  //   })
+  //   setNewResults('')
+  // }
   return (
     <div>
       <h4>EVENT:{matchTitle}</h4>

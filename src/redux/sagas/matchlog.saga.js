@@ -4,7 +4,10 @@ import { all, put, takeEvery } from 'redux-saga/effects';
 
 function* newMatchLog(action) {
   try {
-    const logMatch = action.payload
+    const winner = action.payload
+    const logMatch = {
+      winner: winner,
+    }
     yield axios.post('/matches', logMatch);
     // yield put({ type: 'GET_GAME', win: newmatchlog });
     console.log('Game title successfully added to the database.');
