@@ -9,6 +9,7 @@ function ActivityPage() {
   const playerTwo = useSelector((store) => store.PlayerTwo); // Make sure the name matches the reducer name in your root reducer
   const gameList = useSelector((store) => store.GameList);
   const matchTitle = useSelector((store) => store.MatchTitle);
+  const user = useSelector((store) => store.user);
 
   const location = useLocation();
 
@@ -18,6 +19,7 @@ function ActivityPage() {
   const dispatch = useDispatch()
 
   console.log('gameTitlt:', gameTitle);
+
 
   // trying to dishpatch this saga to fetch game List. dont think this is working yet becuase my database issue
   // useEffect(() => {
@@ -36,9 +38,9 @@ function ActivityPage() {
 
   const handleClick = (event) => {
 
-    const winnerName = playerOne;
-    const loserName = playerTwo;
-    const gameTitle = gameTitle;
+    // const winnerName = playerOne;
+    // const loserName = playerTwo;
+    // const gameTitle = gameTitle;
     const userId = user.id
     // console.log(feedbackData);
     // axios.post('/feedback', feedbackData)
@@ -46,16 +48,37 @@ function ActivityPage() {
     dispatch({
       type: 'PLAYERONEWIN',
 
-      payload: { winnerName, loserName, gameTitle, userId }
+      payload: { playerOne, playerTwo, gameTitle, userId }
     })
   }
+
+  const handleClick2 = (event) => {
+
+    // const winnerName = playerOne;
+    // const loserName = playerTwo;
+    // const gameTitle = gameTitle;
+    const userId = user.id
+    // console.log(feedbackData);
+    // axios.post('/feedback', feedbackData)
+
+    dispatch({
+      type: 'WINBUTTON',
+
+      payload: { playerOne, playerTwo, gameTitle, userId }
+    })
+  }
+
+
+
+
+  console.log('Playerone:', playerTwo);
   return (
     <div>
       <h4>EVENT:{matchTitle}</h4>
       <h3>Game:{gameTitle} </h3>
       <h2> hey</h2>
       <p>Player 1: {playerOne} Wins: {PlayerOneWinButton} <button onClick={handleClick}> W </button></p>
-      <p>Player 2: {playerTwo} Wins: {PlayerTwoWinButton} <button onClick={() => dispatch({ type: 'WINBUTTON' })}> W </button></p>
+      <p>Player 2: {playerTwo} Wins: {PlayerTwoWinButton} <button onClick={handleClick2}> W </button></p>
 
 
 

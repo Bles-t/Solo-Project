@@ -8,11 +8,11 @@ function* newMatchLog(action) {
     // // const logMatch = {
     // //   winner: winner,
     // // }
-    const { winner, loser, gameTitle, userId } = action.payload;
+    const { playerOne, playerTwo, gameTitle, userId } = action.payload;
     const logData = {
-      winner,
-      loser,
-      gameTitle,
+      winner: playerOne,
+      loser: playerTwo,
+      gametitle: gameTitle,
       date: new Date(),
       userId
     }
@@ -30,6 +30,7 @@ function* newMatchLog(action) {
 
 function* matchLogSaga() { //also known as watcherSaga
   yield all([
+    takeEvery('PLAYERONEWIN', newMatchLog),
     takeEvery('PLAYERONEWIN', newMatchLog),
 
   ])

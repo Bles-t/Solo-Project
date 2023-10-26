@@ -1,4 +1,4 @@
-const PlayerOne = (state = null, action) => {
+const PlayerOne = (state = [], action) => {
   if (action.type === 'ADD_PLAYERONE') {
     console.log(`The element was ${action.payload}`);
 
