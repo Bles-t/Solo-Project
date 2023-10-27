@@ -25,7 +25,7 @@ router.post('/', (req, res) => {
   const { winner, loser, gametitle, userId } = req.body
 
   // console.log('New matchlog details:', logMatch);
-  const queryText = `INSERT INTO "matches"("winner","loser","gameid","date","userid") VALUES ($1,$2,(SELECT "id" FROM "gametitle" WHERE "gamename" =$3), CURRENT_DATE,$4)`;
+  const queryText = `INSERT INTO "matches"("winner","loser","gameid","date","userid") VALUES ($1,$2,(SELECT "id" FROM "gametitle" WHERE "gamename" =$3 LIMIT 1), CURRENT_DATE,$4 )`;
   pool.query(queryText, [winner, loser, gametitle, userId])
     .then(() => { res.sendStatus(201); })
     .catch((err) => {
