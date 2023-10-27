@@ -10,6 +10,12 @@ function UserPage() {
 
     history.push('/GameSetUp')
   }
+
+
+  const handleClick1 = () => {
+
+    history.push('/GameSetUp')
+  }
   const history = useHistory()
 
   return (
@@ -17,6 +23,7 @@ function UserPage() {
       <h2>Welcome, {user.username}!</h2>
       <p>Your ID is: {user.id}</p>
       <button onClick={handleClick} >New Match</button>
+      <button  onClick={handleClick1}  >Match History </button>
       <LogOutButton className="btn" />
 
 
