@@ -21,7 +21,9 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import GameSetUp from '../GameSetUp/gameSetUp';
 import ActivityPage from '../ActivityPage/activityPage';
+import MatchHistoryPage from '../MatchHistoryPage/MatchHistorypage';
 import './App.css';
+
 
 function App() {
   const dispatch = useDispatch();
@@ -119,6 +121,10 @@ function App() {
 
           <Route path="/GameSetUp">
             <GameSetUp />
+          </Route>
+
+          <Route path="/MatchHistoryPage">
+            <MatchHistoryPage />
           </Route>
 
 

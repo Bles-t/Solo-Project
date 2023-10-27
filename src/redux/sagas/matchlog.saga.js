@@ -51,6 +51,17 @@ function* newMatchLog2(action) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 function* matchLogSaga() { //also known as watcherSaga
   yield all([
     takeEvery('PLAYERONEWIN', newMatchLog),
