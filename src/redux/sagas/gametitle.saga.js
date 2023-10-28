@@ -7,7 +7,7 @@ function* addGameTitle(action) {
   try {
     const newGame = action.payload.game
     yield axios.post('/gametitle', { game: newGame });
-    yield put({ type: 'GET_GAME', game: newGame });
+    // yield put({ type: 'LIST_GAMES', game: newGame });
     console.log('Game title successfully added to the database.');
   } catch (error) {
     console.log('error posting an gametitle', error);
@@ -17,19 +17,20 @@ function* addGameTitle(action) {
 function* fetchGameTitle() {
   try {
     const allGames = yield axios.get('/gametitle')
-    yield put({ type: 'SET_GAME', payload: allGames.data })
+    // const gameTitle = allGames.data;
+    yield put({ type: 'LIST_GAMES', payload: allGames.data })
     // yield put({ type:'ADD_GAME'});
     console.log('Game title successfully added to the database.');
   } catch (error) {
-    console.log('error posting an gametitle', error);
+    console.log('error listing an gametitle', error);
   }
 }
 
 
 function* gametitleSaga() { //also known as watcherSaga
   yield all([
-    takeEvery('ADD_GAME', addGameTitle),
-    takeEvery('GET_GAME', fetchGameTitle)
+    takeEvery('SET_GAME', addGameTitle),
+    takeEvery('ALL_GAMES', fetchGameTitle)
   ])
 }
 export default gametitleSaga;

@@ -1,35 +1,35 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+
 
 function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
 
-
-  // useEffect(() => {
-  //   console.log('in useEffect');
-  //   const action = { type: 'SET_GAME' };
-  //   dispatch(action);
-  // }, []);
-
-
   const dispatch = useDispatch();
-
   const user = useSelector((store) => store.user);
+  const history = useHistory()
+  const gameList = useSelector((store) => store.GameList);
+
+  useEffect(() => {
+    console.log('in useEffect');
+    dispatch({ type: 'ALL_GAMES' });
+  }, [dispatch]);
+
+
+
   const handleClick = () => {
 
     history.push('/GameSetUp')
-  }
+  } 
 
 
   const handleClick1 = () => {
 
     history.push('/MatchHistoryPage')
   }
-  const history = useHistory()
+
 
   return (
     <div className="container">
@@ -39,7 +39,14 @@ function UserPage() {
       <button onClick={handleClick1}  >Match History </button>
       <LogOutButton className="btn" />
 
-
+      <div>
+        <h3>List of Games:  </h3>
+        <ul>
+          {gameList.map((game, index) => (
+            <li key={index}>{game}</li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

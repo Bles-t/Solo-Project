@@ -2,7 +2,8 @@
 const GameList = (state = [], action) => {
   switch (action.type) {
     case 'SET_GAME':
-      return action.payload;
+      return [...state, action.payload];
+    case 'LIST_GAMES':
     default:
       return state;
   }
