@@ -22,7 +22,7 @@ function UserPage() {
   const handleClick = () => {
 
     history.push('/GameSetUp')
-  } 
+  }
 
 
   const handleClick1 = () => {
@@ -43,7 +43,7 @@ function UserPage() {
         <h3>List of Games:  </h3>
         <ul>
           {gameList.map((game, index) => (
-            <li key={index}>{game}</li>
+            <li key={index}>{game.gamename}</li>
           ))}
         </ul>
       </div>

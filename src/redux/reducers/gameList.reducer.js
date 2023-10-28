@@ -4,6 +4,7 @@ const GameList = (state = [], action) => {
     case 'SET_GAME':
       return [...state, action.payload];
     case 'LIST_GAMES':
+      return action.payload;
     default:
       return state;
   }

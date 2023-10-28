@@ -4,12 +4,6 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function GameSetUp() {
-  // This might not be need . this is use to fetch games list
-  // useEffect(() => {
-  //   console.log('in useEffect');
-  //   const action = { type: 'ADD_GAME' };
-  //   dispatch(action);
-  // }, []);
 
   const dispatch = useDispatch()
 
@@ -36,7 +30,7 @@ function GameSetUp() {
     })
     //Tried different ways to do this but to my understajding in order to post data into a database it needs to be an object.
     dispatch({
-      type: 'ADD_GAME',
+      type: 'SET_GAME',
       payload: { game: newGame },
     })
     dispatch({
