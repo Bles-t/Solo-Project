@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 function MatchHistoryPage() {
 
-
+  const history = useHistory()
   const dispatch = useDispatch();
   const gameList = useSelector((store) => store.GameList);
 
@@ -12,7 +12,9 @@ function MatchHistoryPage() {
     dispatch({ type: 'ALL_GAMES' });
   }, [dispatch]);
 
-
+  const handleGameClick = (selectedGame) => {
+    history.push('/ActivityPage', { gameData: selectedGame });
+  }
 
 
   return (
@@ -26,7 +28,7 @@ function MatchHistoryPage() {
 
           {gameList.map((game, index) => (
             <li>
-              <button key={index}>{game.gamename}</button>
+              <button key={index} onClick={() => handleGameClick(game)}>{game.gamename}</button>
             </li>
 
           ))}
