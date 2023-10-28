@@ -12,10 +12,16 @@ function MatchHistoryPage() {
     dispatch({ type: 'ALL_GAMES' });
   }, [dispatch]);
 
-  const handleGameClick = (selectedGame) => {
-    history.push('/ActivityPage', { gameData: selectedGame });
-  }
+  const handleGameClick = (selectedGameName) => {
+    // Find the selected game object based on the name
+    console.log('Before navigation');
+    const selectedGame = gameList.find(game => game.gamename === selectedGameName);
 
+    if (selectedGame) {
+      history.push('/ActivityPage', { gameData: selectedGame });
+    }
+    console.log('After navigation');
+  }
 
   return (
 
@@ -28,7 +34,7 @@ function MatchHistoryPage() {
 
           {gameList.map((game, index) => (
             <li>
-              <button key={index} onClick={() => handleGameClick(game)}>{game.gamename}</button>
+              <button key={index} onClick={() => handleGameClick(game.gamename)}>{game.gamename}</button>
             </li>
 
           ))}
