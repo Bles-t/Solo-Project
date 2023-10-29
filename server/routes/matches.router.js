@@ -7,7 +7,12 @@ const router = express.Router();
  */
 router.get('/', (req, res) => {
   // GET route code here
-  const query = `SELECT * FROM matches ORDER BY "winner","loser","gameid","date" ASC`;
+  const query = `
+    SELECT matches.*, gametitle.gamename
+    FROM matches
+    JOIN gametitle ON matches.gameid = gametitle.id
+    ORDER BY matches.winner, matches.loser, gametitle.gamename, matches.date ASC;
+  `;
   pool.query(query)
     .then(result => {
       res.send(result.rows);
