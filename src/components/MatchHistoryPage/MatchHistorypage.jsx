@@ -6,6 +6,9 @@ function MatchHistoryPage() {
   const history = useHistory()
   const dispatch = useDispatch();
   const gameList = useSelector((store) => store.GameList);
+  const playerOne = useSelector((store) => store.PlayerOne);
+  const playerTwo = useSelector((store) => store.PlayerTwo);
+
 
   useEffect(() => {
     console.log('in useEffect');
@@ -18,7 +21,7 @@ function MatchHistoryPage() {
     const selectedGame = gameList.find(game => game.gamename === selectedGameName);
 
     if (selectedGame) {
-      history.push('/ActivityPage', { gameData: selectedGame });
+      history.push('/ActivityPage', { gameData: { ...selectedGame, playerOne, playerTwo } });
     }
     console.log('After navigation');
   }
