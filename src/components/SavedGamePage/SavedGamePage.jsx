@@ -17,7 +17,7 @@ function SavedGamePage() {
 
     const gameData = location.state ? location.state.gameData : null;
   // const gameTitle = gameData ? gameData.gameTitle : "Game not entered";
-const playerOne = gameData ? gameData.playerOne : "Player 1";
+const playerOne = gameData ? gameData.gamename : "Player 1";
 const playerTwo = gameData ? gameData.playerTwo : "Player 2";
 
   const gameTitle = location.state ? location.state.game : "Game not entered";

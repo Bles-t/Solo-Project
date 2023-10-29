@@ -18,7 +18,7 @@ function* newMatchLog(action) {
     }
     yield axios.post('/matches', logData);
     // yield put({ type: 'GET_GAME', win: newmatchlog });
-    console.log('Game title successfully added to the database.');
+    console.log('Game title successfully added to the database.', logData);
   } catch (error) {
     console.log('error posting an gametitle', error);
   }

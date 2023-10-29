@@ -21,7 +21,7 @@ function MatchHistoryPage() {
     const selectedGame = gameList.find(game => game.gamename === selectedGameName);
 
     if (selectedGame) {
-      history.push('/ActivityPage', { gameData: { ...selectedGame, playerOne, playerTwo } });
+      history.push('/SavedGamePage', { gameData: { ...selectedGame, playerOne,playerTwo } });
     }
     console.log('After navigation');
   }
