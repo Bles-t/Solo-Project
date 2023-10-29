@@ -11,10 +11,13 @@ function UserPage() {
   const user = useSelector((store) => store.user);
   const history = useHistory()
   const gameList = useSelector((store) => store.GameList);
+  const PlayerOne = useSelector((store) => store.PlayerOne);
+
+
 
   useEffect(() => {
     console.log('in useEffect');
-    dispatch({ type: 'ALL_GAMES' });
+    dispatch({ type: 'DISPLAY_MATCHDATA' });
   }, [dispatch]);
 
 
@@ -30,7 +33,7 @@ function UserPage() {
     history.push('/MatchHistoryPage')
   }
 
-
+  console.log('match data', PlayerOne);
   return (
     <div className="container">
       <h2>Welcome, {user.username}!</h2>
@@ -42,7 +45,7 @@ function UserPage() {
       <div>
         <h3>List of Games:  </h3>
         <ul>
-          {gameList.map((game, index) => (
+          {PlayerOne.map((game, index) => (
             <li key={index}>{game.gamename}</li>
           ))}
         </ul>

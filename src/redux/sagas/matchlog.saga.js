@@ -78,7 +78,7 @@ function* matchLogSaga() { //also known as watcherSaga
   yield all([
     takeEvery('PLAYERONEWIN', newMatchLog),
     takeEvery('WINBUTTON', newMatchLog2),
-    takeEvery('WINBUTTON', fetchMatchData),
+    takeEvery('DISPLAY_MATCHDATA', fetchMatchData),
 
   ])
 }
