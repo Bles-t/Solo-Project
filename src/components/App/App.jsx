@@ -22,6 +22,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import GameSetUp from '../GameSetUp/gameSetUp';
 import ActivityPage from '../ActivityPage/activityPage';
 import MatchHistoryPage from '../MatchHistoryPage/MatchHistorypage';
+import SavedGamePage from '../SavedGamePage/SavedGamePage';
 import './App.css';
 
 
@@ -128,6 +129,10 @@ function App() {
           </Route>
 
 
+
+          <Route path="/SavedGamePage">
+            <SavedGamePage />
+          </Route>
 
 
           {/* If none of the other routes matched, we will show a 404. */}

@@ -70,3 +70,5 @@ const playerTwo = gameData ? gameData.playerTwo : "Player 2";
     </div>
   );
 }
+
+export default SavedGamePage;
