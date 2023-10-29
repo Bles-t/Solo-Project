@@ -1,10 +1,15 @@
 const PlayerOne = (state = [], action) => {
-  if (action.type === 'ADD_PLAYERONE') {
-    console.log(`The element was ${action.payload}`);
-
-    return action.payload
+  switch (action.type) {
+    case 'ADD_PLAYERONE':
+      return [...state, action.payload];
+    case 'SHOW_MATCHDATA':
+      return action.payload;
+    default:
+      return state;
   }
-  return state
 }
+
+
+
 
 export default PlayerOne;
