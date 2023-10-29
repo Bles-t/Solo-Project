@@ -14,13 +14,14 @@ router.get('/', (req, res) => {
     ORDER BY matches.winner, matches.loser, gametitle.gamename, matches.date ASC;
   `;
   pool.query(query)
-    .then(result => {
-      res.send(result.rows);
-    })
-    .catch(err => {
-      console.log('ERROR: Get all games', err);
-      res.sendStatus(500)
-    })
+  .then((result) => {
+    // Send the result back as JSON
+    res.json(result.rows);
+  })
+  .catch((error) => {
+    console.error('Error executing SQL query', error);
+    res.status(500).send('An error occurred while fetching data.');
+  });
 });
 /**
  * POST route template

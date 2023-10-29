@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 function ActivityPage() {
   const PlayerOneWinButton = useSelector((store) => store.PlayerOneWins);
   const PlayerTwoWinButton = useSelector((store) => store.PlayerTwoWins);
-  // const playerOne = useSelector((store) => store.PlayerOne);
+  const playerOne = useSelector((store) => store.PlayerOne);
   const playerTwo = useSelector((store) => store.PlayerTwo); // Make sure the name matches the reducer name in your root reducer
   const gameList = useSelector((store) => store.GameList);
   const matchTitle = useSelector((store) => store.MatchTitle);
@@ -16,7 +16,7 @@ function ActivityPage() {
   const gameTitle = location.state ? location.state.game : "Game not entered";
 
 
-  const playerOne = location.state ? location.state.game : "Player one name not entered";
+  // const playerOne = location.state ? location.state.game : "Player one name not entered";
 
   // const gameData = location.state ? location.state.gameData : null;
   // const gameTitle = gameData ? gameData.gameTitle : "Game not entered";

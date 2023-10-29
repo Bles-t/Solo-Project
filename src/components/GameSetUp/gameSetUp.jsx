@@ -22,7 +22,7 @@ function GameSetUp() {
 
     dispatch({
       type: 'ADD_PLAYERONE',
-      payload: { game: newPlayerOne },
+      payload: newPlayerOne,
     })
     dispatch({
       type: 'ADD_PLAYERTWO',
@@ -42,7 +42,7 @@ function GameSetUp() {
     setNewPlayerTwo('')
     setNewGame('')
     setNewMatchTitle('')
-    history.push('/ActivityPage', { game: newGame, newPlayerOne })
+    history.push('/ActivityPage', { game: newGame })
   }
 
   const history = useHistory()
