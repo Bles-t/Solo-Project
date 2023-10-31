@@ -20,7 +20,8 @@ function MatchHistoryPage() {
     history.push('/SavedGamePage', {
       gameData: {
         winner: selectedGame.winner,
-        loser: selectedGame.loser
+        loser: selectedGame.loser,
+        gamename: selectedGame.gamename
       }
     });
   }
