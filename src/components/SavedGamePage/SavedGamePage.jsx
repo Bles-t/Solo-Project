@@ -15,10 +15,10 @@ function SavedGamePage() {
 
   const location = useLocation();
 
-    const gameData = location.state ? location.state.gameData : null;
+  const gameData = location.state ? location.state.gameData : null;
   // const gameTitle = gameData ? gameData.gameTitle : "Game not entered";
-// const playerOne = gameData ? gameData.gamename : "Player 1";
-const playerTwo = gameData ? gameData.playerTwo : "Player 2";
+  const playerOne = gameData ? gameData.playerOne.winner : "Player 1";
+  const playerTwo = gameData ? gameData.playerTwo : "Player 2";
 
   const gameTitle = location.state ? location.state.game : "Game not entered";
   console.log('Game data found:', gameData);
