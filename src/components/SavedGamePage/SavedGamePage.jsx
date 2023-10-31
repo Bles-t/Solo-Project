@@ -16,12 +16,11 @@ function SavedGamePage() {
   const location = useLocation();
 
   const gameData = location.state ? location.state.gameData : null;
-  // const gameTitle = gameData ? gameData.gameTitle : "Game not entered";
-  const playerOne = gameData ? gameData.playerOne.winner : "Player 1";
-  const playerTwo = gameData ? gameData.playerTwo : "Player 2";
-
+  const playerOne = gameData ? gameData.winner : "Player 1";
+  const playerTwo = gameData ? gameData.loser : "Player 2";
+  // const gameDate = gameData ? gameData.date : "Game date not found";
   const gameTitle = location.state ? location.state.game : "Game not entered";
-  console.log('Game data found:', gameData);
+  console.log('Game data found:', gameData.winner);
   const dispatch = useDispatch()
 
   const handleClick = (event) => {
@@ -58,11 +57,11 @@ function SavedGamePage() {
 
   return (
     <div>
-      <h4>EVENT:{matchTitle}</h4>
+      {/* <h4>EVENT:{matchTitle}</h4> */}
       <h3>Game:{gameTitle} </h3>
       <h2> hey</h2>
-      <p>Player 1: {playerOne} Wins: {PlayerOneWinButton} <button onClick={handleClick}> W </button></p>
-      <p>Player 2: {playerTwo} Wins: {PlayerTwoWinButton} <button onClick={handleClick2}> W </button></p>
+      <p>Player 1: {gameData.winner} Wins: {PlayerOneWinButton} <button onClick={handleClick}> W </button></p>
+      <p>Player 2: {gameData.loser} Wins: {PlayerTwoWinButton} <button onClick={handleClick2}> W </button></p>
 
 
 

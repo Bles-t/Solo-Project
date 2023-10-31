@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
-import PlayerOne from '../../redux/reducers/player1.reducer';
+
 function MatchHistoryPage() {
 
   const history = useHistory()
@@ -15,17 +15,17 @@ function MatchHistoryPage() {
     dispatch({ type: 'DISPLAY_MATCHDATA' });
   }, [dispatch]);
 
-
-  const handleGameClick = (selectedGameName) => {
-    // Find the selected game object based on the name
-    console.log('Before navigation');
-    const selectedGame = PlayerOne.find(game => game === selectedGameName);
-
-    if (selectedGame) {
-      history.push('/SavedGamePage', { gameData:  selectedGame  });
-    }
-    console.log('After navigation');
+  const handleGameClick = (selectedGame) => {
+    console.log('Selected Game:', selectedGame);
+    history.push('/SavedGamePage', {
+      gameData: {
+        winner: selectedGame.winner,
+        loser: selectedGame.loser
+      }
+    });
   }
+
+  console.log('PLayer One array data', PlayerOne);
 
   return (
 
@@ -38,7 +38,7 @@ function MatchHistoryPage() {
 
           {PlayerOne.map((game, index) => (
             <li>
-              <button key={index} onClick={() => handleGameClick(game.gamename)}>{game.gamename}</button>
+              <button key={index} onClick={() => handleGameClick(game)}>{game.gamename}</button>
             </li>
 
           ))}
