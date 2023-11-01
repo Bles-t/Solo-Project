@@ -14,25 +14,25 @@ router.get('/', (req, res) => {
     ORDER BY matches.winner, matches.loser, gametitle.gamename, matches.date ASC;
   `;
   pool.query(query)
-  .then((result) => {
-    // Send the result back as JSON
-    res.json(result.rows);
-  })
-  .catch((error) => {
-    console.error('Error executing SQL query', error);
-    res.status(500).send('An error occurred while fetching data.');
-  });
+    .then((result) => {
+      // Send the result back as JSON
+      res.json(result.rows);
+    })
+    .catch((error) => {
+      console.error('Error executing SQL query', error);
+      res.status(500).send('An error occurred while fetching data.');
+    });
 });
 /**
  * POST route template
  */
 router.post('/', (req, res) => {
   console.log('In POST request');
-  const { winner, loser, gametitle, userId } = req.body
+  const { winner, loser, gametitle, p1wincount, p2wincount, matchtitle, userId } = req.body
 
   // console.log('New matchlog details:', logMatch);
-  const queryText = `INSERT INTO "matches"("winner","loser","gameid","date","userid") VALUES ($1,$2,(SELECT "id" FROM "gametitle" WHERE "gamename" =$3 LIMIT 1), CURRENT_DATE,$4 )`;
-  pool.query(queryText, [winner, loser, gametitle, userId])
+  const queryText = `INSERT INTO "matches"("winner","loser","gameid","p1wincount","p2wincount","matchtitle", "date","userid") VALUES ($1,$2,(SELECT "id" FROM "gametitle" WHERE "gamename" =$3 LIMIT 1), $4, $5, $6, CURRENT_DATE,$7 )`;
+  pool.query(queryText, [winner, loser, gametitle, p1wincount, p2wincount, matchtitle, userId])
     .then(() => { res.sendStatus(201); })
     .catch((err) => {
       console.log('Error completing  add game to query', err);

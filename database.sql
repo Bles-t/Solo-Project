@@ -17,10 +17,11 @@ CREATE TABLE "gametitle" (
 
 CREATE TABLE "matches" (
     "id" SERIAL PRIMARY KEY,
-    "p1" VARCHAR(80) NOT NULL,
-    "p2" VARCHAR(80) NOT NULL,
+    "winner" VARCHAR(80) NOT NULL,
+    "loser" VARCHAR(80) NOT NULL,
     "p1wincount" INTEGER NOT NULL
     "p2wincount" INTEGER NOT NULL
+    "matchtitle" VARCHAR(80) NOT NULL,
     "gameid" INTEGER NOT NULL,
     "date" DATE NOT NULL DEFAULT CURRENT_DATE,
     "userid" VARCHAR(100) NOT NULL,

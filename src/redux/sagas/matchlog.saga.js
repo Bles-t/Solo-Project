@@ -25,10 +25,6 @@ function* newMatchLog(action) {
 
 function* newMatchLog2(action) {
   try {
-    // const logData = { winner: action.payload };
-    // // const logMatch = {
-    // //   winner: winner,
-    // // }
     const { playerOne, playerTwo, gameTitle, userId } = action.payload;
     const logData = {
       winner: playerTwo,
