@@ -5,11 +5,11 @@ import { all, put, takeEvery } from 'redux-saga/effects';
 function* newMatchLog(action) {
   try {
 
-    const { playerOne, playerTwo, PlayerOneWins, gameTitle, matchTitle, userId } = action.payload;
+    const { playerOne, playerTwo, PlayerOneWinButton, gameTitle, matchTitle, userId } = action.payload;
     const logData = {
       winner: playerOne,
       loser: playerTwo,
-      p1wincount: PlayerOneWins,
+      p1wincount: PlayerOneWinButton,
       matchtitle: matchTitle,
       gametitle: gameTitle,
       date: new Date(),

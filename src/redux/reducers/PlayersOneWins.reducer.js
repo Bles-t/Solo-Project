@@ -10,7 +10,7 @@
 const PlayerOneWins = (state = 0, action) => {
   switch (action.type) {
     case 'PLAYERONEWIN':
-      return [...state + 1, action.payload];
+      return [...state, action.payload];
     case 'SHOW_MATCHDATA':
       return action.payload;
     default:
