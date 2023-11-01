@@ -21,7 +21,7 @@ function ActivityPage() {
     dispatch({
       type: 'PLAYERONEWIN',
 
-      payload: { playerOne, playerTwo, gameTitle, userId }
+      payload: { playerOne, playerTwo,p1wincount gameTitle, matchTitle, userId }
     })
   }
 

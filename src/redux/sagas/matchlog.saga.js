@@ -5,10 +5,12 @@ import { all, put, takeEvery } from 'redux-saga/effects';
 function* newMatchLog(action) {
   try {
 
-    const { playerOne, playerTwo, gameTitle, userId } = action.payload;
+    const { playerOne, playerTwo, PlayerOneWins, gameTitle, matchTitle, userId } = action.payload;
     const logData = {
       winner: playerOne,
       loser: playerTwo,
+      p1wincount: PlayerOneWins,
+      matchtitle: matchTitle,
       gametitle: gameTitle,
       date: new Date(),
       userId
@@ -21,7 +23,7 @@ function* newMatchLog(action) {
   }
 }
 
-
+// 2nd match log in saga is for loggin the data of the 2nd user
 
 function* newMatchLog2(action) {
   try {
@@ -35,7 +37,7 @@ function* newMatchLog2(action) {
     }
     yield axios.post('/matches', logData);
     // yield put({ type: 'GET_GAME', win: newmatchlog });
-    console.log('player two match log successfully added to the database. ' , logData);
+    console.log('player two match log successfully added to the database. ', logData);
   } catch (error) {
     console.log('error posting an gametitle', error);
   }
