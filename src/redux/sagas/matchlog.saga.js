@@ -4,10 +4,7 @@ import { all, put, takeEvery } from 'redux-saga/effects';
 
 function* newMatchLog(action) {
   try {
-    // const logData = { winner: action.payload };
-    // // const logMatch = {
-    // //   winner: winner,
-    // // }
+
     const { playerOne, playerTwo, gameTitle, userId } = action.payload;
     const logData = {
       winner: playerOne,

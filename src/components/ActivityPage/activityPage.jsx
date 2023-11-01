@@ -14,37 +14,10 @@ function ActivityPage() {
   const location = useLocation();
 
   const gameTitle = location.state ? location.state.game : "Game not entered";
-
-
-  // const playerOne = location.state ? location.state.game : "Player one name not entered";
-
-  // const gameData = location.state ? location.state.gameData : null;
-  // const gameTitle = gameData ? gameData.gameTitle : "Game not entered";
-  // const playerOne = gameData ? gameData.playerOne : "Player 1";
-  // const playerTwo = gameData ? gameData.playerTwo : "Player 2";
-  //"dispatch" is how we talk to redux from react
   const dispatch = useDispatch()
 
-  // console.log('Game data found:', gameData);
-
-
-  // trying to dishpatch this saga to fetch game List. dont think this is working yet becuase my database issue
-  // useEffect(() => {
-  //   console.log('in useEffect');
-  //   const action = { type: 'GET_GAME' };
-  //   dispatch(action);
-  // }, []);
-
-
   const handleClick = (event) => {
-
-    // const winnerName = playerOne;
-    // const loserName = playerTwo;
-    // const gameTitle = gameTitle;
     const userId = user.id
-    // console.log(feedbackData);
-    // axios.post('/feedback', feedbackData)
-
     dispatch({
       type: 'PLAYERONEWIN',
 
@@ -53,14 +26,7 @@ function ActivityPage() {
   }
 
   const handleClick2 = (event) => {
-
-    // const winnerName = playerOne;
-    // const loserName = playerTwo;
-    // const gameTitle = gameTitle;
     const userId = user.id
-    // console.log(feedbackData);
-    // axios.post('/feedback', feedbackData)
-
     dispatch({
       type: 'WINBUTTON',
 

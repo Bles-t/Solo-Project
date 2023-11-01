@@ -24,14 +24,7 @@ function SavedGamePage() {
   const dispatch = useDispatch()
 
   const handleClick = (event) => {
-
-    // const winnerName = playerOne;
-    // const loserName = playerTwo;
-    // const gameTitle = gameTitle;
     const userId = user.id
-    // console.log(feedbackData);
-    // axios.post('/feedback', feedbackData)
-
     dispatch({
       type: 'PLAYERONEWIN',
 
@@ -40,14 +33,7 @@ function SavedGamePage() {
   }
 
   const handleClick2 = (event) => {
-
-    // const winnerName = playerOne;
-    // const loserName = playerTwo;
-    // const gameTitle = gameTitle;
     const userId = user.id
-    // console.log(feedbackData);
-    // axios.post('/feedback', feedbackData)
-
     dispatch({
       type: 'WINBUTTON',
 
