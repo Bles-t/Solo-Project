@@ -1,27 +1,50 @@
 import axios from 'axios';
 import { all, put, takeEvery } from 'redux-saga/effects';
 
+// orginal function
+// function* newMatchLog(action) {
+//   try {
+
+//     const { playerOne, playerTwo, PlayerOneWinButton, gameTitle, matchTitle, userId } = action.payload;
+//     const logData = {
+//       winner: playerOne,
+//       loser: playerTwo,
+//       p1wincount: PlayerOneWinButton,
+//       matchtitle: matchTitle,
+//       gametitle: gameTitle,
+//       date: new Date(),
+//       userId
+//     }
+//     yield axios.post('/matches', logData);
+//     // yield put({ type: 'GET_GAME', win: newmatchlog });
+//     console.log('player one match log successfully added to the database.', logData);
+//   } catch (error) {
+//     console.log('error posting an gametitle', error);
+//   }
+// }
+
 
 function* newMatchLog(action) {
   try {
-
-    const { playerOne, playerTwo, PlayerOneWinButton, gameTitle, matchTitle, userId } = action.payload;
+    const { winner, loser, gametitle, p1wincount, userId } = action.payload;
     const logData = {
-      winner: playerOne,
-      loser: playerTwo,
-      p1wincount: PlayerOneWinButton,
-      matchtitle: matchTitle,
-      gametitle: gameTitle,
+      winner,
+      loser,
+      p1wincount,
+      gametitle,
       date: new Date(),
-      userId
-    }
+      userId,
+    };
+
+  
+
     yield axios.post('/matches', logData);
-    // yield put({ type: 'GET_GAME', win: newmatchlog });
-    console.log('player one match log successfully added to the database.', logData);
+    console.log('Player one match log successfully added to the database.', logData);
   } catch (error) {
-    console.log('error posting an gametitle', error);
+    console.log('Error posting match data', error);
   }
 }
+
 
 // 2nd match log in saga is for loggin the data of the 2nd user
 
