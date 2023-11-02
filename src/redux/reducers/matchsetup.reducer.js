@@ -6,3 +6,6 @@ const matchSetup = (state = {}, action) => {
       return state;
   }
 };
+
+
+export default matchSetup;
