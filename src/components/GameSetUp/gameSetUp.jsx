@@ -7,43 +7,71 @@ function GameSetUp() {
 
   const dispatch = useDispatch()
 
-  const [newPlayerOne, setNewPlayerOne] = useState('')
+  // const [newPlayerOne, setNewPlayerOne] = useState('')
 
-  const [newPlayerTwo, setNewPlayerTwo] = useState('')
+  // const [newPlayerTwo, setNewPlayerTwo] = useState('')
 
-  const [newGame, setNewGame] = useState('')
+  // const [newGame, setNewGame] = useState('')
 
-  const [newMatchTitle, setNewMatchTitle] = useState('')
+  // const [newMatchTitle, setNewMatchTitle] = useState('')
 
+
+  // const handleSubmit = (event) => {
+  //   event.preventDefault()
+
+
+  //   dispatch({
+  //     type: 'ADD_PLAYERONE',
+  //     payload: newPlayerOne,
+  //   })
+  //   dispatch({
+  //     type: 'ADD_PLAYERTWO',
+  //     payload: newPlayerTwo,
+  //   })
+  //   //Tried different ways to do this but to my understajding in order to post data into a database it needs to be an object.
+  //   dispatch({
+  //     type: 'SET_GAME',
+  //     payload: { game: newGame },
+  //   })
+  //   dispatch({
+  //     type: 'ADD_MATCHTITLE',
+  //     payload: newMatchTitle,
+  //   })
+
+  //   setNewPlayerOne(' h')
+  //   setNewPlayerTwo('')
+  //   setNewGame('')
+  //   setNewMatchTitle('')
+  //   history.push('/ActivityPage', { game: newGame })
+  // }
+
+  const [newMatch, setNewMatch] = useState({
+    playerOne: '',
+    playerTwo: '',
+    game: '',
+    matchTitle: '',
+    p1wincount: 0, // Initialize with 0
+  });
 
   const handleSubmit = (event) => {
-    event.preventDefault()
+    event.preventDefault();
 
+    dispatch({
+      type: 'SET_MATCH_DETAILS',
+      payload: newMatch,
+    });
 
-    dispatch({
-      type: 'ADD_PLAYERONE',
-      payload: newPlayerOne,
-    })
-    dispatch({
-      type: 'ADD_PLAYERTWO',
-      payload: newPlayerTwo,
-    })
-    //Tried different ways to do this but to my understajding in order to post data into a database it needs to be an object.
-    dispatch({
-      type: 'SET_GAME',
-      payload: { game: newGame },
-    })
-    dispatch({
-      type: 'ADD_MATCHTITLE',
-      payload: newMatchTitle,
-    })
+    setNewMatch({
+      playerOne: '',
+      playerTwo: '',
+      game: '',
+      matchTitle: '',
+      p1wincount: 0,
+    });
 
-    setNewPlayerOne(' h')
-    setNewPlayerTwo('')
-    setNewGame('')
-    setNewMatchTitle('')
-    history.push('/ActivityPage', { game: newGame })
-  }
+    history.push('/ActivityPage', { game: newMatch.game });
+  };
+
 
   const history = useHistory()
   return (

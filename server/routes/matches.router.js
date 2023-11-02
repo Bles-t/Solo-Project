@@ -28,7 +28,7 @@ router.get('/', (req, res) => {
  */
 router.post('/', (req, res) => {
   console.log('In POST request');
-  const { winner, loser, gametitle, p1wincount, p2wincount, matchtitle, userId } = req.body
+  const [winner, loser, gametitle, p1wincount, p2wincount, matchtitle, userId] = req.body
 
   // console.log('New matchlog details:', logMatch);
   const queryText = `INSERT INTO "matches"("winner","loser","gameid","p1wincount","p2wincount","matchtitle", "date","userid") VALUES ($1,$2,(SELECT "id" FROM "gametitle" WHERE "gamename" =$3 LIMIT 1), $4, $5, $6, CURRENT_DATE,$7 )`;
