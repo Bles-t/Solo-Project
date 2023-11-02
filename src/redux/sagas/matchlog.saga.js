@@ -26,17 +26,18 @@ import { all, put, takeEvery } from 'redux-saga/effects';
 
 function* newMatchLog(action) {
   try {
-    const { winner, loser, gametitle, p1wincount, userId } = action.payload;
+    const { winner, loser, gametitle, matchtitle, p1wincount, userId } = action.payload;
     const logData = {
       winner,
       loser,
       p1wincount,
       gametitle,
+      matchtitle,
       date: new Date(),
       userId,
     };
 
-  
+
 
     yield axios.post('/matches', logData);
     console.log('Player one match log successfully added to the database.', logData);
