@@ -54,6 +54,7 @@ function GameSetUp() {
     gamename: '',
     matchTitle: '',
     p1wincount: 0, // Initialize with 0
+    userId:'userId'
   });
 
   const handleSubmit = (event) => {
@@ -66,7 +67,7 @@ function GameSetUp() {
 
 
 
-   
+
     setNewMatch({
       playerOne: '',
       playerTwo: '',
@@ -74,6 +75,7 @@ function GameSetUp() {
       gamename: '',
       p1wincount: 0,
       p2wincount: 0,
+      userId:0
     });
     history.push('/ActivityPage', { newmatch: newMatch });
   };

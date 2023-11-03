@@ -19,39 +19,38 @@ function ActivityPage() {
 
 
   const dispatch = useDispatch()
-
+  const [p1wincount, setP1WinCount] = useState(0);
   const handleClick = (event) => {
     const userId = user.id;
+    console.log("see if its zeor", newmatch.p1wincount);
+
+
 
     // Increment p1wincount by 1
-    const updatedP1WinCount = newmatch.p1wincount + 1;
-
-    // Create a copy of the newmatch object with the updated p1wincount
-    const updatedMatch = {
-      ...newmatch,
-      p1wincount: updatedP1WinCount,
-    };
+    const updatedP1WinCount = newmatch.p1wincount++;
 
 
 
+    setP1WinCount(updatedP1WinCount);
 
 
-    console.log("Update match", updatedMatch);
 
 
     dispatch({
       type: 'SET_MATCH_DETAILS',
       payload: {
-        matchTitle: updatedMatch.matchTitle,
-        playerOne: updatedMatch.playerOne,
+        matchTitle: newmatch.matchTitle,
+        playerOne: newmatch.playerOne,
         p1wincount: updatedP1WinCount,
-        playerTwo: updatedMatch.playerTwo,
+        playerTwo: newmatch.playerTwo,
         userId,
-        gamename: updatedMatch.gamename
+        gamename: newmatch.gamename
+
       },
     });
 
   }
+
   //   dispatch({
   //     type: 'SET_MATCH_DETAILS',
   //     payload: {
@@ -91,7 +90,7 @@ function ActivityPage() {
       <h4>EVENT:{newmatch.matchTitle}</h4>
       <h3>Game:{newmatch.gamename} </h3>
       <h2> hey</h2>
-      <p>Player 1: {newmatch.playerOne} Wins: {newmatch.p1wincount} <button onClick={handleClick}> W </button>
+      <p>Player 1: {newmatch.playerOne} Wins: {p1wincount} <button onClick={handleClick}> W </button>
 
       </p>
       <p>Player 2: {newmatch.playerTwo} Wins: {PlayerTwoWinButton} <button onClick={handleClick2}> W </button></p>
