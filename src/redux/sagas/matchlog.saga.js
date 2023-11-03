@@ -26,15 +26,18 @@ import { all, put, takeEvery } from 'redux-saga/effects';
 
 function* newMatchLog(action) {
   try {
-    const { matchTitle, playerOne, playerTwo, gamename, p1wincount, userId } = action.payload;
+    const { matchTitle, playerOne, playerTwo, gamename, p1wincount, p2wincount, userId } = action.payload;
     const logData = {
       playerOne,
       playerTwo,
       p1wincount,
+      p2wincount,
       matchTitle,
       date: new Date(),
       userId,
       gamename
+
+
     };
 
 
@@ -51,19 +54,26 @@ function* newMatchLog(action) {
 
 function* newMatchLog2(action) {
   try {
-    const { playerOne, playerTwo, gameTitle, userId } = action.payload;
+    const { matchTitle, playerOne, playerTwo, gamename, p1wincount, p2wincount, userId } = action.payload;
     const logData = {
-      winner: playerTwo,
-      loser: playerOne,
-      gametitle: gameTitle,
+      playerOne,
+      playerTwo,
+      p1wincount,
+      p2wincount,
+      matchTitle,
       date: new Date(),
-      userId
-    }
+      userId,
+      gamename
+
+
+    };
+
+
+    console.log("log data", logData);
     yield axios.post('/matches', logData);
-    // yield put({ type: 'GET_GAME', win: newmatchlog });
-    console.log('player two match log successfully added to the database. ', logData);
+    console.log('Player one match log successfully added to the database.', logData);
   } catch (error) {
-    console.log('error posting an gametitle', error);
+    console.log('Error posting match data', error);
   }
 }
 

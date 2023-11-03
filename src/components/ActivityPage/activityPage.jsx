@@ -16,10 +16,14 @@ function ActivityPage() {
 
   const newmatch = location.state ? location.state.newmatch : "new match data not entered";
 
+  console.log("here i am" , newmatch);
 
 
   const dispatch = useDispatch()
   const [p1wincount, setP1WinCount] = useState(0);
+
+  const [p2wincount, setp2wincount] = useState(0);
+
   const handleClick = (event) => {
     const userId = user.id;
     console.log("see if its zeor", newmatch.p1wincount);
@@ -51,39 +55,36 @@ function ActivityPage() {
 
   }
 
-  //   dispatch({
-  //     type: 'SET_MATCH_DETAILS',
-  //     payload: {
-  //       matchTitle: updatedMatch.matchTitle,
-  //       playerOne: updatedMatch.playerOne,
-  //       p1wincount: updatedP1WinCount, // Pass the updated value
-  //       playerTwo: updatedMatch.playerTwo,
-  //       userId,
-  //       newGame: newGame.gamename
-  //     }
-
-
-
-
-
-  //   });
-  // }
-
-
-
-
   const handleClick2 = (event) => {
-    const userId = user.id
+    const userId = user.id;
+    console.log("see if its zeor", newmatch.p2wincount);
+
+
+
+    // Increment p1wincount by 1
+    const updatedP2WinCount = newmatch.p2wincount++;
+
+
+
+    setp2wincount(updatedP2WinCount);
+
+
+
+
     dispatch({
       type: 'WINBUTTON',
+      payload: {
+        matchTitle: newmatch.matchTitle,
+        playerOne: newmatch.playerTwo,
+        p2wincount: updatedP2WinCount,
+        playerTwo: newmatch.playerOne,
+        userId,
+        gamename: newmatch.gamename
 
-      payload: { playerOne, playerTwo, gameTitle, userId }
-    })
+      },
+    });
+
   }
-
-
-
-
   console.log('Playertwo:', playerTwo);
   return (
     <div>
@@ -93,7 +94,7 @@ function ActivityPage() {
       <p>Player 1: {newmatch.playerOne} Wins: {p1wincount} <button onClick={handleClick}> W </button>
 
       </p>
-      <p>Player 2: {newmatch.playerTwo} Wins: {PlayerTwoWinButton} <button onClick={handleClick2}> W </button></p>
+      <p>Player 2: {newmatch.playerTwo} Wins: {p2wincount} <button onClick={handleClick2}> W </button></p>
 
 
 

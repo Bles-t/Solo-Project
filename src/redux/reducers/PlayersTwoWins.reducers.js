@@ -1,10 +1,12 @@
-const PlayerTwoWins = (state = 0, action) => {
-  if (action.type === 'WINBUTTON') {
-    console.log(`The element was ${action.payload}`);
-
-    return state + 1
+const PlayerTwoWins = (state = {}, action) => {
+  switch (action.type) {
+    case 'WINBUTTON':
+      return action.payload;
+    default:
+      return state;
   }
-  return state
-}
+};
+
+
 
 export default PlayerTwoWins;
