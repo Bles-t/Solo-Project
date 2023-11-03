@@ -13,9 +13,9 @@ function ActivityPage() {
 
   const location = useLocation();
 
-  const newGame = location.state ? location.state.game : "Game not entered";
 
   const newmatch = location.state ? location.state.newmatch : "new match data not entered";
+
 
 
   const dispatch = useDispatch()
@@ -33,24 +33,42 @@ function ActivityPage() {
     };
 
 
+
+
+
     console.log("Update match", updatedMatch);
+
+
     dispatch({
       type: 'SET_MATCH_DETAILS',
       payload: {
         matchTitle: updatedMatch.matchTitle,
         playerOne: updatedMatch.playerOne,
-        p1wincount: updatedP1WinCount, // Pass the updated value
+        p1wincount: updatedP1WinCount,
         playerTwo: updatedMatch.playerTwo,
         userId,
-        newGame: newGame.gamename
-      }
-
-
-
-
-
+        gamename: updatedMatch.gamename
+      },
     });
+
   }
+  //   dispatch({
+  //     type: 'SET_MATCH_DETAILS',
+  //     payload: {
+  //       matchTitle: updatedMatch.matchTitle,
+  //       playerOne: updatedMatch.playerOne,
+  //       p1wincount: updatedP1WinCount, // Pass the updated value
+  //       playerTwo: updatedMatch.playerTwo,
+  //       userId,
+  //       newGame: newGame.gamename
+  //     }
+
+
+
+
+
+  //   });
+  // }
 
 
 
@@ -71,7 +89,7 @@ function ActivityPage() {
   return (
     <div>
       <h4>EVENT:{newmatch.matchTitle}</h4>
-      <h3>Game:{newGame} </h3>
+      <h3>Game:{newmatch.gamename} </h3>
       <h2> hey</h2>
       <p>Player 1: {newmatch.playerOne} Wins: {newmatch.p1wincount} <button onClick={handleClick}> W </button>
 

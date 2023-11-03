@@ -26,7 +26,7 @@ import { all, put, takeEvery } from 'redux-saga/effects';
 
 function* newMatchLog(action) {
   try {
-    const { matchTitle, playerOne, playerTwo, newGame, p1wincount, userId } = action.payload;
+    const { matchTitle, playerOne, playerTwo, gamename, p1wincount, userId } = action.payload;
     const logData = {
       playerOne,
       playerTwo,
@@ -34,7 +34,7 @@ function* newMatchLog(action) {
       matchTitle,
       date: new Date(),
       userId,
-      newGame
+      gamename
     };
 
 

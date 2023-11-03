@@ -5,8 +5,8 @@ import { all, put, takeEvery } from 'redux-saga/effects';
 //adds gametitle to DB then fetches upated list of gametitles
 function* addGameTitle(action) {
   try {
-    const newGame = action.payload
-    yield axios.post('/gametitle', newGame);
+    const newGame = action.payload.game
+    yield axios.post('/gametitle', { game: newGame });
     // yield put({ type: 'LIST_GAMES', game: newGame });
     console.log('Game title successfully added to the database.');
   } catch (error) {
@@ -29,7 +29,7 @@ function* fetchGameTitle() {
 
 function* gametitleSaga() { //also known as watcherSaga
   yield all([
-    takeEvery('SET_MATCH_DETAILS', addGameTitle),
+    takeEvery('SET_GAME', addGameTitle),
     takeEvery('ALL_GAMES', fetchGameTitle)
   ])
 }
