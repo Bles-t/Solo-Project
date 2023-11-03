@@ -42,7 +42,17 @@ function* newMatchLog(action) {
 
 
     console.log("log data", logData);
+
+
+
+
+
     yield axios.post('/matches', logData);
+
+    const newMatchId = result.rows[0].id;
+    // Dispatch an action to update the Redux state with the new id
+    yield put({ type: 'STORE_NEW_MATCH_ID', payload: newMatchId });
+
     console.log('Player one match log successfully added to the database.', logData);
     // place match id in store
   } catch (error) {
@@ -100,7 +110,7 @@ function* deleteGame(action) {
     yield axios.delete(`/matches/:id`);
     yield put({ type: 'DISPLAY_MATCHDATA' });
   } catch (error) {
-      console.log('error transferring an animal', error);
+    console.log('error transferring an animal', error);
   }
 }
 
@@ -114,7 +124,7 @@ function* deleteGame(action) {
 function* matchLogSaga() { //also known as watcherSaga
   yield all([
     // should i add the data to the data base on handle submit?
-    takeEvery('LIST_DATA', newMatchLog),
+    takeEvery('SET_MATCH_DETAILS', newMatchLog),
     takeEvery('WINBUTTON', newMatchLog2),
     takeEvery('DISPLAY_MATCHDATA', fetchMatchData),
     takeEvery('DELETE_GAME', deleteGame),

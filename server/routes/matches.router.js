@@ -31,13 +31,16 @@ router.post('/', (req, res) => {
   const { playerOne, playerTwo, gamename, p1wincount, p2wincount, matchTitle, userId } = req.body
   console.log("This is req.body", req.body);
   // console.log('New matchlog details:', logMatch);
-  const queryText = `INSERT INTO "matches"("winner","loser","gameid","p1wincount","p2wincount","matchtitle", "date","userid") VALUES ($1,$2,$3, $4, $5, $6, CURRENT_DATE,$7 ) return id`;
+  const queryText = `INSERT INTO "matches"("winner","loser","gameid","p1wincount","p2wincount","matchtitle", "date","userid") VALUES ($1,$2,$3, $4, $5, $6, CURRENT_DATE,$7 ) RETURNING id`;
   pool.query(queryText, [playerOne, playerTwo, gamename, p1wincount, p2wincount, matchTitle, userId])
 
     .then(() => {
       console.log("Adrian");
-      res.sendStatus(201);
-      // send id to cleint 
+      const newMatchId = result.rows[0].id
+      res.sendStatus(201).json("New match ID", newMatchId);
+      // send id to cleint
+
+
     })
 
     .catch((err) => {

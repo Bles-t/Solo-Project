@@ -1,10 +1,12 @@
-const matchSetup = (state = {}, action) => {
+const matchSetup = (state = { id: null }, action) => {
   switch (action.type) {
     case 'SET_MATCH_DETAILS':
-      return action.payload;
-      case 'LIST_DATA':
+      return action.payload
+    case 'STORE_NEW_MATCH_ID':
+      return { ...state, ...action.payload }
+
     default:
-      return [state];
+      return state;
   }
 };
 
