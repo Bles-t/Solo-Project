@@ -16,7 +16,7 @@ function ActivityPage() {
 
   const newmatch = location.state ? location.state.newmatch : "new match data not entered";
 
-  console.log("here i am" , newmatch);
+  console.log("here i am", newmatch);
 
 
   const dispatch = useDispatch()
@@ -31,11 +31,11 @@ function ActivityPage() {
 
 
     // Increment p1wincount by 1
-    const updatedP1WinCount = newmatch.p1wincount++;
+    const updatedP1WinCount = newmatch.p1wincount + 1;
 
 
 
-    setP1WinCount(updatedP1WinCount);
+    setP1WinCount(p1wincount + 1);
 
 
 
@@ -45,11 +45,11 @@ function ActivityPage() {
       payload: {
         matchTitle: newmatch.matchTitle,
         playerOne: newmatch.playerOne,
-        p1wincount: updatedP1WinCount,
+        p1wincount: p1wincount,
         playerTwo: newmatch.playerTwo,
         userId,
         gamename: newmatch.gamename
-
+// grab match id from store
       },
     });
 

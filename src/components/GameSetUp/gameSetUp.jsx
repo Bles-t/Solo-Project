@@ -62,6 +62,7 @@ function GameSetUp() {
     event.preventDefault();
 
     dispatch({
+      // post new match to data base
       type: 'SET_MATCH_DETAILS',
       payload: newMatch,
     });
@@ -81,8 +82,13 @@ function GameSetUp() {
     history.push('/ActivityPage', { newmatch: newMatch });
   };
 
+//
 
-  const history = useHistory()
+
+
+ const history = useHistory()
+
+
   return (
 
     <form onSubmit={handleSubmit}   >

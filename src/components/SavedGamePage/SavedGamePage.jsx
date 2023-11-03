@@ -18,18 +18,22 @@ function SavedGamePage() {
   const playerTwo = gameData ? gameData.loser : "Player 2";
   const p2wincount = gameData ? gameData.p2wincount : "Game date not found";
   const p1wincount = gameData ? gameData.p1wincount : "win count not entered";
-  const gameTitle = gameData ? gameData.gameid : "Gamename not entered";
+  const gamename = gameData ? gameData.gamename : "Gamename not entered";
 
 
   console.log('Game data found:', gameData.winner);
+  console.log("dat", playerOne);
   const dispatch = useDispatch()
 
   const handleClick = (event) => {
     const userId = user.id
     dispatch({
-      type: 'PLAYERONEWIN',
+      type: 'SET_MATCH_DETAILS',
 
-      payload: { playerOne, playerTwo,  userId }
+      payload: { playerOne, playerTwo, p1wincount, gamename, p2wincount, userId }
+
+
+
     })
   }
 
@@ -38,14 +42,14 @@ function SavedGamePage() {
     dispatch({
       type: 'WINBUTTON',
 
-      payload: { playerOne, playerTwo,  userId }
+      payload: { playerOne, playerTwo, userId }
     })
   }
 
   return (
     <div>
       {/* <h4>EVENT:{matchTitle}</h4> */}
-      <h3>Game:{gameData.gameid} </h3>
+      <h3>Game:{gameData.gamename} </h3>
       <h2> hey</h2>
       <p>Player 1: {gameData.winner} Wins: {gameData.p1wincount} <button onClick={handleClick}> W </button></p>
       <p>Player 2: {gameData.loser} Wins:  {gameData.p2wincount} <button onClick={handleClick2}> W </button></p>

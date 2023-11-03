@@ -23,15 +23,21 @@ function MatchHistoryPage() {
       gameData: {
         winner: selectedGame.winner,
         loser: selectedGame.loser,
-        gameid: selectedGame.gameid,
-        p1wincount:selectedGame.p1wincount,
-        p2wincount:selectedGame.p2wincount
+        gamename: selectedGame.gamename,
+        p1wincount: selectedGame.p1wincount,
+        p2wincount: selectedGame.p2wincount
 
       }
     });
   }
 
   console.log('match data array data', matchdata);
+
+  const removeGame = (e) => {
+    e.preventDefault();
+    dispatch({ type: 'DELETE_GAME', payload: matchdata });
+  }
+
 
   return (
 
@@ -45,6 +51,7 @@ function MatchHistoryPage() {
           {matchdata.map((game, index) => (
             <li>
               <button key={index} onClick={() => handleGameClick(game)}>{game.gameid}</button>
+              <button onClick={removeGame}>Remove</button>
             </li>
 
           ))}

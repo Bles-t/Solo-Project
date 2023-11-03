@@ -44,6 +44,7 @@ function* newMatchLog(action) {
     console.log("log data", logData);
     yield axios.post('/matches', logData);
     console.log('Player one match log successfully added to the database.', logData);
+    // place match id in store
   } catch (error) {
     console.log('Error posting match data', error);
   }
@@ -94,7 +95,14 @@ function* fetchMatchData() {
 
 
 
-
+function* deleteGame(action) {
+  try {
+    yield axios.delete(`/matches/:id`);
+    yield put({ type: 'DISPLAY_MATCHDATA' });
+  } catch (error) {
+      console.log('error transferring an animal', error);
+  }
+}
 
 
 
@@ -109,6 +117,7 @@ function* matchLogSaga() { //also known as watcherSaga
     takeEvery('LIST_DATA', newMatchLog),
     takeEvery('WINBUTTON', newMatchLog2),
     takeEvery('DISPLAY_MATCHDATA', fetchMatchData),
+    takeEvery('DELETE_GAME', deleteGame),
 
   ])
 }

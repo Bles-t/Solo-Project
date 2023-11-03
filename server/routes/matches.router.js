@@ -31,12 +31,13 @@ router.post('/', (req, res) => {
   const { playerOne, playerTwo, gamename, p1wincount, p2wincount, matchTitle, userId } = req.body
   console.log("This is req.body", req.body);
   // console.log('New matchlog details:', logMatch);
-  const queryText = `INSERT INTO "matches"("winner","loser","gameid","p1wincount","p2wincount","matchtitle", "date","userid") VALUES ($1,$2,$3, $4, $5, $6, CURRENT_DATE,$7 )`;
+  const queryText = `INSERT INTO "matches"("winner","loser","gameid","p1wincount","p2wincount","matchtitle", "date","userid") VALUES ($1,$2,$3, $4, $5, $6, CURRENT_DATE,$7 ) return id`;
   pool.query(queryText, [playerOne, playerTwo, gamename, p1wincount, p2wincount, matchTitle, userId])
 
     .then(() => {
       console.log("Adrian");
       res.sendStatus(201);
+      // send id to cleint 
     })
 
     .catch((err) => {
@@ -46,6 +47,33 @@ router.post('/', (req, res) => {
     });
   // POST route code ends here
 });
+
+
+
+
+// DELETE - game
+router.delete('/:id', (req, res) => {
+
+  let queryText = 'DELETE FROM "matches" WHERE "id" = $1;';
+  pool.query(queryText)
+    .then((result) => {
+      res.sendStatus(200);
+    })
+    .catch((err) => {
+      console.log(`Error making query ${queryText}`, err);
+      res.sendStatus(500)
+    })
+}) //end DELETE
+
+
+
+
+
+
+
+
+
+
 
 
 
