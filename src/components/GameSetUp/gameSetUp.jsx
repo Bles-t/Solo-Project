@@ -79,13 +79,14 @@ function GameSetUp() {
     <form onSubmit={handleSubmit}   >
       <h2>Enter Match Details</h2>
 
-      <input name="name" placeholder="Player 1" type="text" value={newPlayerOne} onChange={event => setNewPlayerOne(event.target.value)} />
+      <input name="name" placeholder="Player 1" type="text" value={newMatch.playerOne} onChange={(event) => setNewMatch({ ...newMatch, playerOne: event.target.value })} />
 
-      <input name="name" placeholder="Player 2" type="text" value={newPlayerTwo} onChange={event => setNewPlayerTwo(event.target.value)} />
+      <input name="name" placeholder="Player 2" type="text" value={newMatch.playerTwo} onChange={(event) => setNewMatch({ ...newMatch, playerTwo: event.target.value })} />
 
-      <input name="name" placeholder="Game Title" type="text" value={newGame} onChange={event => setNewGame(event.target.value)} />
 
-      <input name="name" placeholder="Match Title" type="text" value={newMatchTitle} onChange={event => setNewMatchTitle(event.target.value)} />
+      <input name="name" placeholder="Game Title" type="text" value={newMatch.game} onChange={(event) => setNewMatch({ ...newMatch, game: event.target.value })} />
+
+      <input name="name" placeholder="Match Title" type="text" value={newMatch.matchTitle} onChange={(event) => setNewMatch({ ...newMatch, matchTitle: event.target.value })} />
 
       <button type='submit'>Submit</button>
 
