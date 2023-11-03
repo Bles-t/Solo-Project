@@ -82,9 +82,9 @@ function* newMatchLog2(action) {
 // shows all matchdata  in database
 function* fetchMatchData() {
   try {
-    const allMatchData = yield axios.get('/matches')
+    const query = yield axios.get('/matches')
     // const gameTitle = allGames.data;
-    yield put({ type: 'SHOW_MATCHDATA', payload: allMatchData.data })
+    yield put({ type: 'SET_MATCH_DETAILS', payload: query.data })
     // yield put({ type:'ADD_GAME'});
     console.log('Match data fetched from database.');
   } catch (error) {

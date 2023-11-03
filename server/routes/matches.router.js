@@ -7,21 +7,15 @@ const router = express.Router();
  */
 router.get('/', (req, res) => {
   // GET route code here
-  const query = `
-    SELECT matches.*, gametitle.gamename
-    FROM matches
-    JOIN gametitle ON matches.gameid = gametitle.id
-    ORDER BY matches.winner, matches.loser, gametitle.gamename, matches.date ASC;
-  `;
+  const query = `SELECT * FROM matches `;
   pool.query(query)
-    .then((result) => {
-      // Send the result back as JSON
-      res.json(result.rows);
+    .then(result => {
+      res.send(result.rows);
     })
-    .catch((error) => {
-      console.error('Error executing SQL query', error);
-      res.status(500).send('An error occurred while fetching data.');
-    });
+    .catch(err => {
+      console.log('ERROR: Get all games', err);
+      res.sendStatus(500)
+    })
 });
 
 
