@@ -6,9 +6,7 @@ function MatchHistoryPage() {
 
   const history = useHistory()
   const dispatch = useDispatch();
-  const gameList = useSelector((store) => store.GameList);
-  const PlayerOne = useSelector((store) => store.PlayerOne);
-  const playerTwo = useSelector((store) => store.PlayerTwo);
+  const matchdata = useSelector((store) => store.matchSetup);
 
 
 
@@ -25,12 +23,15 @@ function MatchHistoryPage() {
       gameData: {
         winner: selectedGame.winner,
         loser: selectedGame.loser,
-        gamename: selectedGame.gamename
+        gameid: selectedGame.gameid,
+        p1wincount:selectedGame.p1wincount,
+        p2wincount:selectedGame.p2wincount
+
       }
     });
   }
 
-  console.log('PLayer One array data', PlayerOne);
+  console.log('match data array data', matchdata);
 
   return (
 
@@ -41,9 +42,9 @@ function MatchHistoryPage() {
         <h3>List of Games:  </h3>
         <ul>
 
-          {PlayerOne.map((game, index) => (
+          {matchdata.map((game, index) => (
             <li>
-              <button key={index} onClick={() => handleGameClick(game)}>{game.gamename}</button>
+              <button key={index} onClick={() => handleGameClick(game)}>{game.gameid}</button>
             </li>
 
           ))}

@@ -4,7 +4,7 @@ const matchSetup = (state = {}, action) => {
       return action.payload;
       case 'LIST_DATA':
     default:
-      return state;
+      return [state];
   }
 };
 
