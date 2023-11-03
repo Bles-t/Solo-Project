@@ -106,7 +106,7 @@ function* fetchMatchData() {
 function* matchLogSaga() { //also known as watcherSaga
   yield all([
     // should i add the data to the data base on handle submit?
-    takeEvery('SET_MATCH_DETAILS', newMatchLog),
+    takeEvery('LIST_DATA', newMatchLog),
     takeEvery('WINBUTTON', newMatchLog2),
     takeEvery('DISPLAY_MATCHDATA', fetchMatchData),
 

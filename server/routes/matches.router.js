@@ -7,7 +7,11 @@ const router = express.Router();
  */
 router.get('/', (req, res) => {
   // GET route code here
+
   const query = `SELECT * FROM matches `;
+
+
+  console.log("this is query", query);
   pool.query(query)
     .then(result => {
       res.send(result.rows);

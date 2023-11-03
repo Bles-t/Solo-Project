@@ -10,10 +10,14 @@ function MatchHistoryPage() {
   const PlayerOne = useSelector((store) => store.PlayerOne);
   const playerTwo = useSelector((store) => store.PlayerTwo);
 
+
+
   useEffect(() => {
     console.log('in useEffect');
-    dispatch({ type: 'DISPLAY_MATCHDATA' });
-  }, [dispatch]);
+    const action = { type: 'DISPLAY_MATCHDATA' };
+    dispatch(action);
+  }, []);
+
 
   const handleGameClick = (selectedGame) => {
     console.log('Selected Game:', selectedGame);
