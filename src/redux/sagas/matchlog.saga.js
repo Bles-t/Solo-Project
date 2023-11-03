@@ -26,19 +26,19 @@ import { all, put, takeEvery } from 'redux-saga/effects';
 
 function* newMatchLog(action) {
   try {
-    const { winner, loser, gametitle, matchtitle, p1wincount, userId } = action.payload;
+    const { matchTitle, playerOne, playerTwo, newGame, p1wincount, userId } = action.payload;
     const logData = {
-      winner,
-      loser,
+      playerOne,
+      playerTwo,
       p1wincount,
-      gametitle,
-      matchtitle,
+      matchTitle,
       date: new Date(),
       userId,
+      newGame
     };
 
 
-
+    console.log("log data", logData);
     yield axios.post('/matches', logData);
     console.log('Player one match log successfully added to the database.', logData);
   } catch (error) {
@@ -95,7 +95,8 @@ function* fetchMatchData() {
 
 function* matchLogSaga() { //also known as watcherSaga
   yield all([
-    takeEvery('PLAYERONEWIN', newMatchLog),
+    // should i add the data to the data base on handle submit?
+    takeEvery('SET_MATCH_DETAILS', newMatchLog),
     takeEvery('WINBUTTON', newMatchLog2),
     takeEvery('DISPLAY_MATCHDATA', fetchMatchData),
 

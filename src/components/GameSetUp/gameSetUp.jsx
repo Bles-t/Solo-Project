@@ -45,10 +45,14 @@ function GameSetUp() {
   //   history.push('/ActivityPage', { game: newGame })
   // }
 
+
+  const [newGame, setNewGame] = useState('')
+
   const [newMatch, setNewMatch] = useState({
     playerOne: '',
     playerTwo: '',
-    game: '',
+    // Maybe add game probarites as a row just to make everything smother but for now imma do it this way.
+    // game: '',
     matchTitle: '',
     p1wincount: 0, // Initialize with 0
   });
@@ -61,15 +65,21 @@ function GameSetUp() {
       payload: newMatch,
     });
 
+
+    dispatch({
+      type: 'SET_GAME',
+      payload: { game: newGame },
+    })
+
+    setNewGame('')
     setNewMatch({
       playerOne: '',
       playerTwo: '',
-      game: '',
       matchTitle: '',
       p1wincount: 0,
+      p2wincount: 0,
     });
-
-    history.push('/ActivityPage', { game: newMatch.game });
+    history.push('/ActivityPage', { game: newGame, newmatch: newMatch });
   };
 
 
@@ -83,8 +93,10 @@ function GameSetUp() {
 
       <input name="name" placeholder="Player 2" type="text" value={newMatch.playerTwo} onChange={(event) => setNewMatch({ ...newMatch, playerTwo: event.target.value })} />
 
+      {/* may add this back if im having issue swith gmaelist.map later on */}
+      {/* <input name="name" placeholder="Game Title" type="text" value={newMatch.game} onChange={(event) => setNewMatch({ ...newMatch, game: event.target.value })} /> */}
 
-      <input name="name" placeholder="Game Title" type="text" value={newMatch.game} onChange={(event) => setNewMatch({ ...newMatch, game: event.target.value })} />
+      <input name="name" placeholder="Game Title" type="text" value={newGame} onChange={event => setNewGame(event.target.value)} />
 
       <input name="name" placeholder="Match Title" type="text" value={newMatch.matchTitle} onChange={(event) => setNewMatch({ ...newMatch, matchTitle: event.target.value })} />
 
