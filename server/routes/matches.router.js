@@ -34,10 +34,10 @@ router.post('/', (req, res) => {
   const queryText = `INSERT INTO "matches"("winner","loser","gameid","p1wincount","p2wincount","matchtitle", "date","userid") VALUES ($1,$2,$3, $4, $5, $6, CURRENT_DATE,$7 ) RETURNING id`;
   pool.query(queryText, [playerOne, playerTwo, gamename, p1wincount, p2wincount, matchTitle, userId])
 
-    .then(() => {
+    .then((result) => {
       console.log("Adrian");
-      const newMatchId = result.rows[0].id
-      res.sendStatus(201).json("New match ID", newMatchId);
+      const newMatchId = result.rows[0].id;
+      res.status(201).json({ message: 'New match ID', newMatchId });
       // send id to cleint
 
 

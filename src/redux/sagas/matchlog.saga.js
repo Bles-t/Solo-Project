@@ -49,11 +49,11 @@ function* newMatchLog(action) {
 
     yield axios.post('/matches', logData);
 
-    const newMatchId = result.rows[0].id;
-    // Dispatch an action to update the Redux state with the new id
-    yield put({ type: 'STORE_NEW_MATCH_ID', payload: newMatchId });
+    // const newMatchId = result.rows[0].id;
+    // // Dispatch an action to update the Redux state with the new id
+    // yield put({ type: 'STORE_NEW_MATCH_ID', payload: newMatchId });
 
-    console.log('Player one match log successfully added to the database.', logData);
+    console.log('Pnw match  match log successfully added to the database.', logData);
     // place match id in store
   } catch (error) {
     console.log('Error posting match data', error);
