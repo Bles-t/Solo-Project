@@ -127,7 +127,7 @@ function* handleIncrementP1WinCount(action) {
 
     yield put({
       type: 'INCREMENT_P1_WIN_COUNT',
-      payload:p1wincount
+      payload: response.data.p1wincount 
     });
   } catch (error) {
     console.error('Error incrementing p1wincount:', error);
@@ -142,7 +142,7 @@ function* matchLogSaga() { //also known as watcherSaga
     takeEvery('DISPLAY_MATCHDATA', fetchMatchData),
     takeEvery('DELETE_GAME', deleteGame),
     takeEvery('UPDATE_DATABASE', handleIncrementP1WinCount),
-    
+
 
   ])
 }

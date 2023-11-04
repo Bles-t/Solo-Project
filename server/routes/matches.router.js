@@ -94,11 +94,12 @@ router.delete('/:id', (req, res) => {
 
 router.put('/:id', (req, res) => {
   const matchId = req.params.id;
-  const { p1wincount } = req.body; // Assuming that the new p1wincount value is sent in the request body
+  // i added p1wincount and wont work and when removed it shows data on server but not taking an int
+  const p1wincount  = req.body; // Assuming that the new p1wincount value is sent in the request body
 
   // The SQL query string needs to SET p1wincount to a new value.
   // The $2 placeholder will be replaced with the new p1wincount value provided in the request body.
-  const query = `
+  const  query = `
     UPDATE matches
     SET p1wincount = $2
     WHERE id = $1
