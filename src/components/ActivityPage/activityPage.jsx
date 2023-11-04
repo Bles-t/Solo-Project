@@ -14,14 +14,14 @@ function ActivityPage() {
 
   const newmatch = location.state ? location.state.newmatch : "new match data not entered";
 
-  console.log("here i am", newmatch);
+  console.log("here i am", newmatch.p1wincount);
 
 
   const dispatch = useDispatch()
   // const [p1wincount, setP1WinCount] = useState(0);
 
   const [p2wincount, setp2wincount] = useState(0);
-  console.log("see vaule", newmatch.p1wincount);
+  // console.log("see vaule", newmatch.p1wincount);
   // In your component.js
 
 
@@ -31,6 +31,9 @@ function ActivityPage() {
     const matchId = newmatch.id; // or however you obtain the match ID
     const updatedP1WinCount = newmatch.p1wincount + 1; // For incrementing the win count
 
+    console.log("see vaule", updatedP1WinCount);
+
+
     dispatch({
       type: 'INCREMENT_P1_WIN_COUNT',
       // You may want to pass necessary data here as well if this dispatch updates state
@@ -38,9 +41,13 @@ function ActivityPage() {
     });
 
     dispatch({
-      type: 'UPDATE_DATABASE',
-      payload: { matchId, p1wincount: updatedP1WinCount }
+      type: 'UPDATE_DATABASE', // The type here must match what the saga is listening for
+      payload: {
+        matchId: newmatch.matchId,
+        p1wincount: updatedP1WinCount
+      }
     });
+
   };
 
 

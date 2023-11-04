@@ -120,7 +120,7 @@ function* handleIncrementP1WinCount(action) {
   try {
     const { matchId, p1wincount } = action.payload;
     // Make an axios.put request to update p1wincount
-    console.log("  whats here", matchId, p1wincount);
+    console.log("  whats here", action.payload);
     yield call(axios.put, `/matches/${matchId}`, { p1wincount });
 
     // Dispatch an action to update the Redux state with the new p1wincount

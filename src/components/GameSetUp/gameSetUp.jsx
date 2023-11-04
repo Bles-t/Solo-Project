@@ -8,7 +8,7 @@ function GameSetUp() {
   const dispatch = useDispatch()
 
 
-  const [newMatch, setNewMatch] = useState({
+  const {newMatch, setNewMatch} = useState({
     playerOne: '',
     playerTwo: '',
     // Maybe add game probarites as a row just to make everything smother but for now imma do it this way.
