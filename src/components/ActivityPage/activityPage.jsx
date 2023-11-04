@@ -10,7 +10,7 @@ function ActivityPage() {
   // const gameList = useSelector((store) => store.GameList);
   // const matchTitle = useSelector((store) => store.MatchTitle);
   const user = useSelector((store) => store.user);
-
+  const p1wincount = useSelector((store) => store.matchSetup.p1wincount);
   const location = useLocation();
 
 
@@ -20,40 +20,31 @@ function ActivityPage() {
 
 
   const dispatch = useDispatch()
-  const [p1wincount, setP1WinCount] = useState(0);
+  // const [p1wincount, setP1WinCount] = useState(0);
 
   const [p2wincount, setp2wincount] = useState(0);
+  console.log("see vaule", newmatch.p1wincount);
+  // In your component.js
+
+
 
   const handleClick = (event) => {
-    const userId = user.id;
-    console.log("see if its zeor", newmatch.p1wincount);
+    // Dispatch the INCREMENT_P1_WIN_COUNT action with the match details
+    dispatch({
+      type: 'INCREMENT_P1_WIN_COUNT',
 
 
-
-    // Increment p1wincount by 1
-    const updatedP1WinCount = newmatch.p1wincount + 1;
-
-
-
-    setP1WinCount(p1wincount + 1);
-
-
+    });
 
 
     dispatch({
-      type: 'SET_MATCH_DETAILS',
-      payload: {
-        matchTitle: newmatch.matchTitle,
-        playerOne: newmatch.playerOne,
-        p1wincount: p1wincount,
-        playerTwo: newmatch.playerTwo,
-        userId,
-        gamename: newmatch.gamename
-// grab match id from store
-      },
-    });
+      type: 'UPDATE_DATABASE',
+      payload: newmatch
 
-  }
+    });
+  };
+
+
 
   const handleClick2 = (event) => {
     const userId = user.id;
@@ -62,7 +53,7 @@ function ActivityPage() {
 
 
     // Increment p1wincount by 1
-    const updatedP2WinCount = newmatch.p2wincount++;
+    const updatedP2WinCount = newmatch.p2wincount + 1;
 
 
 

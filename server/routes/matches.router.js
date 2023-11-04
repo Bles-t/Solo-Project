@@ -70,8 +70,27 @@ router.delete('/:id', (req, res) => {
 
 
 
+// PUT route update route
+router.put('/:id', (req, res) => {
+  const matchId = req.params.id;
 
+  const query = `
+    UPDATE matches
+    SET p1wincount = p1wincount + 1
+    WHERE id = $1
+    RETURNING p1wincount;
+  `;
 
+  pool.query(query, [matchId])
+    .then((result) => {
+      const p1wincount = result.rows[0].p1wincount;
+      res.status(200).json({ p1wincount: p1wincount });
+    })
+    .catch((error) => {
+      console.error('Error updating p1wincount:', error);
+      res.status(500).send('An error occurred while updating p1wincount.');
+    });
+});
 
 
 

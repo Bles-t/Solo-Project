@@ -55,12 +55,13 @@ function GameSetUp() {
     matchTitle: '',
     p1wincount: 0, // Initialize with 0
     p2wincount: 0,
-    userId: 'userId'
+    userId: 'userId',
+    matchId: 0
   });
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
+    console.log("new match data", newMatch);
     dispatch({
       type: 'SET_MATCH_DETAILS',
       payload: newMatch,
@@ -80,7 +81,8 @@ function GameSetUp() {
       gamename: '',
       p1wincount: 0,
       p2wincount: 0,
-      userId: 0
+      userId: 0,
+      matchId: 0
     });
     history.push('/ActivityPage', { newmatch: newMatch });
   };

@@ -1,27 +1,5 @@
 import axios from 'axios';
-import { all, put, takeEvery } from 'redux-saga/effects';
-
-// orginal function
-// function* newMatchLog(action) {
-//   try {
-
-//     const { playerOne, playerTwo, PlayerOneWinButton, gameTitle, matchTitle, userId } = action.payload;
-//     const logData = {
-//       winner: playerOne,
-//       loser: playerTwo,
-//       p1wincount: PlayerOneWinButton,
-//       matchtitle: matchTitle,
-//       gametitle: gameTitle,
-//       date: new Date(),
-//       userId
-//     }
-//     yield axios.post('/matches', logData);
-//     // yield put({ type: 'GET_GAME', win: newmatchlog });
-//     console.log('player one match log successfully added to the database.', logData);
-//   } catch (error) {
-//     console.log('error posting an gametitle', error);
-//   }
-// }
+import { all, put, takeEvery, call } from 'redux-saga/effects';
 
 
 function* newMatchLog(action) {
@@ -114,10 +92,29 @@ function* deleteGame(action) {
   }
 }
 
+// In your saga.js
+function* handleIncrementP1WinCount(action) {
+  try {
+    // You can add an API call here to update the server with the new value if needed.
+    // Increment p1wincount by 1
+    // Extract the matchId from the payload
+    const { matchId } = action.payload;
+
+console.log(action.payload);
+    const p1wincount = yield call(axios.put, `/matches/${matchId}`);
 
 
-
-
+    yield put({
+      type: 'SET_UPDATE_P1COUNT',
+      payload: {
+        ...action.payload,
+        p1wincount: p1wincount,
+      },
+    });
+  } catch (error) {
+    console.error('Error incrementing p1wincount:', error);
+  }
+}
 
 
 
@@ -128,6 +125,7 @@ function* matchLogSaga() { //also known as watcherSaga
     takeEvery('WINBUTTON', newMatchLog2),
     takeEvery('DISPLAY_MATCHDATA', fetchMatchData),
     takeEvery('DELETE_GAME', deleteGame),
+    takeEvery('UPDATE_DATABASE', handleIncrementP1WinCount),
 
   ])
 }
