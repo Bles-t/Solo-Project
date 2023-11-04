@@ -19,11 +19,11 @@ CREATE TABLE "matches" (
     "id" SERIAL PRIMARY KEY,
     "winner" VARCHAR(80) NOT NULL,
     "loser" VARCHAR(80) NOT NULL,
-    "p1wincount" INTEGER ,
-    "p2wincount" INTEGER,
+    "p1wincount" INT ,
+    "p2wincount" INT,
     "matchtitle" VARCHAR(80) ,
     "gameid" INTEGER NOT NULL,
     "date" DATE NOT NULL DEFAULT CURRENT_DATE,
     "userid" VARCHAR(100) NOT NULL,
-    
+
 );
