@@ -99,6 +99,8 @@ router.put('/:id', (req, res) => {
   // i added .p1wincount at the end and wont work and when removed it shows data on server but not taking an int
   let p1wincount = req.body.p1wincount; // Assuming that the new p1wincount value is sent in the request body
 
+  
+
   // The SQL query string needs to SET p1wincount to a new value.
   // The $2 placeholder will be replaced with the new p1wincount value provided in the request body.
 

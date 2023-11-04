@@ -23,7 +23,7 @@ function ActivityPage() {
   const dispatch = useDispatch()
   // const [p1wincount, setP1WinCount] = useState(0);
 
-  const [p2wincount, setp2wincount] = useState(0);
+  const [p2newwincount, setp2newwincount] = useState(0);
   const [p1newwincount, setp1newwincount] = useState(0);
   console.log("see vaule", newmatch.p1wincount);
   // In your component.js
@@ -63,37 +63,38 @@ function ActivityPage() {
     setp1newwincount(p1newwincount)
   }, [dispatch]);
 
+//Player 2 handle click
 
   const handleClick2 = (event) => {
-    const userId = user.id;
-    console.log("see if its zeor", newmatch.p2wincount);
-
-
-
-    // Increment p1wincount by 1
-    const updatedP2WinCount = newmatch.p2wincount + 1;
-
-
-
-    setp2wincount(updatedP2WinCount);
 
 
 
 
+
+    // Assuming newmatch contains the data necessary for the update
+    // and matchId is a part of this object or can be obtained separately
+
+    const updatedP1WinCount = newmatch.p2wincount += 1; // For incrementing the win count
+    console.log("updatep1wincount", updatedP1WinCount);
+    setp2newwincount(updatedP1WinCount)
+
+    // dispatch({
+    //   type: 'INCREMENT_P1_WIN_COUNT',
+    //   // You may want to pass necessary data here as well if this dispatch updates state
+    //   payload: { matchId, p1wincount: updatedP1WinCount }
+    // });
+    console.log("match id", matchId);
     dispatch({
-      type: 'WINBUTTON',
+      type: 'UPDATE_DATABASE', // The type here must match what the saga is listening for
       payload: {
-        matchTitle: newmatch.matchTitle,
-        playerOne: newmatch.playerTwo,
-        p2wincount: updatedP2WinCount,
-        playerTwo: newmatch.playerOne,
-        userId,
-        gamename: newmatch.gamename
-
-      },
+        matchId: matchId.newMatchId,
+        p1wincount: updatedP1WinCount
+      }
     });
 
-  }
+  };
+
+
   console.log('Playertwo:', playerTwo);
   return (
     <div>
@@ -103,7 +104,7 @@ function ActivityPage() {
       <p>Player 1: {newmatch.playerOne} Wins: {p1newwincount} <button onClick={handleClick}> W </button>
 
       </p>
-      <p>Player 2: {newmatch.playerTwo} Wins: {p2wincount} <button onClick={handleClick2}> W </button></p>
+      <p>Player 2: {newmatch.playerTwo} Wins: {p2newwincount} <button onClick={handleClick2}> W </button></p>
 
 
 
