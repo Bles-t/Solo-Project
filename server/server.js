@@ -7,19 +7,7 @@ const app = express();
 
 
 //was Using this code to check if my server is connecting to my database
-//
-// const { Pool } = require('pg');
-// const pool = new Pool({
-//   connectionString: 'your-database-connection-string',
-// });
 
-// pool.connect()
-//   .then(() => {
-//     console.log('Connected to the database');
-//   })
-//   .catch((error) => {
-//     console.error('Error connecting to the database:', error);
-//   });
 
 const sessionMiddleware = require('./modules/session-middleware');
 const passport = require('./strategies/user.strategy');
@@ -45,6 +33,10 @@ app.use('/gametitle', gametitleRouter);
 app.use('/matches', matchesRouter);
 // Serve static files
 app.use(express.static('build'));
+
+
+
+
 
 // App Set //
 const PORT = process.env.PORT || 5005;

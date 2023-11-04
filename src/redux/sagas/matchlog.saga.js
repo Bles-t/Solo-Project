@@ -92,31 +92,46 @@ function* deleteGame(action) {
   }
 }
 
-// In your saga.js
+// //In your saga.js
+// function* handleIncrementP1WinCount(action) {
+//   try {
+//     // You can add an API call here to update the server with the new value if needed.
+//     // Increment p1wincount by 1
+//     // Extract the matchId from the payload
+//     const { matchId } = action.payload;
+
+// console.log(action.payload);
+//     const p1wincount = yield call(axios.put, `/matches/${matchId}`);
+
+
+//     yield put({
+//       type: 'SET_UPDATE_P1COUNT',
+//       payload: {
+//         ...action.payload,
+//         p1wincount: p1wincount,
+//       },
+//     });
+//   } catch (error) {
+//     console.error('Error incrementing p1wincount:', error);
+//   }
+// }
+
 function* handleIncrementP1WinCount(action) {
   try {
-    // You can add an API call here to update the server with the new value if needed.
-    // Increment p1wincount by 1
-    // Extract the matchId from the payload
-    const { matchId } = action.payload;
+    const { matchId, p1wincount } = action.payload;
+    // Make an axios.put request to update p1wincount
+    console.log("  whats here", matchId, p1wincount);
+    yield call(axios.put, `/matches/${matchId}`, { p1wincount });
 
-console.log(action.payload);
-    const p1wincount = yield call(axios.put, `/matches/${matchId}`);
-
+    // Dispatch an action to update the Redux state with the new p1wincount
 
     yield put({
-      type: 'SET_UPDATE_P1COUNT',
-      payload: {
-        ...action.payload,
-        p1wincount: p1wincount,
-      },
+      type: 'INCREMENT_P1_WIN_COUNT',
     });
   } catch (error) {
     console.error('Error incrementing p1wincount:', error);
   }
 }
-
-
 
 function* matchLogSaga() { //also known as watcherSaga
   yield all([

@@ -70,21 +70,45 @@ router.delete('/:id', (req, res) => {
 
 
 
-// PUT route update route
+// // PUT route update route
+// router.put('/:id', (req, res) => {
+//   const matchId = req.params.id;
+
+//   const query = `
+//     UPDATE matches
+//     SET p1wincount
+//     WHERE id = $1
+//     RETURNING p1wincount;
+//   `;
+
+//   pool.query(query, [matchId])
+//     .then((result) => {
+//       const p1wincount = result.rows[0].p1wincount;
+//       res.status(200).json({ p1wincount: p1wincount });
+//     })
+//     .catch((error) => {
+//       console.error('Error updating p1wincount:', error);
+//       res.status(500).send('An error occurred while updating p1wincount.');
+//     });
+// });
+
 router.put('/:id', (req, res) => {
   const matchId = req.params.id;
+  const { p1wincount } = req.body; // Assuming that the new p1wincount value is sent in the request body
 
+  // The SQL query string needs to SET p1wincount to a new value.
+  // The $2 placeholder will be replaced with the new p1wincount value provided in the request body.
   const query = `
     UPDATE matches
-    SET p1wincount = p1wincount + 1
+    SET p1wincount = $2
     WHERE id = $1
     RETURNING p1wincount;
   `;
 
-  pool.query(query, [matchId])
+  pool.query(query, [matchId, p1wincount]) // matchId will replace $1, and p1wincount will replace $2
     .then((result) => {
-      const p1wincount = result.rows[0].p1wincount;
-      res.status(200).json({ p1wincount: p1wincount });
+      const updatedP1WinCount = result.rows[0].p1wincount;
+      res.status(200).json({ p1wincount: updatedP1WinCount });
     })
     .catch((error) => {
       console.error('Error updating p1wincount:', error);
@@ -95,35 +119,5 @@ router.put('/:id', (req, res) => {
 
 
 
-
-
-
-
-// orginal query with join
-/**
- * POST route template
- */
-// router.post('/', (req, res) => {
-//   console.log('In POST request');
-
-
-//   const { playerOne, playerTwo, newGame, p1wincount, p2wincount, matchTitle, userId } = req.body
-//   console.log("This is req.body", req.body);
-//   // console.log('New matchlog details:', logMatch);
-//   const queryText = `INSERT INTO "matches"("winner","loser","gameid","p1wincount","p2wincount","matchtitle", "date","userid") VALUES ($1,$2,(SELECT "id" FROM "gametitle" WHERE "gamename" =$3 LIMIT 1), $4, $5, $6, CURRENT_DATE,$7 )`;
-//   pool.query(queryText, [playerOne, playerTwo, newGame, p1wincount, p2wincount, matchTitle, userId])
-
-//     .then(() => {
-//       console.log("Adrian");
-//       res.sendStatus(201);
-//     })
-
-//     .catch((err) => {
-//       console.log('Error completing  add game to query', err);
-
-//       res.sendStatus(500);
-//     });
-//   // POST route code ends here
-// });
 
 module.exports = router;

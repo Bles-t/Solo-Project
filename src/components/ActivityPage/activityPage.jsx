@@ -6,9 +6,7 @@ function ActivityPage() {
   const PlayerOneWinButton = useSelector((store) => store.PlayerOneWins);
   const PlayerTwoWinButton = useSelector((store) => store.PlayerTwoWins);
   // const playerOne = useSelector((store) => store.PlayerOne);
-  const playerTwo = useSelector((store) => store.PlayerTwo); // Make sure the name matches the reducer name in your root reducer
-  // const gameList = useSelector((store) => store.GameList);
-  // const matchTitle = useSelector((store) => store.MatchTitle);
+  const playerTwo = useSelector((store) => store.PlayerTwo); // Make sure the name matches the reducer name in your root
   const user = useSelector((store) => store.user);
   const p1wincount = useSelector((store) => store.matchSetup.p1wincount);
   const location = useLocation();
@@ -27,20 +25,21 @@ function ActivityPage() {
   // In your component.js
 
 
-
   const handleClick = (event) => {
-    // Dispatch the INCREMENT_P1_WIN_COUNT action with the match details
+    // Assuming newmatch contains the data necessary for the update
+    // and matchId is a part of this object or can be obtained separately
+    const matchId = newmatch.id; // or however you obtain the match ID
+    const updatedP1WinCount = newmatch.p1wincount + 1; // For incrementing the win count
+
     dispatch({
       type: 'INCREMENT_P1_WIN_COUNT',
-
-
+      // You may want to pass necessary data here as well if this dispatch updates state
+      payload: { matchId, p1wincount: updatedP1WinCount }
     });
-
 
     dispatch({
       type: 'UPDATE_DATABASE',
-      payload: newmatch
-
+      payload: { matchId, p1wincount: updatedP1WinCount }
     });
   };
 

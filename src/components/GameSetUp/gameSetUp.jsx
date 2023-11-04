@@ -7,44 +7,6 @@ function GameSetUp() {
 
   const dispatch = useDispatch()
 
-  // const [newPlayerOne, setNewPlayerOne] = useState('')
-
-  // const [newPlayerTwo, setNewPlayerTwo] = useState('')
-
-  // const [newGame, setNewGame] = useState('')
-
-  // const [newMatchTitle, setNewMatchTitle] = useState('')
-
-
-  // const handleSubmit = (event) => {
-  //   event.preventDefault()
-
-
-  //   dispatch({
-  //     type: 'ADD_PLAYERONE',
-  //     payload: newPlayerOne,
-  //   })
-  //   dispatch({
-  //     type: 'ADD_PLAYERTWO',
-  //     payload: newPlayerTwo,
-  //   })
-  //   //Tried different ways to do this but to my understajding in order to post data into a database it needs to be an object.
-  //   dispatch({
-  //     type: 'SET_GAME',
-  //     payload: { game: newGame },
-  //   })
-  //   dispatch({
-  //     type: 'ADD_MATCHTITLE',
-  //     payload: newMatchTitle,
-  //   })
-
-  //   setNewPlayerOne(' h')
-  //   setNewPlayerTwo('')
-  //   setNewGame('')
-  //   setNewMatchTitle('')
-  //   history.push('/ActivityPage', { game: newGame })
-  // }
-
 
   const [newMatch, setNewMatch] = useState({
     playerOne: '',
