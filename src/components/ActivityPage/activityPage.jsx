@@ -29,22 +29,22 @@ function ActivityPage() {
     // Assuming newmatch contains the data necessary for the update
     // and matchId is a part of this object or can be obtained separately
     const matchId = newmatch.id; // or however you obtain the match ID
-    const updatedP1WinCount = newmatch.p1wincount + 1; // For incrementing the win count
+     newmatch.p1wincount += 1; // For incrementing the win count
 
-    console.log("see vaule", updatedP1WinCount);
+    console.log("see vaule", newmatch.p1wincount);
 
 
     dispatch({
       type: 'INCREMENT_P1_WIN_COUNT',
       // You may want to pass necessary data here as well if this dispatch updates state
-      payload: { matchId, p1wincount: updatedP1WinCount }
+      payload: { matchId, p1wincount }
     });
 
     dispatch({
       type: 'UPDATE_DATABASE', // The type here must match what the saga is listening for
       payload: {
         matchId: newmatch.matchId,
-        p1wincount: updatedP1WinCount
+        p1wincount
       }
     });
 

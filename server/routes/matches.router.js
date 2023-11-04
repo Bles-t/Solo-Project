@@ -107,8 +107,8 @@ router.put('/:id', (req, res) => {
 
   pool.query(query, [matchId, p1wincount]) // matchId will replace $1, and p1wincount will replace $2
     .then((result) => {
-      const updatedP1WinCount = result.rows[0].p1wincount;
-      res.status(200).json({ p1wincount: updatedP1WinCount });
+      const p1wincount = result.rows[0].p1wincount;
+      res.status(200).json({ p1wincount: p1wincount });
     })
     .catch((error) => {
       console.error('Error updating p1wincount:', error);

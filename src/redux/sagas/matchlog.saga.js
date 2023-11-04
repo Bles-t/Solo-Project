@@ -121,12 +121,13 @@ function* handleIncrementP1WinCount(action) {
     const { matchId, p1wincount } = action.payload;
     // Make an axios.put request to update p1wincount
     console.log("  whats here", action.payload);
-    yield call(axios.put, `/matches/${matchId}`, { p1wincount });
+    yield call(axios.put, `/matches/${matchId}`,  { p1wincount: p1wincount });
 
     // Dispatch an action to update the Redux state with the new p1wincount
 
     yield put({
       type: 'INCREMENT_P1_WIN_COUNT',
+      payload:p1wincount
     });
   } catch (error) {
     console.error('Error incrementing p1wincount:', error);
@@ -141,6 +142,7 @@ function* matchLogSaga() { //also known as watcherSaga
     takeEvery('DISPLAY_MATCHDATA', fetchMatchData),
     takeEvery('DELETE_GAME', deleteGame),
     takeEvery('UPDATE_DATABASE', handleIncrementP1WinCount),
+    
 
   ])
 }
