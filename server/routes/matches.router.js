@@ -93,23 +93,31 @@ router.delete('/:id', (req, res) => {
 // });
 
 router.put('/:id', (req, res) => {
-  const matchId = req.params.id;
-  // i added p1wincount and wont work and when removed it shows data on server but not taking an int
-  const p1wincount  = req.body; // Assuming that the new p1wincount value is sent in the request body
+  let matchId = 1;
+
+
+  // i added .p1wincount at the end and wont work and when removed it shows data on server but not taking an int
+  let p1wincount = req.body.p1wincount; // Assuming that the new p1wincount value is sent in the request body
 
   // The SQL query string needs to SET p1wincount to a new value.
   // The $2 placeholder will be replaced with the new p1wincount value provided in the request body.
-  const  query = `
-    UPDATE matches
-    SET p1wincount = $2
-    WHERE id = $1
-    RETURNING p1wincount;
+
+  console.log("win count and match id", p1wincount, matchId);
+  const query = `
+    UPDATE "matches"
+    SET "p1wincount" = $2
+    WHERE "id" = $1
+    RETURNING "p1wincount";
   `;
+  console.log("this is query", query);
+
 
   pool.query(query, [matchId, p1wincount]) // matchId will replace $1, and p1wincount will replace $2
     .then((result) => {
-      const p1wincount = result.rows[0].p1wincount;
-      res.status(200).json({ p1wincount: p1wincount });
+      let p1wincountReturn = result.rows[0];
+      res.status(200).json({ p1wincount: p1wincountReturn });
+      console.log(result.rows);
+
     })
     .catch((error) => {
       console.error('Error updating p1wincount:', error);

@@ -18,7 +18,7 @@ const matchSetup = (state = {}, action) => {
     case 'INCREMENT_P1_WIN_COUNT':
       return {
         ...state,
-        p1wincount: state.p1wincount + 1,
+        p1wincount: state.p1wincount,
       };
     default:
       return state;

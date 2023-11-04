@@ -8,7 +8,7 @@ function ActivityPage() {
   // const playerOne = useSelector((store) => store.PlayerOne);
   const playerTwo = useSelector((store) => store.PlayerTwo); // Make sure the name matches the reducer name in your root
   const user = useSelector((store) => store.user);
-  const p1wincount = useSelector((store) => store.matchSetup.p1wincount);
+  // const p1wincount = useSelector((store) => store.matchSetup.p1wincount);
   const location = useLocation();
 
 
@@ -20,7 +20,7 @@ function ActivityPage() {
   const dispatch = useDispatch()
   // const [p1wincount, setP1WinCount] = useState(0);
 
-  const [p2wincount, setp2wincount] = useState(0);
+  const [p1wincount, setp1wincount] = useState(0);
   // console.log("see vaule", newmatch.p1wincount);
   // In your component.js
 
@@ -29,25 +29,25 @@ function ActivityPage() {
     // Assuming newmatch contains the data necessary for the update
     // and matchId is a part of this object or can be obtained separately
     const matchId = newmatch.id; // or however you obtain the match ID
-     newmatch.p1wincount += 1; // For incrementing the win count
+    newmatch.p1wincount += 1; // For incrementing the win count
 
     console.log("see vaule", newmatch.p1wincount);
 
 
-    dispatch({
-      type: 'INCREMENT_P1_WIN_COUNT',
-      // You may want to pass necessary data here as well if this dispatch updates state
-      payload: { matchId, p1wincount }
-    });
+    // dispatch({
+    //   type: 'INCREMENT_P1_WIN_COUNT',
+    //   // You may want to pass necessary data here as well if this dispatch updates state
+    //   payload: { matchId: newmatch.matchId, p1wincount: newmatch.p1wincount }
+    // });
 
     dispatch({
       type: 'UPDATE_DATABASE', // The type here must match what the saga is listening for
       payload: {
         matchId: newmatch.matchId,
-        p1wincount
+        p1wincount: newmatch.p1wincount
       }
     });
-
+    
   };
 
 
@@ -91,7 +91,7 @@ function ActivityPage() {
       <p>Player 1: {newmatch.playerOne} Wins: {p1wincount} <button onClick={handleClick}> W </button>
 
       </p>
-      <p>Player 2: {newmatch.playerTwo} Wins: {p2wincount} <button onClick={handleClick2}> W </button></p>
+      <p>Player 2: {newmatch.playerTwo} Wins: { } <button onClick={handleClick2}> W </button></p>
 
 
 

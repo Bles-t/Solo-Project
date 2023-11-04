@@ -25,5 +25,5 @@ CREATE TABLE "matches" (
     "gameid" INTEGER NOT NULL,
     "date" DATE NOT NULL DEFAULT CURRENT_DATE,
     "userid" VARCHAR(100) NOT NULL,
-    FOREIGN KEY ("gameid") REFERENCES "gametitle"("id")
+    
 );
