@@ -93,7 +93,7 @@ router.delete('/:id', (req, res) => {
 // });
 
 router.put('/:id', (req, res) => {
-  let matchId = 1;
+  let matchId = req.params.id;
 
 
   // i added .p1wincount at the end and wont work and when removed it shows data on server but not taking an int

@@ -19,7 +19,7 @@ function GameSetUp() {
     p1wincount: 0, // Initialize with 0
     p2wincount: 0,
     userId: 'userId',
-    matchId: 0
+
   });
 
   const handleSubmit = (event) => {
@@ -45,7 +45,6 @@ function GameSetUp() {
       p1wincount: 0,
       p2wincount: 0,
       userId: 0,
-      matchId: 0
     });
     history.push('/ActivityPage', { newmatch: newMatch });
   };

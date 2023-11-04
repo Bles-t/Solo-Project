@@ -4,7 +4,7 @@ import { all, put, takeEvery, call } from 'redux-saga/effects';
 
 function* newMatchLog(action) {
   try {
-    const { matchTitle, playerOne, playerTwo, gamename, p1wincount, p2wincount, userId } = action.payload;
+    const { matchTitle, playerOne, playerTwo, gamename, p1wincount, p2wincount, userId, matchId } = action.payload;
     const logData = {
       playerOne,
       playerTwo,
@@ -13,7 +13,8 @@ function* newMatchLog(action) {
       matchTitle,
       date: new Date(),
       userId,
-      gamename
+      gamename,
+      matchId,
 
 
     };
@@ -25,11 +26,16 @@ function* newMatchLog(action) {
 
 
 
-    yield axios.post('/matches', logData);
+    const postMAtch = yield axios.post('/matches', logData);
 
-    // const newMatchId = result.rows[0].id;
-    // // Dispatch an action to update the Redux state with the new id
-    // yield put({ type: 'STORE_NEW_MATCH_ID', payload: newMatchId });
+    // Dispatch an action to update the Redux state with the new id
+
+    yield put({ type: 'STORE_NEW_MATCH_ID',
+    payload: postMAtch.data.newMatchId });
+
+
+
+
 
     console.log('Pnw match  match log successfully added to the database.', logData);
     // place match id in store
@@ -59,7 +65,9 @@ function* newMatchLog2(action) {
 
 
     console.log("log data", logData);
-    yield axios.post('/matches', logData);
+
+
+
     console.log('Player one match log successfully added to the database.', logData);
   } catch (error) {
     console.log('Error posting match data', error);
