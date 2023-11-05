@@ -111,7 +111,7 @@ function* deleteGame(action) {
     yield axios.delete(`/matches/${action.payload}`);
     yield put({ type: 'DISPLAY_MATCHDATA' });
   } catch (error) {
-      console.log('error removing an animal', error);
+      console.log('error removing an game', error);
   }
 }
 

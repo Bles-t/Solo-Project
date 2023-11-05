@@ -8,6 +8,7 @@ function MatchHistoryPage() {
   const dispatch = useDispatch();
   const matchdata = useSelector((store) => store.matchSetup);
 
+  const storeNewMatchId = useSelector((store) => store.storeNewMatchId);
 
 
   useEffect(() => {
@@ -17,27 +18,27 @@ function MatchHistoryPage() {
   }, []);
 
 
-  const handleGameClick = (selectedGame) => {
-    console.log('Selected Game:', selectedGame);
-    history.push('/SavedGamePage', {
-      gameData: {
-        winner: selectedGame.winner,
-        loser: selectedGame.loser,
-        gamename: selectedGame.gamename,
-        p1wincount: selectedGame.p1wincount,
-        p2wincount: selectedGame.p2wincount
+  // const handleGameClick = (selectedGame) => {
+  //   console.log('Selected Game:', selectedGame);
+  //   history.push('/SavedGamePage', {
+  //     gameData: {
+  //       winner: selectedGame.winner,
+  //       loser: selectedGame.loser,
+  //       gamename: selectedGame.gamename,
+  //       p1wincount: selectedGame.p1wincount,
+  //       p2wincount: selectedGame.p2wincount
 
-      }
-    });
-  }
+  //     }
+  //   });
+  // }
 
   console.log('match data array data', matchdata);
 
-  const removeGame = (e) => {
-    e.preventDefault();
-    dispatch({ type: 'DELETE_GAME', payload: matchdata.gameId });
+  const removeGame = () => {
+    // storeNewMatchId.preventDefault();
+    dispatch({ type: 'DELETE_GAME', payload: storeNewMatchId.newMatchId });
   }
-
+  console.log("is this defined ?", storeNewMatchId.newMatchId);
 
   return (
     <div>
@@ -51,7 +52,7 @@ function MatchHistoryPage() {
             return (
               <li key={gameId}>
                 <button onClick={() => handleGameClick(game)}>{game.gameid}</button>
-                <button onClick={removeGame}>Remove</button>
+                <button onClick={() => removeGame(storeNewMatchId.newMatchId)}>Remove</button>
               </li>
             );
           })}
