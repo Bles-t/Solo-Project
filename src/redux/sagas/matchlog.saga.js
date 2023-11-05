@@ -103,35 +103,12 @@ function* fetchMatchData() {
 function* deleteGame(action) {
   try {
     yield axios.delete(`/matches/${action.payload}`);
-    yield put({ type: 'SHOW_MATCH_DEATAILS' });
+
+    yield put({ type: 'REMOVED_GAME_FROM_LIST' });
   } catch (error) {
-    console.log('error transferring an animal', error);
+    console.log('error removing a game', error);
   }
 }
-
-// //In your saga.js
-// function* handleIncrementP1WinCount(action) {
-//   try {
-//     // You can add an API call here to update the server with the new value if needed.
-//     // Increment p1wincount by 1
-//     // Extract the matchId from the payload
-//     const { matchId } = action.payload;
-
-// console.log(action.payload);
-//     const p1wincount = yield call(axios.put, `/matches/${matchId}`);
-
-
-//     yield put({
-//       type: 'SET_UPDATE_P1COUNT',
-//       payload: {
-//         ...action.payload,
-//         p1wincount: p1wincount,
-//       },
-//     });
-//   } catch (error) {
-//     console.error('Error incrementing p1wincount:', error);
-//   }
-// }
 
 function* handleIncrementP1WinCount(action) {
   try {
