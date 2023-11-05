@@ -4,13 +4,21 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 function MatchHistoryPage() {
 
-
+  const dispatch = useDispatch();
 
 
 
 
   const matchdata = useSelector((store) => store.matchSetup);
 console.log("Match data from store", matchdata);
+
+
+
+useEffect(() => {
+  console.log('in useEffect');
+  const action = { type: 'DISPLAY_MATCHDATA' };
+  dispatch(action);
+}, []);
 
 
 
