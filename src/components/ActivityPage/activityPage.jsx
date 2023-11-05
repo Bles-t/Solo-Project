@@ -52,7 +52,8 @@ function ActivityPage() {
       type: 'UPDATE_DATABASE', // The type here must match what the saga is listening for
       payload: {
         matchId: matchId.newMatchId,
-        p1wincount: updatedP1WinCount
+        p1wincount: updatedP1WinCount,
+        p2wincount: updatedP1WinCount
       }
     });
 
@@ -63,7 +64,7 @@ function ActivityPage() {
     setp1newwincount(p1newwincount)
   }, [dispatch]);
 
-//Player 2 handle click
+  //Player 2 handle click
 
   const handleClick2 = (event) => {
 
@@ -88,7 +89,8 @@ function ActivityPage() {
       type: 'UPDATE_DATABASE', // The type here must match what the saga is listening for
       payload: {
         matchId: matchId.newMatchId,
-        p1wincount: updatedP1WinCount
+        p1wincount: updatedP1WinCount,
+        p2wincount: updatedP1WinCount
       }
     });
 

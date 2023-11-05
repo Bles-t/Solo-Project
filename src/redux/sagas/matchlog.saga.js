@@ -30,14 +30,16 @@ function* newMatchLog(action) {
 
     // Dispatch an action to update the Redux state with the new id
 
-    yield put({ type: 'STORE_NEW_MATCH_ID',
-    payload: postMAtch.data.newMatchId });
+    yield put({
+      type: 'STORE_NEW_MATCH_ID',
+      payload: postMAtch.data.newMatchId
+    });
 
 
 
 
 
-    console.log('Pnw match  match log successfully added to the database.', logData);
+    // console.log('Pnw match  match log successfully added to the database.', logData);
     // place match id in store
   } catch (error) {
     console.log('Error posting match data', error);
@@ -82,6 +84,7 @@ function* fetchMatchData() {
     const query = yield axios.get('/matches')
     // const gameTitle = allGames.data;
     yield put({ type: 'SET_MATCH_DETAILS', payload: query.data })
+    console.log("this is my query in sage ", query);
     // yield put({ type:'ADD_GAME'});
     console.log('Match data fetched from database.');
   } catch (error) {
@@ -126,20 +129,26 @@ function* deleteGame(action) {
 
 function* handleIncrementP1WinCount(action) {
   try {
-    const { matchId, p1wincount } = action.payload;
+    const { matchId, p1wincount, p2wincount } = action.payload;
     // Make an axios.put request to update p1wincount
     console.log("  whats here", action.payload);
     // yield call(axios.put, `/matches/${matchId}`, { p1wincount: p1wincount });
     // console.log("Response", response);
 
 
-    const matchCount = yield axios.put(`/matches/${matchId}`, { p1wincount: p1wincount })
+    const matchCount = yield axios.put(`/matches/${matchId}`, {
+      p1wincount: p1wincount,
+      p2wincount: p2wincount
+    })
 
 
     // Dispatch an action to update the Redux state with the new p1wincount
     yield put({
       type: 'INCREMENT_P1_WIN_COUNT',
-      payload: matchCount.data.p1wincount
+
+      payload: matchCount.data.p1wincount,
+      payload: matchCount.data.p2wincount
+
     });
 
   } catch (error) {
@@ -150,6 +159,7 @@ function* handleIncrementP1WinCount(action) {
 function* matchLogSaga() { //also known as watcherSaga
   yield all([
     // should i add the data to the data base on handle submit?
+    takeEvery('SET_MATCH_NEW_DETAILS', newMatchLog),
     takeEvery('SET_MATCH_DETAILS', newMatchLog),
     takeEvery('WINBUTTON', newMatchLog2),
     takeEvery('DISPLAY_MATCHDATA', fetchMatchData),
