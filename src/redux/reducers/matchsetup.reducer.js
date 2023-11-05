@@ -10,6 +10,7 @@ const matchSetup = (state = {}, action) => {
       return {
         ...state,
         p1wincount: state.p1wincount,
+        p2wincount: state.p2wincount,
       };
 
     case 'SHOW_MATCH_DEATAILS':
