@@ -26,7 +26,7 @@ function GameSetUp() {
     event.preventDefault();
     console.log("new match data", newMatch);
     dispatch({
-      type: 'SET_MATCH_NEW_DETAILS',
+      type: 'SET_MATCH_DETAILS',
       payload: newMatch,
     });
 

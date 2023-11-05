@@ -8,7 +8,6 @@ function MatchHistoryPage() {
   const dispatch = useDispatch();
   const matchdata = useSelector((store) => store.matchSetup);
 
-  const storeNewMatchId = useSelector((store) => store.storeNewMatchId);
 
 
   useEffect(() => {
@@ -18,47 +17,47 @@ function MatchHistoryPage() {
   }, []);
 
 
-  // const handleGameClick = (selectedGame) => {
-  //   console.log('Selected Game:', selectedGame);
-  //   history.push('/SavedGamePage', {
-  //     gameData: {
-  //       winner: selectedGame.winner,
-  //       loser: selectedGame.loser,
-  //       gamename: selectedGame.gamename,
-  //       p1wincount: selectedGame.p1wincount,
-  //       p2wincount: selectedGame.p2wincount
+  const handleGameClick = (selectedGame) => {
+    console.log('Selected Game:', selectedGame);
+    history.push('/SavedGamePage', {
+      gameData: {
+        winner: selectedGame.winner,
+        loser: selectedGame.loser,
+        gamename: selectedGame.gamename,
+        p1wincount: selectedGame.p1wincount,
+        p2wincount: selectedGame.p2wincount
 
-  //     }
-  //   });
-  // }
+      }
+    });
+  }
 
   console.log('match data array data', matchdata);
 
-  const removeGame = () => {
-    // storeNewMatchId.preventDefault();
-    dispatch({ type: 'DELETE_GAME', payload: storeNewMatchId.newMatchId });
+  const removeGame = (e) => {
+    e.preventDefault();
+    dispatch({ type: 'DELETE_GAME', payload: matchdata });
   }
-  console.log("is this defined ?", storeNewMatchId.newMatchId);
+
 
   return (
+
     <div>
       <h1>Hi History</h1>
 
       <div>
         <h3>List of Games:  </h3>
         <ul>
-          {Object.keys(matchdata).map((gameId) => {
-            const game = matchdata[gameId];
-            return (
-              <li key={gameId}>
-                <button onClick={() => handleGameClick(game)}>{game.gameid}</button>
-                <button onClick={() => removeGame(storeNewMatchId.newMatchId)}>Remove</button>
-              </li>
-            );
-          })}
+
+          {matchdata.map((game, index) => (
+            <li>
+              <button key={index} onClick={() => handleGameClick(game)}>{game.gameid}</button>
+              <button onClick={removeGame}>Remove</button>
+            </li>
+
+          ))}
         </ul>
       </div>
     </div>
-  );
+  )
 }
 export default MatchHistoryPage;
