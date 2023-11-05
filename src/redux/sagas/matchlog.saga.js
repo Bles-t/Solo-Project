@@ -81,13 +81,22 @@ function* fetchMatchData() {
   try {
     const query = yield axios.get('/matches')
     // const gameTitle = allGames.data;
-    yield put({ type: 'SET_MATCH_DETAILS', payload: query.data })
+    yield put({ type: 'FETCH_MATCH_DATA', payload: query.data })
     // yield put({ type:'ADD_GAME'});
     console.log('Match data fetched from database.');
   } catch (error) {
     console.log('error listing all match data', error);
   }
 }
+
+
+
+
+
+
+
+
+
 
 
 

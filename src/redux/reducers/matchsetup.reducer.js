@@ -2,6 +2,8 @@ const matchSetup = (state = {}, action) => {
   switch (action.type) {
     case 'SET_MATCH_DETAILS':
       return action.payload;
+    case 'SHOW_MATCH_DEATAILS':
+      return action.payload;
     case 'INCREMENT_P1_WIN_COUNT':
       return {
         ...state,
