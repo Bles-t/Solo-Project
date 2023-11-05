@@ -4,45 +4,58 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 function MatchHistoryPage() {
 
-  const history = useHistory()
   const dispatch = useDispatch();
-  const gameList = useSelector((store) => store.GameList);
-  const PlayerOne = useSelector((store) => store.PlayerOne);
-  const playerTwo = useSelector((store) => store.PlayerTwo);
 
-  useEffect(() => {
-    console.log('in useEffect');
-    dispatch({ type: 'DISPLAY_MATCHDATA' });
-  }, [dispatch]);
 
-  const handleGameClick = (selectedGame) => {
-    console.log('Selected Game:', selectedGame);
-    history.push('/SavedGamePage', {
-      gameData: {
-        winner: selectedGame.winner,
-        loser: selectedGame.loser,
-        gamename: selectedGame.gamename
-      }
-    });
+
+
+  const matchdata = useSelector((store) => store.matchSetup);
+console.log("Match data from store", matchdata);
+
+
+
+useEffect(() => {
+  console.log('in useEffect');
+  const action = { type: 'DISPLAY_MATCHDATA' };
+  dispatch(action);
+}, []);
+
+
+
+console.log("lets see if this work");
+
+
+const handleDelete = (gameId) => {
+  // Dispatch the DELETE_GAME action with the game ID to be deleted
+  dispatch({ type: 'DELETE_GAME', payload: gameId });
+};
+
+//Renders list of games
+const renderGamesList = () => {
+  if (Array.isArray(matchdata)) {
+    return matchdata.map((game, index) => (
+      <li key={index}>
+        {game.gameid}
+ <button onClick={() => handleDelete(game.gameid)}>Delete</button>
+      </li>
+    ));
+
   }
 
-  console.log('PLayer One array data', PlayerOne);
+  console.log("lets see if this work" ,matchdata);
+  return null;
+
+};
 
   return (
 
     <div>
-      <h1>Hi History</h1>
+      <h1>Hi History hi </h1>
 
       <div>
         <h3>List of Games:  </h3>
         <ul>
-
-          {PlayerOne.map((game, index) => (
-            <li>
-              <button key={index} onClick={() => handleGameClick(game)}>{game.gamename}</button>
-            </li>
-
-          ))}
+        {renderGamesList()}
         </ul>
       </div>
     </div>

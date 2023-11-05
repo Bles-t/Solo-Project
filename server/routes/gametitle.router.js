@@ -24,7 +24,7 @@ router.get('/', (req, res) => {
 // POST route code starts here
 router.post('/', (req, res) => {
   console.log('In POST request');
-  const newGame = req.body;
+  const newGame = req.body.game;
   console.log('New game title:', newGame);
   const queryText = `INSERT INTO "gametitle"("gamename") VALUES ($1)`;
   pool.query(queryText, [newGame])
@@ -35,5 +35,8 @@ router.post('/', (req, res) => {
     });
   // POST route code ends here
 });
+
+
+
 
 module.exports = router;

@@ -8,6 +8,7 @@ import MatchTitle from './matchTitle.reducer';
 import PlayerOneWins from './PlayersOneWins.reducer';
 import PlayerTwoWins from './PlayersTwoWins.reducers';
 import matchSetup from './matchsetup.reducer';
+import storeNewMatchId from './storeNewMatchId.reducer';
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
 // This is imported in index.js as rootSaga
@@ -24,6 +25,7 @@ const rootReducer = combineReducers({
   PlayerOneWins,
   PlayerTwoWins,
   matchSetup,
+  storeNewMatchId,
 
 });
 

@@ -15,12 +15,6 @@ function UserPage() {
 
 
 
-  useEffect(() => {
-    console.log('in useEffect');
-    dispatch({ type: 'DISPLAY_MATCHDATA' });
-  }, [dispatch]);
-
-
 
   const handleClick = () => {
 
@@ -45,9 +39,9 @@ function UserPage() {
       <div>
         <h3>List of Games:  </h3>
         <ul>
-          {PlayerOne.map((game, index) => (
+          {/* {PlayerOne.map((game, index) => (
             <li key={index}>{game.gamename}</li>
-          ))}
+          ))} */}
         </ul>
       </div>
     </div>
