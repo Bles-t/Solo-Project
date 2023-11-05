@@ -5,6 +5,10 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 function MatchHistoryPage() {
 
 
+
+
+
+
   const matchdata = useSelector((store) => store.matchSetup);
 console.log("Match data from store", matchdata);
 
