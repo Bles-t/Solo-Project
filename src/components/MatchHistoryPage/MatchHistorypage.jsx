@@ -25,7 +25,7 @@ useEffect(() => {
   return (
 
     <div>
-      <h1>Hi History</h1>
+      <h1>Hi History hi </h1>
 
       <div>
         <h3>List of Games:  </h3>
