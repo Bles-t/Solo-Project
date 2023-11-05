@@ -11,6 +11,7 @@ const matchSetup = (state = {}, action) => {
         ...state,
         p1wincount: state.p1wincount,
       };
+
     case 'SHOW_MATCH_DEATAILS':
       return action.payload;
     default:

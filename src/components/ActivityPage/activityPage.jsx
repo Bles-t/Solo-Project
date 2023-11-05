@@ -48,7 +48,7 @@ function ActivityPage() {
     // and matchId is a part of this object or can be obtained separately
 
     const updatedP2WinCount = newmatch.p2wincount += 1; // For incrementing the win count
-    console.log("updatep1wincount", updatedP2WinCount);
+    console.log("updatep2wincount", updatedP2WinCount);
     setp2newwincount(updatedP2WinCount)
 
 
@@ -70,7 +70,7 @@ function ActivityPage() {
     setp1newwincount(p1newwincount)
   }, [dispatch]);
 
-  console.log('Playertwo:', playerTwo);
+
   return (
     <div>
       <h4>EVENT:{newmatch.matchTitle}</h4>
@@ -79,7 +79,7 @@ function ActivityPage() {
       <p>Player 1: {newmatch.playerOne} Wins: {p1newwincount} <button onClick={handleClick}> W </button>
 
       </p>
-      <p>Player 2: {newmatch.playerTwo} Wins: {p2newwincount} <button > W </button></p>
+      <p>Player 2: {newmatch.playerTwo} Wins: {p2newwincount} <button onClick={handleClick2} > W </button></p>
 
 
 
