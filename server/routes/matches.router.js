@@ -56,9 +56,9 @@ router.post('/', (req, res) => {
 
 //DELETE - game
 router.delete('/:id', (req, res) => {
-
+  game = req.params.id
   let queryText = 'DELETE FROM "matches" WHERE "gameid" = $1;';
-  pool.query(queryText)
+  pool.query(queryText, [game])
     .then((result) => {
       res.sendStatus(200);
     })

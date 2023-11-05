@@ -102,7 +102,7 @@ function* fetchMatchData() {
 
 function* deleteGame(action) {
   try {
-    yield axios.delete(`/matches/:id`);
+    yield axios.delete(`/matches/${action.payload}`);
     yield put({ type: 'SHOW_MATCH_DEATAILS' });
   } catch (error) {
     console.log('error transferring an animal', error);
