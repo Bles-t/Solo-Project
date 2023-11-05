@@ -22,6 +22,23 @@ useEffect(() => {
 
 
 
+console.log("lets see if this work");
+
+const renderGamesList = () => {
+  if (Array.isArray(matchdata)) {
+    return matchdata.map((game, index) => (
+      <li key={index}>
+        {game.gameid}
+      </li>
+    ));
+
+  }
+
+  console.log("lets see if this work" ,matchdata);
+  return null;
+
+};
+
   return (
 
     <div>
@@ -30,7 +47,7 @@ useEffect(() => {
       <div>
         <h3>List of Games:  </h3>
         <ul>
-
+        {renderGamesList()}
         </ul>
       </div>
     </div>
