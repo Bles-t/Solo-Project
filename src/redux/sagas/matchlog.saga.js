@@ -94,14 +94,27 @@ function* fetchMatchData() {
 
 
 
+// function* deleteGame(action) {
+//   try {
+//     yield axios.delete(`/matches/${gameId}`);
+
+//     yield put({ type: 'DISPLAY_MATCHDATA' });
+//   } catch (error) {
+//     console.log('error removing game', error);
+//   }
+// }
+
+
+//deletes ggame from DB then fetches updated game list
 function* deleteGame(action) {
   try {
-    yield axios.delete(`/matches/:id`);
+    yield axios.delete(`/matches/${action.payload}`);
     yield put({ type: 'DISPLAY_MATCHDATA' });
   } catch (error) {
-    console.log('error transferring an animal', error);
+      console.log('error removing an animal', error);
   }
 }
+
 
 // //In your saga.js
 // function* handleIncrementP1WinCount(action) {

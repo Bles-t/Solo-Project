@@ -54,43 +54,40 @@ router.post('/', (req, res) => {
 
 
 
-// DELETE - game
-router.delete('/:id', (req, res) => {
+// // DELETE - game
+// router.delete('/:id', (req, res) => {
 
+//   const gameId = req.body
+
+// console.log("req obdy for delte" , gameId);
+//   let queryText = 'DELETE FROM "matches" WHERE "id" = $1;';
+
+
+//   pool.query(queryText[gameId])
+//     .then((result) => {
+//       res.sendStatus(200);
+//     })
+//     .catch((err) => {
+//       console.log(`Error making query ${queryText}`, err);
+//       res.sendStatus(500)
+//     })
+// }) //end DELETE
+
+
+router.delete('/:id', (req, res) => {
+  let gameId = req.params.id;
+  console.log("This is my ser req");
   let queryText = 'DELETE FROM "matches" WHERE "id" = $1;';
-  pool.query(queryText)
+  pool.query(queryText, [gameId])
     .then((result) => {
       res.sendStatus(200);
     })
     .catch((err) => {
-      console.log(`Error making query ${queryText}`, err);
+      console.log(`Error making query for delete ${queryText}`, err);
       res.sendStatus(500)
     })
-}) //end DELETE
+})
 
-
-
-// // PUT route update route
-// router.put('/:id', (req, res) => {
-//   const matchId = req.params.id;
-
-//   const query = `
-//     UPDATE matches
-//     SET p1wincount
-//     WHERE id = $1
-//     RETURNING p1wincount;
-//   `;
-
-//   pool.query(query, [matchId])
-//     .then((result) => {
-//       const p1wincount = result.rows[0].p1wincount;
-//       res.status(200).json({ p1wincount: p1wincount });
-//     })
-//     .catch((error) => {
-//       console.error('Error updating p1wincount:', error);
-//       res.status(500).send('An error occurred while updating p1wincount.');
-//     });
-// });
 
 router.put('/:id', (req, res) => {
   let matchId = req.params.id;
@@ -115,10 +112,10 @@ router.put('/:id', (req, res) => {
   console.log("this is query", query);
 
 
-  pool.query(query, [matchId, p1wincount,p2wincount]) // matchId will replace $1, and p1wincount will replace $2
+  pool.query(query, [matchId, p1wincount, p2wincount]) // matchId will replace $1, and p1wincount will replace $2
     .then((result) => {
       let p1wincountReturn = result.rows[0];
-      
+
       res.status(200).json({ p1wincount: p1wincountReturn });
       console.log(result.rows);
 
