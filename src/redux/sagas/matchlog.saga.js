@@ -126,12 +126,13 @@ function* handleIncrementP1WinCount(action) {
     // Dispatch an action to update the Redux state with the new p1wincount
     yield put({
       type: 'INCREMENT_P1_WIN_COUNT',
-      payload: matchCount.data.p1wincount
-    });
-    yield put({
-      type: 'INCREMENT_P2_WIN_COUNT',
+      payload: matchCount.data.p1wincount,
       payload: matchCount.data.p2wincount
     });
+    // yield put({
+    //   type: 'INCREMENT_P2_WIN_COUNT',
+    //   payload: matchCount.data.p2wincount
+    // });
 
 
 
