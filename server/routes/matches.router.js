@@ -99,23 +99,32 @@ router.put('/:id', (req, res) => {
   // i added .p1wincount at the end and wont work and when removed it shows data on server but not taking an int
   let p1wincount = req.body.p1wincount; // Assuming that the new p1wincount value is sent in the request body
 
+  let p2wincount = req.body.p2wincount
+
   // The SQL query string needs to SET p1wincount to a new value.
   // The $2 placeholder will be replaced with the new p1wincount value provided in the request body.
 
   console.log("win count and match id", p1wincount, matchId);
+
   const query = `
     UPDATE "matches"
-    SET "p1wincount" = $2
+    SET "p1wincount" = $2,
+    "p2wincount" = $3
     WHERE "id" = $1
     RETURNING "p1wincount";
   `;
   console.log("this is query", query);
 
 
-  pool.query(query, [matchId, p1wincount]) // matchId will replace $1, and p1wincount will replace $2
+  pool.query(query, [matchId, p1wincount, p2wincount]) // matchId will replace $1, and p1wincount will replace $2
     .then((result) => {
       let p1wincountReturn = result.rows[0];
-      res.status(200).json({ p1wincount: p1wincountReturn });
+      let p2wincountReturn = result.rows[0];
+      res.status(200).json({
+        p1wincount:
+          p1wincountReturn,
+        p2wincount: p2wincountReturn
+      });
       console.log(result.rows);
 
     })

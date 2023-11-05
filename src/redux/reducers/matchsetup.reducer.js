@@ -10,8 +10,13 @@ const matchSetup = (state = {}, action) => {
       return {
         ...state,
         p1wincount: state.p1wincount,
-        p2wincount: state.p2wincount,
+        p2wincount: state.p2wincount
       };
+      // case 'INCREMENT_P2_WIN_COUNT':
+      //   return {
+      //     ...state,
+      //     p2wincount: state.p2wincount,
+      //   };
 
     case 'SHOW_MATCH_DEATAILS':
       return action.payload;
