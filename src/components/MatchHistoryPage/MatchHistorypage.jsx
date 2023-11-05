@@ -24,11 +24,19 @@ useEffect(() => {
 
 console.log("lets see if this work");
 
+
+const handleDelete = (gameId) => {
+  // Dispatch the DELETE_GAME action with the game ID to be deleted
+  dispatch({ type: 'DELETE_GAME', payload: gameId });
+};
+
+//Renders list of games
 const renderGamesList = () => {
   if (Array.isArray(matchdata)) {
     return matchdata.map((game, index) => (
       <li key={index}>
         {game.gameid}
+ <button onClick={() => handleDelete(game.gameid)}>Delete</button>
       </li>
     ));
 

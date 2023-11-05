@@ -54,19 +54,19 @@ router.post('/', (req, res) => {
 
 
 
-// DELETE - game
-// router.delete('/:id', (req, res) => {
+//DELETE - game
+router.delete('/:id', (req, res) => {
 
-//   let queryText = 'DELETE FROM "matches" WHERE "id" = $1;';
-//   pool.query(queryText)
-//     .then((result) => {
-//       res.sendStatus(200);
-//     })
-//     .catch((err) => {
-//       console.log(`Error making query ${queryText}`, err);
-//       res.sendStatus(500)
-//     })
-// }) //end DELETE
+  let queryText = 'DELETE FROM "matches" WHERE "gameid" = $1;';
+  pool.query(queryText)
+    .then((result) => {
+      res.sendStatus(200);
+    })
+    .catch((err) => {
+      console.log(`Error making query ${queryText}`, err);
+      res.sendStatus(500)
+    })
+}) //end DELETE
 
 
 
