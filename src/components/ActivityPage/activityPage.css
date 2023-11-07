@@ -13,29 +13,24 @@
 
 
 
-.Wbtn{
-  padding: 10px 20px; /* Increase padding to make buttons bigger */
-  font-size: 1.5em; /* Increase font size */
-  margin: 10px; /* Add some margin around buttons */
-  cursor: pointer; /* Change cursor to pointer when hovering over the button */
-  /* Add additional styling as needed */
-}
-
 /* Position the left button on the left side of the screen */
-.Wbtn.p1 {
+.Wbtn {
+  font-size: 1.5em; /* Increase font size */
   position: fixed; /* Fixed position relative to the viewport */
   left: -10px; /* Distance from the left side of the screen */
-  top: 50%; /* Center it vertically */
+  top: 46%; /* Center it vertically */
   transform: translateY(-50%); /* Center it perfectly using transform */
   z-index: 100; /* Ensuring it's on top of other elements */
 }
 
 /* Position the right button on the right side of the screen */
-.Wbtn.p2 {
+.Wbtnp2 {
   position: fixed; /* Fixed position relative to the viewport */
+  font-size: 1.5em; /* Increase font size */
   left:-10px; /* Distance from the right side of the screen */
-  bottom: 10%; /* Center it vertically */
+  bottom: 20%; /* Center it vertically */
   transform: translateY(-50%); /* Center it perfectly using transform */
+  z-index: 100; /* Ensuring it's on top of other elements */
 }
 
 

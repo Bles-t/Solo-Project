@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './activityPage.css'
 import PSColorfulText from "../PSColorfulText";
 import ColorfulText from "../../ColorfulText";
+
 function ActivityPage() {
   const matchId = useSelector((store) => store.storeNewMatchId);
 
@@ -88,12 +90,12 @@ function ActivityPage() {
 
 <br />
 <PSColorfulText text={`Wins: ${p1newwincount}`} />
-      <button className="Wbtn p1" onClick={handleClick}>
+
+      <button   className="btn btn-dark Wbtn"   onClick={handleClick}>
 
       <PSColorfulText text={'W'} /></button>
 
         </p>
-
 
         <p  className="Name p2"  >
 
@@ -101,7 +103,7 @@ function ActivityPage() {
       <br />
       <PSColorfulText text={`Wins: ${p2newwincount}`} />
 
-         <button className="Wbtn p2" onClick={handleClick2} >  <PSColorfulText text={'  W'} /></button></p>
+         <button className="btn btn-dark Wbtnp2"   onClick={handleClick2} >  <PSColorfulText text={'  W'} /></button></p>
 
 
 
