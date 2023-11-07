@@ -2,18 +2,15 @@ import React, { useEffect } from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import ColorfulText from '../../ColorfulText';
 
 
 function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
 
-  const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
   const history = useHistory()
-  const gameList = useSelector((store) => store.GameList);
-  const PlayerOne = useSelector((store) => store.PlayerOne);
-
-
 
 
   const handleClick = () => {
@@ -27,23 +24,24 @@ function UserPage() {
     history.push('/MatchHistoryPage')
   }
 
-  console.log('match data', PlayerOne);
   return (
     <div className="container">
-      <h2>Welcome, {user.username}!</h2>
-      <p>Your ID is: {user.id}</p>
-      <button onClick={handleClick} >New Match</button>
-      <button onClick={handleClick1}  >Match History </button>
-      <LogOutButton className="btn" />
+
+      <h2>Welcome, {user.username}!
+      <ColorfulText text="New Match "  />
+      </h2>
+
+        <button className="btn btn-secondary" onClick={handleClick} > <ColorfulText text="New Match" /> 
+        </button>
 
       <div>
-        <h3>List of Games:  </h3>
-        <ul>
-          {/* {PlayerOne.map((game, index) => (
-            <li key={index}>{game.gamename}</li>
-          ))} */}
-        </ul>
+        <br />
+        <button className="btn btn-secondary" onClick={handleClick1}  >Match History </button>
       </div>
+  <div>
+      <LogOutButton className="btn btn-primary" />
+      </div>
+
     </div>
   );
 }
