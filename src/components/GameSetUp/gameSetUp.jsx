@@ -64,23 +64,37 @@ function GameSetUp() {
 
           <input name="name" placeholder="Player 1" type="text" class="form-control" id="floatingInput" value={newMatch.playerOne} onChange={(event) => setNewMatch({ ...newMatch, playerOne: event.target.value })} />
           <label for="floatingInput"><ColorfulText text="Player 1" /></label>
+        </div>
 
 
+        <div class="form-floating">
+
+          <input name="name" placeholder="Player 2" type="text" class="form-control" id="floatingInput" value={newMatch.playerTwo} onChange={(event) => setNewMatch({ ...newMatch, playerTwo: event.target.value })} />
+          <label for="floatingInput"><ColorfulText text="Player 2" /></label>
+
+        </div>
 
 
-
-          <input name="name" placeholder="Player 2" type="text" value={newMatch.playerTwo} onChange={(event) => setNewMatch({ ...newMatch, playerTwo: event.target.value })} />
-
+        <div class="form-floating">
           {/* may add this back if im having issue swith gmaelist.map later on */}
-          <input name="name" placeholder="Game Title" type="text" value={newMatch.gamename} onChange={(event) => setNewMatch({ ...newMatch, gamename: event.target.value })} />
+          <input name="name" placeholder="Game Title" type="text" class="form-control" id="floatingInput" value={newMatch.gamename} onChange={(event) => setNewMatch({ ...newMatch, gamename: event.target.value })} />
 
+          <label for="floatingInput"><ColorfulText text="Game Name" /></label>
 
-          <input name="name" placeholder="Match Title" type="text" value={newMatch.matchTitle} onChange={(event) => setNewMatch({ ...newMatch, matchTitle: event.target.value })} />
+        </div>
+
+        <div class="form-floating">
+
+          <input name="name" placeholder="Match Title" type="text" class="form-control" id="floatingInput" value={newMatch.matchTitle} onChange={(event) => setNewMatch({ ...newMatch, matchTitle: event.target.value })} />
 
           <button type='submit'>
             <ColorfulText text="Fight!" /></button>
 
+          <label for="floatingInput"><ColorfulText text="Match Name" /></label>
+
         </div>
+
+
 
       </form>
 
