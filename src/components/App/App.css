@@ -8,7 +8,7 @@ body {
   font-family: 'MyCustomFont', sans-serif ;
   margin: 0px;
   color: #301c93;
-  background-color: #a1a6a6
+  background-color: #0f0d0df6
 
   ;
 }
@@ -39,7 +39,7 @@ Container
   justify-content: center ; /* This will align children vertically in the center */
   padding: 20px;
   height: 50vh;
-  
+
 
 }
 

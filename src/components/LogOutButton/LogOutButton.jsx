@@ -11,7 +11,7 @@ function LogOutButton(props) {
       className={props.className}
       onClick={() => dispatch({ type: 'LOGOUT' })}
     >
-     <ColorfulText text="Log Out"/>
+     <ColorfulText  text="Log Out"/>
     </button>
   );
 }

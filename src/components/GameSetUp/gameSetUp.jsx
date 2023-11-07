@@ -90,7 +90,7 @@ function GameSetUp() {
 
           <input name="name" placeholder="Match Title" type="text" class="form-control" id="floatingInput" value={newMatch.matchTitle} onChange={(event) => setNewMatch({ ...newMatch, matchTitle: event.target.value })} />
 
-          <button type='submit'>
+          <button  className="btn btn-dark bgbtn"  type='submit'>
             <ColorfulText text="Fight!" /></button>
 
           <label for="floatingInput"><ColorfulText text="Match Name" /></label>
