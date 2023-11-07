@@ -1,47 +1,50 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
-import './Nav.css';
 import { useSelector } from 'react-redux';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 function Nav() {
   const user = useSelector((store) => store.user);
 
   return (
-    <div className="nav">
-      <Link to="/home">
-      {/* look for some way to change the font here */}
-        <h2 className="nav-title">V.S MODE</h2>
-      </Link>
-      <div>
-        {/* If no user is logged in, show these links */}
-        {!user.id && (
-          // If there's no user, show login/registration links
-          <Link className="navLink" to="/login">
-            Login / Register
-          </Link>
-        )}
-
-        {/* If a user is logged in, show these links */}
-        {user.id && (
-          <>
-            <Link className="navLink" to="/user">
-              Home
-            </Link>
-
-            <Link className="navLink" to="/info">
-              Info Page
-            </Link>
-
-            <LogOutButton className="navLink" />
-          </>
-        )}
-
-        <Link className="navLink" to="/about">
-          About
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <div className="container-fluid">
+        {/* Changed <a> to <Link> for react-router-dom and removed href */}
+        <Link className="navbar-brand" to="/home">
+          V.S MODE
         </Link>
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            {/* Conditionally render links based on user authentication */}
+            {!user.id ? (
+              <li className="nav-item">
+                <Link className="nav-link" to="/login">Login / Register</Link>
+              </li>
+            ) : (
+              <>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/user">Home</Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/info">Info Page</Link>
+                </li>
+                {/* Logout button might need to be adjusted if it is not a <Link> component */}
+                <li className="nav-item">
+                  <LogOutButton className="nav-link" />
+                </li>
+              </>
+            )}
+            <li className="nav-item">
+              <Link className="nav-link" to="/about">About</Link>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
+    </nav>
   );
 }
 
