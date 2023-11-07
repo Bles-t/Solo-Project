@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
-
 import './activityPage.css'
-
+import PSColorfulText from "../PSColorfulText";
+import ColorfulText from "../../ColorfulText";
 function ActivityPage() {
   const matchId = useSelector((store) => store.storeNewMatchId);
 
@@ -72,21 +72,36 @@ function ActivityPage() {
 
     <div className="containerActvitypage">
       <div>
-        <h4 className="Header matchtitle" >EVENT:{newmatch.matchTitle}</h4>
-        <h3 className="Header gamename"  >Game:{newmatch.gamename} </h3>
+        <h4 className="Header matchtitle" >
+        <PSColorfulText text={`${newmatch.matchTitle}`} />
+          </h4>
 
 
 
-        <p className="Name p1" >  Player 1: {newmatch.playerOne}
+
+
+        <h3 className="Header gamename"  >{newmatch.gamename} </h3>
+
+
+
+        <p className="Name p1" >  <PSColorfulText text={`Player 1: ${newmatch.playerOne}`} />
+
 <br />
-              Wins: {p1newwincount}
-        <button className="Wbtn p1" onClick={handleClick}> W </button>
+<PSColorfulText text={`Wins: ${p1newwincount}`} />
+      <button className="Wbtn p1" onClick={handleClick}>
+
+      <PSColorfulText text={'W'} /></button>
 
         </p>
+
+
         <p  className="Name p2"  >
-      Player:2 {newmatch.playerTwo}
+
+    <PSColorfulText  text={`Player:2 ${newmatch.playerTwo}`}  />
       <br />
-        Wins: {p2newwincount}  <button className="Wbtn p2" onClick={handleClick2} > W </button></p>
+      <PSColorfulText text={`Wins: ${p2newwincount}`} />
+
+         <button className="Wbtn p2" onClick={handleClick2} >  <PSColorfulText text={'  W'} /></button></p>
 
 
 

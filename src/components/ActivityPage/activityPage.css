@@ -34,7 +34,7 @@
 .Wbtn.p2 {
   position: fixed; /* Fixed position relative to the viewport */
   left:-10px; /* Distance from the right side of the screen */
-  bottom: 17%; /* Center it vertically */
+  bottom: 10%; /* Center it vertically */
   transform: translateY(-50%); /* Center it perfectly using transform */
 }
 
