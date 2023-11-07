@@ -45,35 +45,46 @@ function GameSetUp() {
 
 
   return (
-
-
     <div className="container">
 
 
-<div class="form-floating mb-3">
-
-    <form onSubmit={handleSubmit}   >
-      <h2> <ColorfulText text="Enter Match Details"/></h2>
-
-      <input name="name" placeholder="Player 1" type="text" value={newMatch.playerOne} onChange={(event) => setNewMatch({ ...newMatch, playerOne: event.target.value })} />
-
-      <input name="name" placeholder="Player 2" type="text" value={newMatch.playerTwo} onChange={(event) => setNewMatch({ ...newMatch, playerTwo: event.target.value })} />
-
-      {/* may add this back if im having issue swith gmaelist.map later on */}
-      <input name="name" placeholder="Game Title" type="text" value={newMatch.gamename} onChange={(event) => setNewMatch({ ...newMatch, gamename: event.target.value })} />
-
-
-      <input name="name" placeholder="Match Title" type="text" value={newMatch.matchTitle} onChange={(event) => setNewMatch({ ...newMatch, matchTitle: event.target.value })} />
-
-      <button  type='submit'>
-      <ColorfulText text="Fight!"/></button>
 
 
 
-    </form>
+      <form onSubmit={handleSubmit}   >
+
+
+
+        <h2> <ColorfulText text="Enter Match Details" /></h2>
+
+
+
+
+        <div class="form-floating mb-3">
+
+          <input name="name" placeholder="Player 1" type="text" class="form-control" id="floatingInput" value={newMatch.playerOne} onChange={(event) => setNewMatch({ ...newMatch, playerOne: event.target.value })} />
+          <label for="floatingInput"><ColorfulText text="Player 1" /></label>
+
+
+
+
+
+          <input name="name" placeholder="Player 2" type="text" value={newMatch.playerTwo} onChange={(event) => setNewMatch({ ...newMatch, playerTwo: event.target.value })} />
+
+          {/* may add this back if im having issue swith gmaelist.map later on */}
+          <input name="name" placeholder="Game Title" type="text" value={newMatch.gamename} onChange={(event) => setNewMatch({ ...newMatch, gamename: event.target.value })} />
+
+
+          <input name="name" placeholder="Match Title" type="text" value={newMatch.matchTitle} onChange={(event) => setNewMatch({ ...newMatch, matchTitle: event.target.value })} />
+
+          <button type='submit'>
+            <ColorfulText text="Fight!" /></button>
+
+        </div>
+
+      </form>
+
     </div>
-
-</div>
   )
 }
 
