@@ -2,20 +2,17 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
+
+import './activityPage.css'
+
 function ActivityPage() {
-
-  const playerTwo = useSelector((store) => store.PlayerTwo); // Make sure the name matches the reducer name in your root
-  const user = useSelector((store) => store.user);
-
   const matchId = useSelector((store) => store.storeNewMatchId);
 
   const location = useLocation();
 
-
   const newmatch = location.state ? location.state.newmatch : "new match data not entered";
 
   console.log("here i am", newmatch);
-
 
   const dispatch = useDispatch()
 
@@ -72,18 +69,29 @@ function ActivityPage() {
 
 
   return (
-    <div>
-      <h4>EVENT:{newmatch.matchTitle}</h4>
-      <h3>Game:{newmatch.gamename} </h3>
-      <h2> hey  {newmatch.p1wincount}</h2>
-      <p>Player 1: {newmatch.playerOne} Wins: {p1newwincount} <button onClick={handleClick}> W </button>
 
-      </p>
-      <p>Player 2: {newmatch.playerTwo} Wins: {p2newwincount} <button onClick={handleClick2} > W </button></p>
+    <div className="containerActvitypage">
+      <div>
+        <h4 className="Header matchtitle" >EVENT:{newmatch.matchTitle}</h4>
+        <h3 className="Header gamename"  >Game:{newmatch.gamename} </h3>
 
 
 
+        <p className="Name p1" >  Player 1: {newmatch.playerOne}
+<br />
+              Wins: {p1newwincount}
+        <button className="Wbtn p1" onClick={handleClick}> W </button>
 
+        </p>
+        <p  className="Name p2"  >
+      Player:2 {newmatch.playerTwo}
+      <br />
+        Wins: {p2newwincount}  <button className="Wbtn p2" onClick={handleClick2} > W </button></p>
+
+
+
+
+      </div>
     </div>
   );
 }
