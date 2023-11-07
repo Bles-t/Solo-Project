@@ -2,7 +2,7 @@ import React from "react"
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-
+import ColorfulText from "../../ColorfulText";
 function GameSetUp() {
 
   const dispatch = useDispatch()
@@ -12,8 +12,6 @@ function GameSetUp() {
   const [newMatch, setNewMatch] = useState({
     playerOne: '',
     playerTwo: '',
-    // Maybe add game probarites as a row just to make everything smother but for now imma do it this way.
-    // game: '',
     gamename: '',
     matchTitle: '',
     p1wincount: 0, // Initialize with 0
@@ -29,13 +27,6 @@ function GameSetUp() {
       type: 'SET_MATCH_DETAILS',
       payload: newMatch,
     });
-
-    // dispatch({
-    //   type: 'LIST_DATA',
-    //   payload: newMatch,
-    // });
-
-
 
     setNewMatch({
       playerOne: '',
@@ -55,8 +46,14 @@ function GameSetUp() {
 
   return (
 
+
+    <div className="container">
+
+
+<div class="form-floating mb-3">
+
     <form onSubmit={handleSubmit}   >
-      <h2>Enter Match Details</h2>
+      <h2> <ColorfulText text="Enter Match Details"/></h2>
 
       <input name="name" placeholder="Player 1" type="text" value={newMatch.playerOne} onChange={(event) => setNewMatch({ ...newMatch, playerOne: event.target.value })} />
 
@@ -64,15 +61,19 @@ function GameSetUp() {
 
       {/* may add this back if im having issue swith gmaelist.map later on */}
       <input name="name" placeholder="Game Title" type="text" value={newMatch.gamename} onChange={(event) => setNewMatch({ ...newMatch, gamename: event.target.value })} />
-      {/*
-      <input name="name" placeholder="Game Title" type="text" value={newGame} onChange={event => setNewGame(event.target.value)} /> */}
+
 
       <input name="name" placeholder="Match Title" type="text" value={newMatch.matchTitle} onChange={(event) => setNewMatch({ ...newMatch, matchTitle: event.target.value })} />
 
-      <button type='submit'>Submit</button>
+      <button  type='submit'>
+      <ColorfulText text="Fight!"/></button>
+
+
 
     </form>
+    </div>
 
+</div>
   )
 }
 
