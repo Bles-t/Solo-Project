@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-
+import ColorfulText from '../../ColorfulText';
 function LogOutButton(props) {
   const dispatch = useDispatch();
   return (
@@ -11,7 +11,7 @@ function LogOutButton(props) {
       className={props.className}
       onClick={() => dispatch({ type: 'LOGOUT' })}
     >
-      Log Out
+     <ColorfulText text="Log Out"/>
     </button>
   );
 }
