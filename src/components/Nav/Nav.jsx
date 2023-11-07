@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import { useSelector } from 'react-redux';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-
+import ColorfulText from '../../ColorfulText';
 function Nav() {
   const user = useSelector((store) => store.user);
 
@@ -12,7 +12,7 @@ function Nav() {
       <div className="container-fluid">
         {/* Changed <a> to <Link> for react-router-dom and removed href */}
         <Link className="navbar-brand" to="/home">
-          V.S MODE
+        <ColorfulText text="V.S Mode"/>
         </Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
@@ -22,15 +22,16 @@ function Nav() {
             {/* Conditionally render links based on user authentication */}
             {!user.id ? (
               <li className="nav-item">
-                <Link className="nav-link" to="/login">Login / Register</Link>
+                <Link className="nav-link" to="/login"> <ColorfulText text="Login / Register"/></Link>
               </li>
             ) : (
               <>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/user">Home</Link>
+                  <Link className="nav-link" to="/user">
+                  <ColorfulText text="Home"/></Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/info">Info Page</Link>
+                  <Link className="nav-link" to="/info"><ColorfulText text="Info Page"/></Link>
                 </li>
                 {/* Logout button might need to be adjusted if it is not a <Link> component */}
                 <li className="nav-item">
@@ -39,7 +40,7 @@ function Nav() {
               </>
             )}
             <li className="nav-item">
-              <Link className="nav-link" to="/about">About</Link>
+              <Link className="nav-link" to="/about"><ColorfulText text="About"/></Link>
             </li>
           </ul>
         </div>

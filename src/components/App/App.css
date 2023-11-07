@@ -32,25 +32,31 @@ Container
 -------------------------------------------------------------------------------- */
 
 .container {
+
+  display: flex; /* This will enable flexbox for the container */
+  flex-direction: column; /* This will stack children vertically */
+  align-items: center; /* This will align children horizontally in the center */
+  justify-content: center ; /* This will align children vertically in the center */
   padding: 20px;
+  height: 50vh;
+
 }
+
+
+
+
 
 /* --------------------------------------------------------------------------------
 Button
 -------------------------------------------------------------------------------- */
 
-/* .btn {
-  display: inline-block;
-  padding: 10px 20px;
-  border-color: #014041;
-  border-width: 1px 1px 3px;
-  border-radius: 4px;
-  background-color: #79d000;
-  color: #f8f8f8;
-  font-size: 1.1rem;
-  outline: 0;
-  cursor: pointer;
-} */
+
+
+
+
+
+
+
 
 .btn_sizeMin {
   min-height: 50px;
