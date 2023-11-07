@@ -8,7 +8,7 @@ function Nav() {
   const user = useSelector((store) => store.user);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar bg-dark border-bottom border-body" data-bs-theme="dark" >
       <div className="container-fluid">
         {/* Changed <a> to <Link> for react-router-dom and removed href */}
         <Link className="navbar-brand" to="/home">

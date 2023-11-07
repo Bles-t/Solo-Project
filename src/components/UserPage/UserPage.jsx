@@ -27,19 +27,19 @@ function UserPage() {
   return (
     <div className="container">
 
-      <h2> <ColorfulText text="Welcome,"  />{user.username}!
+      <h2> <ColorfulText text={`Welcome, ${user.username}`} />
       </h2>
 
-        <button className="btn btn-dark" onClick={handleClick} > <ColorfulText text="New Match" />
-        </button>
+      <button className="btn btn-dark" onClick={handleClick} > <ColorfulText text="New Match" />
+      </button>
 
       <div>
         <br />
         <button className="btn btn-dark" onClick={handleClick1}  ><ColorfulText text="Match History" />
-         </button>
+        </button>
       </div>
-  <div>
-      <LogOutButton  className="btn btn-dark" />
+      <div>
+        <LogOutButton className="btn btn-dark" />
       </div>
 
     </div>
