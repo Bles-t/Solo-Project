@@ -3,6 +3,9 @@ import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import ColorfulText from "../../ColorfulText";
+import './gameSetUp.css'
+
+
 function GameSetUp() {
 
   const dispatch = useDispatch()
@@ -60,9 +63,9 @@ function GameSetUp() {
 
 
 
-        <div class="form-floating mb-3">
+        <div className="form-floating mb-3">
 
-          <input name="name" placeholder="Player 1" type="text" class="form-control" id="floatingInput" value={newMatch.playerOne} onChange={(event) => setNewMatch({ ...newMatch, playerOne: event.target.value })} />
+          <input  name="name" placeholder="Player 1" type="text" class="form-control" id="floatingInput" value={newMatch.playerOne} onChange={(event) => setNewMatch({ ...newMatch, playerOne: event.target.value })} />
           <label for="floatingInput"><ColorfulText text="Player 1" /></label>
         </div>
 

@@ -4,6 +4,9 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import { useSelector } from 'react-redux';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import ColorfulText from '../../ColorfulText';
+
+
+
 function Nav() {
   const user = useSelector((store) => store.user);
 
