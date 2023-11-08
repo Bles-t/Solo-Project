@@ -2,11 +2,14 @@ import React from 'react';
 import LoginForm from '../LoginForm/LoginForm';
 import { useHistory } from 'react-router-dom';
 import ColorfulText from '../../ColorfulText';
+import './LoginPage.css'
+
+
 function LoginPage() {
   const history = useHistory();
 
   return (
-    <div>
+    <div  >
       <LoginForm />
 
       <center>
@@ -17,7 +20,8 @@ function LoginPage() {
             history.push('/registration');
           }}
         >
-<ColorfulText text={"  Register"} ></ColorfulText>
+<ColorfulText className="register" text={"  Register"} ></ColorfulText>
+
         </button>
       </center>
     </div>

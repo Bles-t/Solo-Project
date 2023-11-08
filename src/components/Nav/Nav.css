@@ -40,3 +40,10 @@
 .navLink:hover {
   background-color: #008183;
 }
+
+
+.bg-dark border-bottom border-body {
+  z-index: 100;
+  /* Ensuring it's on top of other elements */
+
+}

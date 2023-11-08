@@ -29,7 +29,7 @@ function UserPage() {
 
       <h2> <ColorfulText text={`Welcome, ${user.username}`} />
       </h2>
-
+      <img src="/Users/adrianbryant/code/folder/Solo-Project/src/components/LoginForm/VS Mode.png" alt="" />
       <button className="btn btn-dark  bgbtn" onClick={handleClick} > <ColorfulText text="New Match" />
       </button>
 

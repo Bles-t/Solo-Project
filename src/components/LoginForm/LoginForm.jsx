@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {useSelector} from 'react-redux';
 import ColorfulText from '../../ColorfulText';
-import { Button } from 'bootstrap';
 
 
 function LoginForm() {
@@ -65,8 +64,12 @@ function LoginForm() {
       </div>
 
       <div>
-        <button className="btn btn-dark " type="submit" name="submit" value="Log In">     <ColorfulText  text={" Login"} />  </button>
+        <button className="btn btn-dark " type="submit" name="submit" value="Log In" >      <ColorfulText  text={" Login"} />  </button>
+
       </div>
+
+
+
       </div>
     </form>
 

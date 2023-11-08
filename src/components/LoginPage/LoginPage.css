@@ -1,0 +1,12 @@
+
+
+
+
+.register{
+
+  font-size: 12em; /* Increase font size */
+  position: static; /* Fixed position relative to the viewport */
+  left: 10px; /* Distance from the left side of the screen */
+  top: 10%;
+
+}
