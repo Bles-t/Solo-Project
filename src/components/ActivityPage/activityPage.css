@@ -13,22 +13,23 @@
 
 
 
+
 /* Position the left button on the left side of the screen */
 .Wbtn {
   font-size: 1.5em; /* Increase font size */
-  position: fixed; /* Fixed position relative to the viewport */
-  left: -10px; /* Distance from the left side of the screen */
-  top: 46%; /* Center it vertically */
+  position: absolute; /* Fixed position relative to the viewport */
+  left: 10px; /* Distance from the left side of the screen */
+  top: 70%; /* Center it vertically */
   transform: translateY(-50%); /* Center it perfectly using transform */
   z-index: 100; /* Ensuring it's on top of other elements */
 }
 
 /* Position the right button on the right side of the screen */
 .Wbtnp2 {
-  position: fixed; /* Fixed position relative to the viewport */
+  position: absolute; /* Fixed position relative to the viewport */
   font-size: 1.5em; /* Increase font size */
-  left:-10px; /* Distance from the right side of the screen */
-  bottom: 20%; /* Center it vertically */
+  left:10px; /* Distance from the right side of the screen */
+  bottom: 13%; /* Center it vertically */
   transform: translateY(-50%); /* Center it perfectly using transform */
   z-index: 100; /* Ensuring it's on top of other elements */
 }
@@ -60,4 +61,15 @@ font-size:2em; /* Increase font size */
   position:relative; /* Fixed position relative to the viewport */
   top: -140%; /* Center it vertically */
   font-size:1.5em; /* Increase font size */
+}
+
+
+
+
+.mtchHistory {
+
+  font-size: 1.7em; /* Increase font size */
+
+
+
 }

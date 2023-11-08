@@ -75,35 +75,36 @@ function ActivityPage() {
     <div className="containerActvitypage">
       <div>
         <h4 className="Header matchtitle" >
-        <PSColorfulText text={`${newmatch.matchTitle}`} />
-          </h4>
+          <ColorfulText text={`${newmatch.matchTitle}`} />
+        </h4>
 
 
 
 
 
-        <h3 className="Header gamename"  >{newmatch.gamename} </h3>
+        <h3 className="Header gamename"  >
+          <ColorfulText text={`${newmatch.gamename}`} /> </h3>
 
 
 
-        <p className="Name p1" >  <PSColorfulText text={`Player 1: ${newmatch.playerOne}`} />
+        <p className="Name p1" >  <ColorfulText text={`Player 1: ${newmatch.playerOne}`} />
 
-<br />
-<PSColorfulText text={`Wins: ${p1newwincount}`} />
+          <br />
+          <ColorfulText text={`Wins: ${p1newwincount}`} />
 
-      <button   className="btn btn-dark Wbtn"   onClick={handleClick}>
+          <button className="btn btn-dark Wbtn" onClick={handleClick}>
 
-      <PSColorfulText text={'W'} /></button>
+            <ColorfulText text={'W'} /></button>
 
         </p>
 
-        <p  className="Name p2"  >
+        <p className="Name p2"  >
 
-    <PSColorfulText  text={`Player:2 ${newmatch.playerTwo}`}  />
-      <br />
-      <PSColorfulText text={`Wins: ${p2newwincount}`} />
+          <ColorfulText text={`Player:2 ${newmatch.playerTwo}`} />
+          <br />
+          <ColorfulText text={`Wins: ${p2newwincount}`} />
 
-         <button className="btn btn-dark Wbtnp2"   onClick={handleClick2} >  <PSColorfulText text={'  W'} /></button></p>
+          <button className="btn btn-dark Wbtnp2" onClick={handleClick2} >  <ColorfulText text={'  W'} /></button></p>
 
 
 

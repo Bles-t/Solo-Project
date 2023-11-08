@@ -1,7 +1,7 @@
 import React from 'react';
 import LoginForm from '../LoginForm/LoginForm';
 import { useHistory } from 'react-router-dom';
-
+import ColorfulText from '../../ColorfulText';
 function LoginPage() {
   const history = useHistory();
 
@@ -17,7 +17,7 @@ function LoginPage() {
             history.push('/registration');
           }}
         >
-          Register
+<ColorfulText text={"  Register"} ></ColorfulText>
         </button>
       </center>
     </div>
