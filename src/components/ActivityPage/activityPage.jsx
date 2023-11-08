@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './activityPage.css'
-import PSColorfulText from "../PSColorfulText";
+import vsModeImage from './VS Mode.png';
 import ColorfulText from "../../ColorfulText";
 
 function ActivityPage() {
@@ -74,19 +74,15 @@ function ActivityPage() {
 
     <div className="containerActvitypage">
       <div>
+
+
+      <h3 className="Header gamename"  >
+          <ColorfulText text={`Game:${newmatch.gamename}`} /> </h3>
+
         <h4 className="Header matchtitle" >
           <ColorfulText text={`${newmatch.matchTitle}`} />
         </h4>
-
-
-
-
-
-        <h3 className="Header gamename"  >
-          <ColorfulText text={`${newmatch.gamename}`} /> </h3>
-
-
-
+        
         <p className="Name p1" >  <ColorfulText text={`Player 1: ${newmatch.playerOne}`} />
 
           <br />
@@ -106,7 +102,7 @@ function ActivityPage() {
 
           <button className="btn btn-dark Wbtnp2" onClick={handleClick2} >  <ColorfulText text={'  W'} /></button></p>
 
-
+          <img className="ImgA" src={vsModeImage} alt="VS Mode" />
 
 
       </div>

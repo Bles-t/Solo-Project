@@ -43,9 +43,6 @@ function GameSetUp() {
     history.push('/ActivityPage', { newmatch: newMatch });
   };
 
-  //
-
-
 
   return (
     <div className="container">
@@ -94,6 +91,7 @@ function GameSetUp() {
             <ColorfulText text="Fight!" /></button>
 
           <label for="floatingInput"><ColorfulText text="Match Name" /></label>
+
 
         </div>
 

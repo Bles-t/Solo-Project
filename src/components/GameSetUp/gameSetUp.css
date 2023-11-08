@@ -27,3 +27,41 @@ background-color: rgb(122, 225, 58);
   font-size: 1.5em; /* Increase font size */
 
 }
+
+
+.setUpImg {
+  /* Size adjustments */
+  width: 100px; /* Set a fixed width */
+height:fit-content ; /* Maintain aspect ratio */
+
+  /* Positioning */
+  position: relative; /* Relative to its normal position */
+  top: 10px; /* Move down from its normal position */
+  left: 10px; /* Move right from its normal position */
+
+  /* If you want to absolutely position it with respect to its nearest positioned ancestor */
+  position: absolute;
+
+
+  /* Centering the image inside a container */
+  display: block;
+  margin: auto; /* This will center the image if the container has a defined width */
+
+  /* Borders and effects */
+  border: 2px solid black; /* Add a border around the image */
+  border-radius: 8px; /* Round the corners of the border */
+
+  /* Shadows */
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); /* Add a shadow effect */
+
+  /* Transformation */
+  transform: rotate(30deg); /* Rotate the image 30 degrees */
+
+  /* Transitions for smooth changes */
+  transition: all 0.3s ease; /* Make changes to the image properties smoothly over 0.3 seconds */
+}
+
+/* Hover effects - change when the mouse is over the image */
+.setUpImg:hover {
+  transform: scale(1.1); /* Scale the image to 110% of its original size when hovered */
+}

@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import ColorfulText from '../../ColorfulText';
 import './LoginPage.css'
 
+import vsModeImage from './VS Mode.png';
 
 function LoginPage() {
   const history = useHistory();
@@ -20,7 +21,11 @@ function LoginPage() {
             history.push('/registration');
           }}
         >
-<ColorfulText className="register" text={"  Register"} ></ColorfulText>
+
+<img src={vsModeImage} alt="VS Mode" />
+
+
+<ColorfulText className="register" text={"  Register"} >   </ColorfulText>
 
         </button>
       </center>

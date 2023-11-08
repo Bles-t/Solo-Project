@@ -74,5 +74,15 @@ font-size:2em; /* Increase font size */
   font-size: 1.7em; /* Increase font size */
 
 
+}
+.ImgA{
 
+width: 170px;
+
+top: 40%;
+display: inline-block;
+left: 45%;
+max-width: 800%;
+
+border-radius: 8px;
 }

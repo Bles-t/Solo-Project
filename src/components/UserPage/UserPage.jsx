@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ColorfulText from '../../ColorfulText';
-
+import vsModeImage from './VS Mode.png';
 
 function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
@@ -38,6 +38,8 @@ function UserPage() {
         <button className="btn btn-dark bgbtn2" onClick={handleClick1}  ><ColorfulText text="Match History" />
         </button>
       </div>
+
+      <img src={vsModeImage} alt="VS Mode" />
       <br />
       <div>
         <LogOutButton className="btn btn-dark bgbtn" />
