@@ -90,16 +90,6 @@ function* fetchMatchData() {
 }
 
 
-
-
-
-
-
-
-
-
-
-
 function* deleteGame(action) {
   try {
     yield axios.delete(`/matches/${action.payload}`);
@@ -116,8 +106,7 @@ function* handleIncrementP1WinCount(action) {
     const { matchId, p1wincount,p2wincount } = action.payload;
     // Make an axios.put request to update p1wincount
     console.log("  whats here", action.payload);
-    // yield call(axios.put, `/matches/${matchId}`, { p1wincount: p1wincount });
-    // console.log("Response", response);
+    
 
 
     const matchCount = yield axios.put(`/matches/${matchId}`, { p1wincount: p1wincount } ,{p2wincount:p2wincount} )
@@ -126,12 +115,13 @@ function* handleIncrementP1WinCount(action) {
     // Dispatch an action to update the Redux state with the new p1wincount
     yield put({
       type: 'INCREMENT_P1_WIN_COUNT',
-      payload: matchCount.data.p1wincount
-    });
-    yield put({
-      type: 'INCREMENT_P2_WIN_COUNT',
+      payload: matchCount.data.p1wincount,
       payload: matchCount.data.p2wincount
     });
+    // yield put({
+    //   type: 'INCREMENT_P2_WIN_COUNT',
+    //   payload: matchCount.data.p2wincount
+    // });
 
 
 

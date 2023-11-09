@@ -1,12 +1,10 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
-
+import ColorfulText from '../../ColorfulText';
 function MatchHistoryPage() {
 
   const dispatch = useDispatch();
-
-
 
 
   const matchdata = useSelector((store) => store.matchSetup);
@@ -34,9 +32,11 @@ const handleDelete = (gameId) => {
 const renderGamesList = () => {
   if (Array.isArray(matchdata)) {
     return matchdata.map((game, index) => (
-      <li key={index}>
-        {game.gameid}
- <button onClick={() => handleDelete(game.gameid)}>Delete</button>
+      <li className="mtchHistory" key={index}>
+        <ColorfulText   text={game.gameid} />
+
+
+ <button   className="btn btn-dark  bgDeleteBtn"  onClick={() => handleDelete(game.gameid)}>  <ColorfulText    text={"Delete"}  /> </button>
       </li>
     ));
 
@@ -50,10 +50,11 @@ const renderGamesList = () => {
   return (
 
     <div>
-      <h1>Hi History hi </h1>
+      <h1> <ColorfulText text={" Match History"}  /> </h1>
+
 
       <div>
-        <h3>List of Games:  </h3>
+        <h3><ColorfulText text={"List of games:"}  />  </h3>
         <ul>
         {renderGamesList()}
         </ul>

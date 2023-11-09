@@ -1,0 +1,88 @@
+
+.containerActvitypage {
+
+  display: grid; /* This will enable flexbox for the container */
+  flex-direction: row; /* This will stack children vertically */
+  align-items: start; /* This will align children horizontally in the center */
+  justify-content: center ; /* This will align children vertically in the center */
+  padding: 20px;
+  height: 50vh;
+
+}
+
+
+
+
+/* Position the left button on the left side of the screen */
+.Wbtn {
+  font-size: 1.5em; /* Increase font size */
+  position: absolute; /* Fixed position relative to the viewport */
+  left: 10px; /* Distance from the left side of the screen */
+  top: 70%; /* Center it vertically */
+  transform: translateY(-50%); /* Center it perfectly using transform */
+  z-index: 100; /* Ensuring it's on top of other elements */
+}
+
+/* Position the right button on the right side of the screen */
+.Wbtnp2 {
+  position: absolute; /* Fixed position relative to the viewport */
+  font-size: 1.5em; /* Increase font size */
+  left:10px; /* Distance from the right side of the screen */
+  bottom: 10%; /* Center it vertically */
+  transform: translateY(-50%); /* Center it perfectly using transform */
+  z-index: 100; /* Ensuring it's on top of other elements */
+}
+
+
+.Name {
+
+  padding: 200px 20px; /* Increase padding to make buttons bigger */
+
+  font-size:2em; /* Increase font size */
+
+}
+
+
+.Name.p1{
+
+  position: absolute;
+  top: 20px;  /* Fixed position relative to the viewport */
+font-size:2em; /* Increase font size */
+  left: -10px; /* Distance from the left side of the screen */
+}
+
+.Name.p2 {
+  position: absolute;
+
+
+  bottom: 10px;
+  left: -10px; /* Distance from the left side of the screen */
+}
+
+
+.Header {
+  position:relative; /* Fixed position relative to the viewport */
+  top: -140%; /* Center it vertically */
+  font-size:1.5em; /* Increase font size */
+}
+
+
+
+
+.mtchHistory {
+
+  font-size: 1.7em; /* Increase font size */
+
+
+}
+.ImgA{
+
+width: 170px;
+
+top: 40%;
+display: inline-block;
+left: 45%;
+max-width: 800%;
+
+border-radius: 8px;
+}

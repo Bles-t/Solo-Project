@@ -2,20 +2,19 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './activityPage.css'
+import vsModeImage from './VS Mode.png';
+import ColorfulText from "../../ColorfulText";
+
 function ActivityPage() {
-
-  const playerTwo = useSelector((store) => store.PlayerTwo); // Make sure the name matches the reducer name in your root
-  const user = useSelector((store) => store.user);
-
   const matchId = useSelector((store) => store.storeNewMatchId);
 
   const location = useLocation();
 
-
   const newmatch = location.state ? location.state.newmatch : "new match data not entered";
 
   console.log("here i am", newmatch);
-
 
   const dispatch = useDispatch()
 
@@ -72,18 +71,41 @@ function ActivityPage() {
 
 
   return (
-    <div>
-      <h4>EVENT:{newmatch.matchTitle}</h4>
-      <h3>Game:{newmatch.gamename} </h3>
-      <h2> hey  {newmatch.p1wincount}</h2>
-      <p>Player 1: {newmatch.playerOne} Wins: {p1newwincount} <button onClick={handleClick}> W </button>
 
-      </p>
-      <p>Player 2: {newmatch.playerTwo} Wins: {p2newwincount} <button onClick={handleClick2} > W </button></p>
+    <div className="containerActvitypage">
+      <div>
 
 
+      <h3 className="Header gamename"  >
+          <ColorfulText text={`Game:${newmatch.gamename}`} /> </h3>
+
+        <h4 className="Header matchtitle" >
+          <ColorfulText text={`${newmatch.matchTitle}`} />
+        </h4>
+        
+        <p className="Name p1" >  <ColorfulText text={`Player 1: ${newmatch.playerOne}`} />
+
+          <br />
+          <ColorfulText text={`Wins: ${p1newwincount}`} />
+
+          <button className="btn btn-dark Wbtn" onClick={handleClick}>
+
+            <ColorfulText text={'W'} /></button>
+
+        </p>
+
+        <p className="Name p2"  >
+
+          <ColorfulText text={`Player:2 ${newmatch.playerTwo}`} />
+          <br />
+          <ColorfulText text={`Wins: ${p2newwincount}`} />
+
+          <button className="btn btn-dark Wbtnp2" onClick={handleClick2} >  <ColorfulText text={'  W'} /></button></p>
+
+          <img className="ImgA" src={vsModeImage} alt="VS Mode" />
 
 
+      </div>
     </div>
   );
 }

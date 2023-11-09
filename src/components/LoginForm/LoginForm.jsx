@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {useSelector} from 'react-redux';
+import ColorfulText from '../../ColorfulText';
+
 
 function LoginForm() {
   const [username, setUsername] = useState('');
@@ -25,8 +27,11 @@ function LoginForm() {
   }; // end login
 
   return (
+
+
     <form className="formPanel" onSubmit={login}>
-      <h2>Login</h2>
+      <div  className="container" >
+      <h2><ColorfulText  text={"Login"} /> </h2>
       {errors.loginMessage && (
         <h3 className="alert" role="alert">
           {errors.loginMessage}
@@ -34,7 +39,7 @@ function LoginForm() {
       )}
       <div>
         <label htmlFor="username">
-          Username:
+        <ColorfulText  text={" Username:  "} />
           <input
             type="text"
             name="username"
@@ -46,7 +51,7 @@ function LoginForm() {
       </div>
       <div>
         <label htmlFor="password">
-          Password:
+        <ColorfulText  text={"  Password:  "} />
           <input
             type="password"
             name="password"
@@ -55,11 +60,19 @@ function LoginForm() {
             onChange={(event) => setPassword(event.target.value)}
           />
         </label>
+
       </div>
+
       <div>
-        <input className="btn" type="submit" name="submit" value="Log In" />
+        <button className="btn btn-dark " type="submit" name="submit" value="Log In" >      <ColorfulText  text={" Login"} />  </button>
+
+      </div>
+
+
+
       </div>
     </form>
+
   );
 }
 

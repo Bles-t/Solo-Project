@@ -5,39 +5,68 @@ body,
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'MyCustomFont', sans-serif ;
   margin: 0px;
+  color: #301c93;
+  background-color: #0d0009;
+
 }
 
 img {
+  position: absolute; /* Fixed position relative to the viewport */
+
   display: inline-block;
-  max-width: 100%;
+
+  max-width: 800%;
+
+  bottom: 5%; /* Center it vertically */
+
+  left:70px; /* Distance from the right side of the screen */
+
+max-height: 30%;
+
+border-radius: 8px;
+
 }
+
+@font-face {
+  font-family: 'MyCustomFont';
+  src: url(./SuperMarioBros-ov7d.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 
 /* --------------------------------------------------------------------------------
 Container
 -------------------------------------------------------------------------------- */
 
 .container {
+
+  display: flex; /* This will enable flexbox for the container */
+  flex-direction: column; /* This will stack children vertically */
+  align-items: center; /* This will align children horizontally in the center */
+  justify-content: center ; /* This will align children vertically in the center */
   padding: 20px;
+  height: 50vh;
 }
+
+
+
+
 
 /* --------------------------------------------------------------------------------
 Button
 -------------------------------------------------------------------------------- */
 
-.btn {
-  display: inline-block;
-  padding: 10px 20px;
-  border-color: #014041;
-  border-width: 1px 1px 3px;
-  border-radius: 4px;
-  background-color: #00acb0;
-  color: #f8f8f8;
-  font-size: 1.1rem;
-  outline: 0;
-  cursor: pointer;
-}
+
+
+
+
+
+
+
 
 .btn_sizeMin {
   min-height: 50px;
@@ -101,7 +130,7 @@ Form Treatment
   max-width: 100%;
   padding: 25px;
   margin: 0 auto 20px;
-  background-color: #efefef;
+  background-color: #0d0009;
   border-radius: 3px;
   box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
 }
@@ -109,4 +138,8 @@ Form Treatment
 input {
   margin: 5px;
   margin-bottom: 10px;
+}
+
+.font{
+font-size: 160%;
 }
