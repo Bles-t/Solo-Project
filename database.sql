@@ -19,7 +19,5 @@ CREATE TABLE "matches" (
     "matchtitle" VARCHAR(80) ,
     "gameid" INTEGER NOT NULL,
     "date" DATE NOT NULL DEFAULT CURRENT_DATE,
-    "userid" VARCHAR(100) NOT NULL,
-
+    "userid" VARCHAR(100) NOT NULL
 );
-
