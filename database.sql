@@ -9,11 +9,6 @@ CREATE TABLE "user" (
     "password" VARCHAR (1000) NOT NULL
 );
 
-CREATE TABLE "gametitle" (
-    "id" SERIAL PRIMARY KEY,
-    "gamename" VARCHAR(80) NOT NULL
-);
-
 
 CREATE TABLE "matches" (
     "id" SERIAL PRIMARY KEY,
@@ -27,3 +22,4 @@ CREATE TABLE "matches" (
     "userid" VARCHAR(100) NOT NULL,
 
 );
+
