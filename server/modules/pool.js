@@ -12,28 +12,28 @@ let pool;
 // we'll use the DATABASE_URL environment variable
 // to set the connection info: web address, username/password, db name
 if (process.env.DATABASE_URL) {
-    pool = new pg.Pool({
-        connectionString: process.env.DATABASE_URL,
-        ssl: {
-            rejectUnauthorized: false
-        }
-    });
+  pool = new pg.Pool({
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+      rejectUnauthorized: false
+    }
+  });
 }
 // // When we're running this app on our own computer
 // // we'll connect to the postgres database that is
 // // also running on our computer (localhost)
-// else {
-pool = new pg.Pool({
+else {
+  pool = new pg.Pool({
     host: "localhost",
     port: 5432,
     database: 'prime_app',   // 	💥 Change this to the name of your database!
-});
-pool.connect()
-  .then(() => {
-    console.log('Connected to the database');
-  })
-  .catch((error) => {
-    console.error('Error connecting to the database:', error);
   });
-
+  pool.connect()
+    .then(() => {
+      console.log('Connected to the database');
+    })
+    .catch((error) => {
+      console.error('Error connecting to the database:', error);
+    });
+}
 module.exports = pool;
