@@ -106,22 +106,22 @@ function* handleIncrementP1WinCount(action) {
     const { matchId, p1wincount,p2wincount } = action.payload;
     // Make an axios.put request to update p1wincount
     console.log("  whats here", action.payload);
-    
 
 
-    const matchCount = yield axios.put(`/matches/${matchId}`, { p1wincount: p1wincount } ,{p2wincount:p2wincount} )
 
+    const matchCount = yield axios.put(`/matches/${matchId}`, { p1wincount: p1wincount },{p2wincount:p2wincount} )
 
+console.log("Matchcount p2wincount", p2wincount );
     // Dispatch an action to update the Redux state with the new p1wincount
     yield put({
       type: 'INCREMENT_P1_WIN_COUNT',
-      payload: matchCount.data.p1wincount,
+      payload: matchCount.data.p1wincount
+      // payload: matchCount.data.p2wincount
+    });
+    yield put({
+      type: 'INCREMENT_P2_WIN_COUNT',
       payload: matchCount.data.p2wincount
     });
-    // yield put({
-    //   type: 'INCREMENT_P2_WIN_COUNT',
-    //   payload: matchCount.data.p2wincount
-    // });
 
 
 

@@ -106,6 +106,8 @@ router.put('/:id', (req, res) => {
 
   console.log("win count and match id", p1wincount, matchId);
 
+  console.log("win count and match id", p2wincount, matchId);
+
   const query = `
     UPDATE "matches"
     SET "p1wincount" = $2,
@@ -125,7 +127,7 @@ router.put('/:id', (req, res) => {
           p1wincountReturn,
         p2wincount: p2wincountReturn
       });
-      console.log(result.rows);
+      console.log("result", result.rows);
 
     })
     .catch((error) => {

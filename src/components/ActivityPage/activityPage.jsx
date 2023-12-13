@@ -27,7 +27,7 @@ function ActivityPage() {
     // and matchId is a part of this object or can be obtained separately
 
     const updatedP1WinCount = newmatch.p1wincount += 1; // For incrementing the win count
-    console.log("updatep1wincount", updatedP1WinCount);
+    console.log("updatep1wincount  hello", updatedP1WinCount);
     setp1newwincount(updatedP1WinCount)
 
 
@@ -42,12 +42,14 @@ function ActivityPage() {
 
   };
 
+
+
   const handleClick2 = (event) => {
     // Assuming newmatch contains the data necessary for the update
     // and matchId is a part of this object or can be obtained separately
 
     const updatedP2WinCount = newmatch.p2wincount += 1; // For incrementing the win count
-    console.log("updatep2wincount", updatedP2WinCount);
+    console.log("updatep2wincount   whats here ", updatedP2WinCount);
     setp2newwincount(updatedP2WinCount)
 
 
@@ -70,19 +72,23 @@ function ActivityPage() {
   }, [dispatch]);
 
 
+  useEffect(() => {
+    setp2newwincount(p2newwincount)
+  }, [dispatch]);
+
   return (
 
     <div className="containerActvitypage">
       <div>
 
 
-      <h3 className="Header gamename"  >
+        <h3 className="Header gamename"  >
           <ColorfulText text={`Game:${newmatch.gamename}`} /> </h3>
 
         <h4 className="Header matchtitle" >
           <ColorfulText text={`${newmatch.matchTitle}`} />
         </h4>
-        
+
         <p className="Name p1" >  <ColorfulText text={`Player 1: ${newmatch.playerOne}`} />
 
           <br />
@@ -100,9 +106,9 @@ function ActivityPage() {
           <br />
           <ColorfulText text={`Wins: ${p2newwincount}`} />
 
-          <button className="btn btn-dark Wbtnp2" onClick={handleClick2} >  <ColorfulText text={'  W'} /></button></p>
+          <button className="btn btn-dark Wbtnp2" onClick={handleClick2} >  <ColorfulText text={' W'} /></button></p>
 
-          <img className="ImgA" src={vsModeImage} alt="VS Mode" />
+        <img className="ImgA" src={vsModeImage} alt="VS Mode" />
 
 
       </div>
